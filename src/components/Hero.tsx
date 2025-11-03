@@ -1,66 +1,60 @@
-import { Button } from "@/components/ui/button";
-
 export const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-background to-background/80">
-      <div className="max-w-4xl mx-auto text-center space-y-12">
-        {/* Logo/Title */}
-        <div className="space-y-4">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif text-foreground">
-            Cinefila
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground font-light">
-            Festival strategy | Sales | Distribution
-          </p>
-        </div>
-
-        <hr className="border-border/30 max-w-2xl mx-auto" />
+    <section 
+      className="bg-[#2b2b2b] text-white py-10 px-[2cm] text-center overflow-hidden mt-[90px]"
+    >
+      <div className="max-w-4xl mx-auto space-y-10">
+        {/* Logo */}
+        <img 
+          src="/placeholder.svg" 
+          alt="Cinefila Logo" 
+          className="max-w-[250px] h-auto mx-auto mb-5 block" 
+        />
+        
+        <h2 className="font-serif text-[2.5em] mb-10 text-white">
+          Festival strategy | Sales | Distribution
+        </h2>
+        
+        <hr className="border-white/20 mb-10" />
 
         {/* Definition */}
-        <div className="space-y-6 max-w-2xl mx-auto">
-          <p className="text-2xl md:text-3xl font-serif italic text-muted-foreground">
+        <div className="max-w-[600px] mx-auto text-left space-y-5">
+          <p className="font-serif text-[1.8em] text-[#999] mb-5 italic">
             " cinefila / cinefil / cinéphile / cinéfilo / σινεфίл / シネフィル "
           </p>
-          <div className="text-left space-y-2">
-            <p className="text-lg text-muted-foreground">
-              <strong>noun</strong>
-            </p>
-            <p className="text-lg text-muted-foreground">
-              1. A person who lives and breathes the cinema
-            </p>
-            <p className="text-lg text-muted-foreground">
-              2. A film lover; enthusiastically interested in and knowledgeable about cinema
-            </p>
-          </div>
+          <p className="text-[1.2em] text-[#999] mb-2.5 font-bold">
+            <strong>noun</strong>
+          </p>
+          <p className="text-[1.1em] text-[#999] mb-1.5">
+            1. A person who lives and breathes the cinema
+          </p>
+          <p className="text-[1.1em] text-[#999] mb-1.5">
+            2. A film lover; enthusiastically interested in and knowledgeable about cinema
+          </p>
         </div>
 
-        <hr className="border-border/30 max-w-2xl mx-auto" />
+        <hr className="border-white/20 mt-10" />
 
         {/* CTA Buttons */}
-        <div className="flex flex-wrap justify-center gap-6">
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-8"
-            onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+        <div className="flex justify-center gap-[70px] mt-10 flex-wrap">
+          <a
+            href="#whatcanwedo"
+            className="flex items-center justify-center w-[220px] h-[70px] px-5 py-2.5 border-4 border-white text-white text-[1.2em] font-bold rounded-[5px] hover:bg-white hover:text-[#2b2b2b] transition-all duration-300"
           >
             What can we do for you
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
-            onClick={() => document.getElementById('catalogue')?.scrollIntoView({ behavior: 'smooth' })}
+          </a>
+          <a
+            href="#catalogue"
+            className="flex items-center justify-center w-[220px] h-[70px] px-5 py-2.5 border-4 border-white text-white text-[1.2em] font-bold rounded-[5px] hover:bg-white hover:text-[#2b2b2b] transition-all duration-300"
           >
             Film Catalogue
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-8"
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          </a>
+          <a
+            href="#about"
+            className="flex items-center justify-center w-[220px] h-[70px] px-5 py-2.5 border-4 border-white text-white text-[1.2em] font-bold rounded-[5px] hover:bg-white hover:text-[#2b2b2b] transition-all duration-300"
           >
             About us & contact
-          </Button>
+          </a>
         </div>
       </div>
     </section>

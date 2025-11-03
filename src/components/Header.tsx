@@ -1,100 +1,139 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, Search, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 export const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [menuOpen]);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Searching for:", searchQuery);
-    // TODO: Implement search functionality
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-20">
+    <>
+      <header 
+        className="fixed top-0 left-0 right-0 z-[1000] bg-white text-black border-b border-gray-200 transition-all duration-300"
+        style={{ height: scrolled ? "60px" : "90px" }}
+      >
+        <div className="max-w-[1200px] mx-auto h-full px-[2cm] grid grid-cols-[auto_1fr_auto] gap-4 items-center">
           {/* Logo */}
-          <a href="/" className="text-2xl font-serif text-foreground hover:text-primary transition-colors">
-            Cinefila
-          </a>
+          <div className="logo-top">
+            <a href="/">
+              <img 
+                src="/placeholder.svg" 
+                alt="Cinefila Logo" 
+                className="transition-all duration-300"
+                style={{ height: scrolled ? "40px" : "60px" }}
+              />
+            </a>
+          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <a href="#news" className="text-foreground hover:text-primary transition-colors">News</a>
-            <a href="#catalogue" className="text-foreground hover:text-primary transition-colors">Film Catalogue</a>
-            <a href="#services" className="text-foreground hover:text-primary transition-colors">Services</a>
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">About us</a>
-          </nav>
+          {/* Spacer */}
+          <div></div>
 
           {/* Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex gap-2 items-center">
             {/* Search Button */}
-            <Button
-              variant="ghost"
-              size="icon"
+            <button
               onClick={() => setSearchOpen(!searchOpen)}
+              className="p-2 rounded-[10px] border border-gray-200 bg-[#f6f6f7] text-black hover:bg-gray-200 transition-colors"
               aria-label="Toggle search"
-              className="text-foreground hover:text-primary hover:bg-muted"
             >
               {searchOpen ? <X className="h-5 w-5" /> : <Search className="h-5 w-5" />}
-            </Button>
+            </button>
 
-            {/* Mobile Menu */}
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="lg:hidden text-foreground hover:text-primary hover:bg-muted"
-                  aria-label="Open menu"
-                >
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="bg-background">
-                <nav className="flex flex-col gap-6 mt-8">
-                  <a href="#news" className="text-xl text-foreground hover:text-primary transition-colors">
-                    News
-                  </a>
-                  <a href="#catalogue" className="text-xl text-foreground hover:text-primary transition-colors">
-                    Film Catalogue
-                  </a>
-                  <a href="#services" className="text-xl text-foreground hover:text-primary transition-colors">
-                    Services
-                  </a>
-                  <a href="#about" className="text-xl text-foreground hover:text-primary transition-colors">
-                    About us
-                  </a>
-                </nav>
-              </SheetContent>
-            </Sheet>
+            {/* Hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="p-2 rounded-[10px] border border-gray-200 bg-[#f6f6f7] text-black hover:bg-gray-200 transition-colors z-[1004]"
+              aria-label="Toggle menu"
+            >
+              <Menu className="h-5 w-5" />
+            </button>
           </div>
         </div>
 
         {/* Search Bar */}
         {searchOpen && (
-          <div className="py-4 border-t border-border animate-in slide-in-from-top-2">
-            <form onSubmit={handleSearch} className="flex gap-2">
+          <div className="border-t border-gray-200 bg-[#f9f9fb] py-2 px-4">
+            <form onSubmit={handleSearch} className="max-w-[900px] mx-auto grid grid-cols-[1fr_auto] gap-2">
               <Input
                 type="search"
                 placeholder="Search films by title, director, keyword…"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="flex-1 bg-muted border-border"
+                className="py-3 px-4 rounded-xl border border-gray-300 bg-white text-black"
                 autoFocus
               />
-              <Button type="submit" className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Button 
+                type="submit" 
+                className="bg-black text-white border-black hover:bg-gray-800"
+              >
                 Search
               </Button>
             </form>
           </div>
         )}
+      </header>
+
+      {/* Full-screen Overlay Menu */}
+      <div
+        className={`fixed inset-0 w-full h-screen bg-black/95 z-[999] flex flex-col justify-start pt-[90px] transition-transform duration-300 ${
+          menuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+      >
+        <nav className="flex flex-col items-center gap-5 w-full py-5">
+          <a 
+            href="#news" 
+            className="font-serif font-semibold text-2xl text-white py-4 w-full text-center hover:text-[#ffc107] transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
+            News
+          </a>
+          <a 
+            href="#catalogue" 
+            className="font-serif font-semibold text-2xl text-white py-4 w-full text-center hover:text-[#ffc107] transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
+            Film Catalogue
+          </a>
+          <a 
+            href="#whatcanwedo" 
+            className="font-serif font-semibold text-2xl text-white py-4 w-full text-center hover:text-[#ffc107] transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
+            What can we do for you
+          </a>
+          <a 
+            href="#about" 
+            className="font-serif font-semibold text-2xl text-white py-4 w-full text-center hover:text-[#ffc107] transition-colors"
+            onClick={() => setMenuOpen(false)}
+          >
+            About us & contacts
+          </a>
+        </nav>
       </div>
-    </header>
+    </>
   );
 };

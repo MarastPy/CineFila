@@ -1,59 +1,66 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 const newsItems = [
   {
     title: "Soul Shift",
     date: "14/02/2025",
-    description: "Soul Shift, animated science-fiction comedy series, will premiere in the competition at Cartoons on the Bay – International Festival of Animation, Transmedia and Meta-Arts!",
-    image: "/placeholder.svg"
+    excerpt: "Soul Shift, animated science-fiction comedy series, will premiere in the competition at Cartoons on the Bay – International Festival of Animation, Transmedia and Meta-Arts!",
+    image: "/placeholder.svg",
+    link: "#"
   },
   {
-    title: "Festival Success",
+    title: "Wolfie",
     date: "10/02/2025",
-    description: "Our latest documentary wins Best Film award at prestigious international festival.",
-    image: "/placeholder.svg"
+    excerpt: "A brief description of another exciting news article. This will entice readers to click and learn more about the topic.",
+    image: "/placeholder.svg",
+    link: "#"
   },
   {
-    title: "New Distribution Deal",
+    title: "Film Premiere Announcement",
     date: "05/02/2025",
-    description: "Exciting new partnership announced for European distribution rights.",
-    image: "/placeholder.svg"
+    excerpt: "Details about an upcoming film premiere, including dates, venues, and what makes this film a must-see for audiences.",
+    image: "/placeholder.svg",
+    link: "#"
   }
 ];
 
 export const News = () => {
   return (
-    <section id="news" className="py-20 px-6 bg-background">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-4">News</h2>
-        <hr className="border-border/30 mb-12" />
+    <section id="news" className="py-[90px] bg-white">
+      <div className="max-w-[1200px] mx-auto px-[2cm]">
+        <h1 className="font-serif text-black text-[3em] mb-4">News</h1>
+        <hr className="border-gray-300 mb-12" />
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px_25px] justify-center max-w-[1100px] mx-auto mb-10">
           {newsItems.map((item, index) => (
-            <Card 
+            <a 
               key={index}
-              className="bg-card border-border hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer group"
+              href={item.link}
+              className="block p-[25px] flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-2 shadow-[0_6px_14px_rgba(0,0,0,0.1)] rounded-[15px] bg-white"
             >
-              <div className="aspect-video overflow-hidden bg-muted">
+              <h3 className="text-black min-h-[55px] text-[1.3rem] my-[15px] mx-[15px] text-left font-serif">
+                {item.title}
+              </h3>
+              <div className="w-full pt-[56.25%] relative overflow-hidden rounded-[5px] mb-3 group">
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <CardHeader>
-                <CardTitle className="text-foreground group-hover:text-primary transition-colors">
-                  {item.title}
-                </CardTitle>
-                <CardDescription className="text-muted-foreground">
-                  {item.date}
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{item.description}</p>
-              </CardContent>
-            </Card>
+              <p className="text-[.9rem] text-[#444] mb-[18px] font-bold text-left">{item.date}</p>
+              <p className="text-[.95rem] text-[#1c1c1c] flex-grow leading-[1.5] px-[15px] pb-[15px]">
+                {item.excerpt}
+              </p>
+            </a>
           ))}
+        </div>
+
+        <div className="text-center mt-[30px]">
+          <a 
+            href="#" 
+            className="inline-block py-3 px-6 rounded-md transition-all duration-300 mt-6 text-base font-bold border-2 border-[#1c1c1c] bg-transparent text-[#1c1c1c] hover:bg-[#1c1c1c] hover:text-white"
+          >
+            Read More News
+          </a>
         </div>
       </div>
     </section>

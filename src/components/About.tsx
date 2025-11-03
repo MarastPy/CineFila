@@ -1,79 +1,76 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Mail, MapPin, Phone } from "lucide-react";
+const teamMembers = [
+  {
+    name: "ALEXANDRA HRONCOVÁ",
+    role: "Founder and director",
+    email: "alex@cinefila.cz",
+    image: "/placeholder.svg",
+    bio: [
+      "A film distribution manager and festival strategist based in Prague. Thanks to her work, hundreds of short films have reached festivals, including the most prestigious ones such as Cannes, Berlinale, Annecy, Clermont-Ferrand, Sundance, Toronto, Tribeca, Vision du Réel, and the Academy Awards.",
+      "For eight years, she has been helping independent filmmakers, young talents, production companies, and students with festival distribution and the global circuit. She curates tailor-made festival strategies, target market research, handles all logistics from submissions to distribution and PR/marketing campaigns, and maximizes the visibility of films at the events."
+    ]
+  },
+  {
+    name: "AMIRA SHEHATOVÁ",
+    role: "Submissions and sales coordinator",
+    email: "amira@cinefila.cz",
+    image: "/placeholder.svg",
+    bio: [
+      "Amira studied Film History and Audiovisual Culture, as well as Personnel Management at Charles University in Prague. She strives to blend those two disciplines and alternates between them in her professional endeavors.",
+      "Currently, Amira is part of the CINEFILA festival distribution team, where she is responsible for film submissions and material shipping."
+    ]
+  },
+  {
+    name: "MAREK KOUTEŠ",
+    role: "Film Curator and Student Film Specialist",
+    email: "marek@cinefila.cz",
+    image: "/placeholder.svg",
+    bio: [
+      "Marek is a graduate of the Department of Film Studies at Charles University in Prague. As a film critic and reviewer, he has contributed to cultural sections of Czech Television, Aktualne.cz, Moviescreen.cz, and the magazine Film a doba.",
+      "At CINEFILA, he is involved in the curatorial selection of films for the catalogue, with a particular focus on student films."
+    ]
+  }
+];
 
 export const About = () => {
   return (
-    <section id="about" className="py-20 px-6 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-serif text-foreground mb-4">About us & contact</h2>
-        <hr className="border-border/30 mb-12" />
+    <section id="about" className="py-[90px] bg-white">
+      <div className="max-w-[1200px] mx-auto px-[2cm]">
+        <h1 className="font-serif text-[#222] text-[3em] mb-4">About us & contacts</h1>
+        <hr className="border-gray-300 mb-12" />
         
-        <div className="grid lg:grid-cols-2 gap-12">
-          {/* About */}
-          <div className="space-y-6">
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <CardTitle className="text-foreground">Our Story</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-muted-foreground">
-                <p>
-                  Cinefila is a boutique film sales and distribution company dedicated to bringing exceptional 
-                  cinema to audiences worldwide. With years of experience in the international film market, 
-                  we specialize in connecting filmmakers with the right festivals, distributors, and audiences.
-                </p>
-                <p>
-                  Our team of passionate film professionals understands the unique journey of each project. 
-                  We provide personalized strategies and unwavering support to ensure your film reaches its 
-                  full potential.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Contact */}
-          <div className="space-y-6">
-            <Card className="bg-card border-border">
-              <CardHeader>
-                <CardTitle className="text-foreground">Get in Touch</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <Mail className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-medium text-foreground">Email</p>
-                    <a href="mailto:info@cinefila.com" className="text-primary hover:text-primary/80">
-                      info@cinefila.com
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <Phone className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-medium text-foreground">Phone</p>
-                    <a href="tel:+420123456789" className="text-primary hover:text-primary/80">
-                      +420 123 456 789
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-5 h-5 text-primary mt-1" />
-                  <div>
-                    <p className="font-medium text-foreground">Address</p>
-                    <p className="text-muted-foreground">
-                      Prague, Czech Republic
-                    </p>
-                  </div>
-                </div>
-
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                  Send us a message
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+        <div className="space-y-12">
+          {teamMembers.map((member, index) => (
+            <div 
+              key={index}
+              className="flex gap-10 mb-12 pb-8 border-b border-gray-200 last:border-b-0 last:pb-0 last:mb-0 items-start"
+            >
+              <div className="flex-shrink-0 w-[220px] text-center">
+                <img 
+                  src={member.image} 
+                  alt={member.name}
+                  className="w-full h-auto rounded-md object-cover mb-5"
+                />
+                <h3 className="text-[#1c1c1c] text-[1.2rem] mb-2 font-bold uppercase font-serif">
+                  {member.name}
+                </h3>
+                <p className="text-[#666] text-[.95rem]">{member.role}</p>
+              </div>
+              
+              <div className="flex-shrink-0 w-[250px] text-center pt-5">
+                <h3 className="text-[#1c1c1c] my-0 mb-1 font-serif">{member.name}</h3>
+                <hr className="border-gray-300 my-4" />
+                <p className="text-[#444] italic text-[.95rem] text-center">Mail: {member.email}</p>
+              </div>
+              
+              <div className="flex-grow text-justify">
+                {member.bio.map((paragraph, pIndex) => (
+                  <p key={pIndex} className="text-[#1c1c1c] mb-5 last:mb-0">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
