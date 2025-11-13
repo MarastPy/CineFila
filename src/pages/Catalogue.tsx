@@ -67,11 +67,10 @@ const getFilmSlug = (film: Film): string => {
 export default function Catalogue() {
   const { allFilms, loading, error } = useFilms();
   const [searchTerm, setSearchTerm] = useState('');
+  const [tempSearchTerm, setTempSearchTerm] = useState('');
   const [genre, setGenre] = useState('');
   const [year, setYear] = useState('');
   const [length, setLength] = useState('');
-  const [country, setCountry] = useState('');
-  const [rating, setRating] = useState('');
   const [audience, setAudience] = useState('');
   const [keywords, setKeywords] = useState('');
 
@@ -80,8 +79,6 @@ export default function Catalogue() {
     const genres = new Set<string>();
     const years = new Set<string>();
     const lengths = new Set<string>();
-    const countries = new Set<string>();
-    const ratings = new Set<string>();
     const audiences = new Set<string>();
     const keywordsList = new Set<string>();
 
@@ -95,8 +92,6 @@ export default function Catalogue() {
       const len = getRoundedRuntime(f.Runtime);
       if (len) lengths.add(len);
       
-      if (f.Country_of_production) countries.add(f.Country_of_production.trim());
-      if (f.Target_Group?.Rating) ratings.add(f.Target_Group.Rating.trim());
       if (f.Target_Group?.Audience) audiences.add(f.Target_Group.Audience.trim());
       
       if (f.Keywords) {
@@ -111,8 +106,6 @@ export default function Catalogue() {
       genres: Array.from(genres).sort(),
       years: Array.from(years).sort((a, b) => parseInt(b) - parseInt(a)),
       lengths: ['short', 'mid-length', 'full-length'].filter(cat => lengths.has(cat)),
-      countries: Array.from(countries).sort(),
-      ratings: Array.from(ratings).sort(),
       audiences: Array.from(audiences).sort(),
       keywords: Array.from(keywordsList).sort()
     };
@@ -145,23 +138,30 @@ export default function Catalogue() {
         (!genre || genres.includes(genre.toLowerCase())) &&
         (!year || filmYear === year) &&
         (!length || runtimeCategory === length) &&
-        (!country || filmCountry === country.toLowerCase()) &&
-        (!rating || filmRating === rating.toLowerCase()) &&
         (!audience || filmAudience === audience.toLowerCase()) &&
         (!keywords || filmKeywords.includes(keywords.toLowerCase()))
       );
     });
-  }, [allFilms, searchTerm, genre, year, length, country, rating, audience, keywords]);
+  }, [allFilms, searchTerm, genre, year, length, audience, keywords]);
 
   const resetFilters = () => {
     setSearchTerm('');
+    setTempSearchTerm('');
     setGenre('');
     setYear('');
     setLength('');
-    setCountry('');
-    setRating('');
     setAudience('');
     setKeywords('');
+  };
+
+  const performSearch = () => {
+    setSearchTerm(tempSearchTerm);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      performSearch();
+    }
   };
 
   if (loading) {
@@ -247,30 +247,6 @@ export default function Catalogue() {
                   <SelectItem value="short">Short (&lt;40 min)</SelectItem>
                   <SelectItem value="mid-length">Mid-length (40-70 min)</SelectItem>
                   <SelectItem value="full-length">Full-length (&gt;70 min)</SelectItem>
-                </SelectContent>
-              </Select>
-
-              <Select value={country} onValueChange={setCountry}>
-                <SelectTrigger className="w-[180px] bg-card border-border">
-                  <SelectValue placeholder="Country" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="">All Countries</SelectItem>
-                  {filterOptions.countries.map(c => (
-                    <SelectItem key={c} value={c}>{c}</SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-
-              <Select value={rating} onValueChange={setRating}>
-                <SelectTrigger className="w-[180px] bg-card border-border">
-                  <SelectValue placeholder="Rating" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="">All Ratings</SelectItem>
-                  {filterOptions.ratings.map(r => (
-                    <SelectItem key={r} value={r}>{r}</SelectItem>
-                  ))}
                 </SelectContent>
               </Select>
 
