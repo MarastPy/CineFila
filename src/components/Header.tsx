@@ -73,51 +73,99 @@ export const Header = () => {
 
       {/* Full-screen Overlay Menu */}
       <div
-        className={`fixed inset-0 w-full h-screen bg-gradient-to-br from-black via-gray-900 to-black z-[999] flex flex-col justify-center items-center transition-all duration-500 ${
-          menuOpen ? "opacity-100 visible" : "opacity-0 invisible"
+        className={`fixed inset-0 w-full h-screen bg-black/95 backdrop-blur-xl z-[999] transition-all duration-500 ${
+          menuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
+        onClick={() => setMenuOpen(false)}
       >
-        <nav className="flex flex-col items-center gap-8 w-full">
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1c1c1c]/50 via-transparent to-[#1c1c1c]/30"></div>
+        
+        {/* Close button */}
+        <button
+          onClick={() => setMenuOpen(false)}
+          className="absolute top-8 right-8 p-3 text-white hover:text-[#C5262A] transition-all duration-300 hover:rotate-90 z-[1001]"
+          aria-label="Close menu"
+        >
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <nav 
+          className="relative h-full flex flex-col justify-center items-center gap-6 w-full"
+          onClick={(e) => e.stopPropagation()}
+        >
           <Link 
             to="/news" 
-            className={`font-serif font-semibold text-3xl md:text-4xl text-white py-3 text-center hover:text-[#C5262A] transition-all duration-300 transform hover:scale-110 ${
-              menuOpen ? "animate-fade-in" : ""
+            className={`group relative font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-all duration-500 ${
+              menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ animationDelay: "0.1s" }}
+            style={{ 
+              animationDelay: "0.1s",
+              fontWeight: 300,
+              letterSpacing: "0.02em"
+            }}
             onClick={() => setMenuOpen(false)}
           >
-            News
+            <span className="relative z-10">News</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-lg"></div>
           </Link>
+          
           <Link 
             to="/catalogue" 
-            className={`font-serif font-semibold text-3xl md:text-4xl text-white py-3 text-center hover:text-[#C5262A] transition-all duration-300 transform hover:scale-110 ${
-              menuOpen ? "animate-fade-in" : ""
+            className={`group relative font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-all duration-500 ${
+              menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ animationDelay: "0.2s" }}
+            style={{ 
+              animationDelay: "0.2s",
+              fontWeight: 300,
+              letterSpacing: "0.02em"
+            }}
             onClick={() => setMenuOpen(false)}
           >
-            Line Up
+            <span className="relative z-10">Line Up</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-lg"></div>
           </Link>
+          
           <Link 
             to="/#whatcanwedo" 
-            className={`font-serif font-semibold text-3xl md:text-4xl text-white py-3 text-center hover:text-[#C5262A] transition-all duration-300 transform hover:scale-110 ${
-              menuOpen ? "animate-fade-in" : ""
+            className={`group relative font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-all duration-500 ${
+              menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ animationDelay: "0.3s" }}
+            style={{ 
+              animationDelay: "0.3s",
+              fontWeight: 300,
+              letterSpacing: "0.02em"
+            }}
             onClick={() => setMenuOpen(false)}
           >
-            What can we do for you
+            <span className="relative z-10">What can we do for you</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-lg"></div>
           </Link>
+          
           <Link 
             to="/#about" 
-            className={`font-serif font-semibold text-3xl md:text-4xl text-white py-3 text-center hover:text-[#C5262A] transition-all duration-300 transform hover:scale-110 ${
-              menuOpen ? "animate-fade-in" : ""
+            className={`group relative font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-all duration-500 ${
+              menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ animationDelay: "0.4s" }}
+            style={{ 
+              animationDelay: "0.4s",
+              fontWeight: 300,
+              letterSpacing: "0.02em"
+            }}
             onClick={() => setMenuOpen(false)}
           >
-            About us & contacts
+            <span className="relative z-10">About us & contact</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 rounded-lg"></div>
           </Link>
+          
+          {/* Decorative line */}
+          <div 
+            className={`w-32 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mt-8 ${
+              menuOpen ? "animate-fade-in" : "opacity-0"
+            }`}
+            style={{ animationDelay: "0.5s" }}
+          ></div>
         </nav>
       </div>
     </>
