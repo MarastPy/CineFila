@@ -666,10 +666,10 @@ if __name__ == "__main__":
     # Define the folder containing your HTML files
     # Use a raw string (r"...") for Windows paths to avoid SyntaxError
     # IMPORTANT: Change this path to the actual directory where your HTML files are located.
-    html_files_folder = r'questionare'
+    html_files_folder = r'public/questionare'
 
     # Define the output directory for JSON and Excel files
-    output_directory = 'data'  # This folder will be created in the script's execution directory
+    output_directory = 'public/data'  # This folder will be created in the script's execution directory
 
     # Ensure the html_files_folder exists.
     # The script will create 'data' if it doesn't exist.
