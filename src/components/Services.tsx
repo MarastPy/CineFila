@@ -43,21 +43,12 @@ export const Services = () => {
             <div className="text-justify text-[1.05rem]">
               <p className="mb-4">Whether you're filling a single slot or designing a multi-day focus, we'll align curation, rights, and operations so your programme runs smoothly and lands with impact.</p>
               <p className="mb-4"><strong>Outcomes you can expect:</strong> higher attendance, easier ops, and a line-up that feels fresh yet audience-friendly.</p>
-              <p className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0">
-                <a href="#catalogue" className="inline-block py-3 px-6 rounded-md transition-all duration-300 text-base font-bold border-2 border-[#1c1c1c] bg-transparent text-[#1c1c1c] hover:bg-[#1c1c1c] hover:text-white sm:mr-2 text-center">
-                  Browse the Line Up
-                </a>
-                <span className="mx-2 hidden sm:inline">|</span>
-                <a href="#about" className="inline-block py-3 px-6 rounded-md transition-all duration-300 text-base font-bold border-2 border-[#1c1c1c] bg-transparent text-[#1c1c1c] hover:bg-[#1c1c1c] hover:text-white sm:ml-2 text-center">
-                  Contact our team
-                </a>
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-12 sm:py-[90px] bg-white">
+      <section className="py-12 sm:py-[90px] bg-[#f0f2f5]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-[2cm]">
           <h1 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] lg:text-[3em] mb-4">For Film Schools &amp; Institutions</h1>
           <hr className="border-gray-300 mb-12" />
@@ -70,6 +61,21 @@ export const Services = () => {
             <div className="text-justify text-[1.05rem]">
               <p className="mb-4">For film institutions, we provide comprehensive festival distribution services so your films reach the right audiences and receive the recognition they deserve. We tailor strategies to institutional needs, including curation, positioning, and long-term planning.</p>
               <p>Our expertise in logistics, marketing, and communications ensures your films are presented in the best possible light—connecting them with festivals, markets, and viewers worldwide.</p>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-300 pt-10 mt-10">
+            <h2 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] mb-4">Workshops</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-[#222]">
+              <div className="text-justify text-[1.05rem]">
+                <p className="mb-4">We offer specialized workshops and lectures on festival distribution strategies, helping filmmakers and institutions navigate the complex world of film festivals. Our sessions combine insider knowledge with practical, actionable advice.</p>
+              </div>
+              <div className="text-justify text-[1.05rem]">
+                <p className="mb-4">Learn how to select festivals, prepare promotional materials, and maximize your film's festival journey through hands-on sessions tailored to your needs.</p>
+                <a href="/workshops" className="inline-block py-3 px-6 rounded-md transition-all duration-300 text-base font-bold border-2 border-[#1c1c1c] bg-[#1c1c1c] text-white hover:bg-transparent hover:text-[#1c1c1c]">
+                  Learn More
+                </a>
+              </div>
             </div>
           </div>
         </div>
