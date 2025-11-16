@@ -73,7 +73,7 @@ export default function Catalogue() {
   const [length, setLength] = useState('all');
   const [audience, setAudience] = useState('all');
   const [keywords, setKeywords] = useState('all');
-  const [visibleCount, setVisibleCount] = useState(10);
+  const [visibleCount, setVisibleCount] = useState(15);
 
   // Extract unique filter options based on currently filtered films (cascading)
   const filterOptions = useMemo(() => {
@@ -406,10 +406,11 @@ export default function Catalogue() {
               {visibleCount < filteredFilms.length && (
                 <div className="flex justify-center mt-12">
                   <Button
-                    onClick={() => setVisibleCount(prev => prev + 10)}
-                    className="px-8 py-3 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-lg transition-all duration-300"
+                    variant="dark"
+                    onClick={() => setVisibleCount(prev => prev + 15)}
+                    className="px-8 py-3 font-semibold rounded-lg transition-all duration-300"
                   >
-                    Show More ({filteredFilms.length - visibleCount} remaining)
+                    See More
                   </Button>
                 </div>
               )}

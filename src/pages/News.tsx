@@ -1,5 +1,7 @@
 import { Header } from "@/components/Header";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 
 // TO ADD A NEW NEWS ITEM:
 // 1. Copy the template below and paste it at the TOP of the newsItems array
@@ -69,6 +71,10 @@ const newsItems = [
 ];
 
 export default function News() {
+  const [visibleCount, setVisibleCount] = useState(9);
+  const visibleItems = newsItems.slice(0, visibleCount);
+  const hasMore = visibleCount < newsItems.length;
+
   return (
     <>
       <Header />
@@ -81,7 +87,7 @@ export default function News() {
             <hr className="border-gray-300 mb-12" />
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {newsItems.map((item) => (
+              {visibleItems.map((item) => (
                 <article 
                   key={item.id}
                   className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
@@ -109,6 +115,18 @@ export default function News() {
                 </article>
               ))}
             </div>
+
+            {hasMore && (
+              <div className="text-center mb-8">
+                <Button 
+                  variant="dark"
+                  onClick={() => setVisibleCount(prev => prev + 9)}
+                  className="text-base"
+                >
+                  Load More
+                </Button>
+              </div>
+            )}
 
             <div className="text-center mt-12">
               <Link 
