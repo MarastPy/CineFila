@@ -75,44 +75,54 @@ export default function Catalogue() {
   const [keywords, setKeywords] = useState('all');
   const [visibleCount, setVisibleCount] = useState(10);
 
-  // Helper to filter films with optional exclusions
-  const getFilteredFilms = (excludeFilter?: string) => {
-    return allFilms.filter(film => {
-      const f = film.Film;
-      const crew = film.Crew;
-      
-      const title = (f.Title_English || f.Title_Original || '').toLowerCase();
-      const originalTitle = (f.Title_Original || '').toLowerCase();
-      const logline = (film.Logline || '').toLowerCase();
-      const synopsis = (film.Synopsis || '').toLowerCase();
-      const director = (crew['Director(s)'] || '').toLowerCase();
-      const search = searchTerm.toLowerCase();
-
-      const genres = f.Genre_List?.map(g => g.toLowerCase()) || [];
-      const runtimeCategory = getRoundedRuntime(f.Runtime);
-      const filmYear = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || '';
-      const filmAudience = f.Target_Group?.Audience?.toLowerCase() || '';
-      const filmKeywords = f.Keywords ? f.Keywords.split(',').map(k => k.trim().toLowerCase()) : [];
-
-      return (
-        (!searchTerm || title.includes(search) || originalTitle.includes(search) || 
-         logline.includes(search) || synopsis.includes(search) || director.includes(search)) &&
-        (excludeFilter === 'genre' || genre === 'all' || !genre || genres.includes(genre.toLowerCase())) &&
-        (excludeFilter === 'year' || year === 'all' || !year || filmYear === year) &&
-        (excludeFilter === 'length' || length === 'all' || !length || runtimeCategory === length) &&
-        (excludeFilter === 'audience' || audience === 'all' || !audience || filmAudience === audience.toLowerCase()) &&
-        (excludeFilter === 'keywords' || keywords === 'all' || !keywords || filmKeywords.includes(keywords.toLowerCase()))
-      );
-    });
-  };
-
   // Extract unique filter options based on currently filtered films (cascading)
   const filterOptions = useMemo(() => {
-    const genreFilms = getFilteredFilms('genre');
-    const yearFilms = getFilteredFilms('year');
-    const lengthFilms = getFilteredFilms('length');
-    const audienceFilms = getFilteredFilms('audience');
-    const keywordFilms = getFilteredFilms('keywords');
+    const currentFilters = {
+      searchTerm,
+      genre,
+      year,
+      length,
+      audience,
+      keywords
+    };
+
+    // Helper function to get films matching all filters EXCEPT the specified one
+    const getRelevantFilmsForFilter = (excludeFilterKey: keyof typeof currentFilters) => {
+      return allFilms.filter(film => {
+        const f = film.Film;
+        const crew = film.Crew;
+        
+        const title = (f.Title_English || f.Title_Original || '').toLowerCase();
+        const originalTitle = (f.Title_Original || '').toLowerCase();
+        const logline = (film.Logline || '').toLowerCase();
+        const synopsis = (film.Synopsis || '').toLowerCase();
+        const director = (crew['Director(s)'] || '').toLowerCase();
+        const search = searchTerm.toLowerCase();
+
+        const genres = f.Genre_List?.map(g => g.toLowerCase()) || [];
+        const runtimeCategory = getRoundedRuntime(f.Runtime);
+        const filmYear = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || '';
+        const filmAudience = f.Target_Group?.Audience?.toLowerCase() || '';
+        const filmKeywords = f.Keywords ? f.Keywords.split(',').map(k => k.trim().toLowerCase()) : [];
+
+        return (
+          (excludeFilterKey === 'searchTerm' || !searchTerm || title.includes(search) || originalTitle.includes(search) || 
+           logline.includes(search) || synopsis.includes(search) || director.includes(search)) &&
+          (excludeFilterKey === 'genre' || genre === 'all' || !genre || genres.includes(genre.toLowerCase())) &&
+          (excludeFilterKey === 'year' || year === 'all' || !year || filmYear === year) &&
+          (excludeFilterKey === 'length' || length === 'all' || !length || runtimeCategory === length) &&
+          (excludeFilterKey === 'audience' || audience === 'all' || !audience || filmAudience === audience.toLowerCase()) &&
+          (excludeFilterKey === 'keywords' || keywords === 'all' || !keywords || filmKeywords.includes(keywords.toLowerCase()))
+        );
+      });
+    };
+
+    // Get unique options for each filter
+    const genreFilms = getRelevantFilmsForFilter('genre');
+    const yearFilms = getRelevantFilmsForFilter('year');
+    const lengthFilms = getRelevantFilmsForFilter('length');
+    const audienceFilms = getRelevantFilmsForFilter('audience');
+    const keywordFilms = getRelevantFilmsForFilter('keywords');
 
     const genres = new Set<string>();
     const years = new Set<string>();
@@ -156,9 +166,35 @@ export default function Catalogue() {
     };
   }, [allFilms, searchTerm, genre, year, length, audience, keywords]);
 
-  // Filter films - reuse the helper function without exclusions
+  // Filter films for display
   const filteredFilms = useMemo(() => {
-    return getFilteredFilms();
+    return allFilms.filter(film => {
+      const f = film.Film;
+      const crew = film.Crew;
+      
+      const title = (f.Title_English || f.Title_Original || '').toLowerCase();
+      const originalTitle = (f.Title_Original || '').toLowerCase();
+      const logline = (film.Logline || '').toLowerCase();
+      const synopsis = (film.Synopsis || '').toLowerCase();
+      const director = (crew['Director(s)'] || '').toLowerCase();
+      const search = searchTerm.toLowerCase();
+
+      const genres = f.Genre_List?.map(g => g.toLowerCase()) || [];
+      const runtimeCategory = getRoundedRuntime(f.Runtime);
+      const filmYear = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || '';
+      const filmAudience = f.Target_Group?.Audience?.toLowerCase() || '';
+      const filmKeywords = f.Keywords ? f.Keywords.split(',').map(k => k.trim().toLowerCase()) : [];
+
+      return (
+        (!searchTerm || title.includes(search) || originalTitle.includes(search) || 
+         logline.includes(search) || synopsis.includes(search) || director.includes(search)) &&
+        (genre === 'all' || !genre || genres.includes(genre.toLowerCase())) &&
+        (year === 'all' || !year || filmYear === year) &&
+        (length === 'all' || !length || runtimeCategory === length) &&
+        (audience === 'all' || !audience || filmAudience === audience.toLowerCase()) &&
+        (keywords === 'all' || !keywords || filmKeywords.includes(keywords.toLowerCase()))
+      );
+    });
   }, [allFilms, searchTerm, genre, year, length, audience, keywords]);
 
   const resetFilters = () => {
