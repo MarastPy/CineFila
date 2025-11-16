@@ -69,6 +69,25 @@ export const Catalogue = () => {
                     <p className="text-sm text-foreground/80 line-clamp-3">
                       {film.Logline}
                     </p>
+                    
+                    {/* Festival Information */}
+                    {film.Festivals && film.Festivals.length > 0 && (
+                      <div className="mt-4 pt-4 border-t border-border/50">
+                        <p className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide">Featured at:</p>
+                        <div className="flex flex-wrap gap-1.5">
+                          {film.Festivals.slice(0, 3).map((festival, idx) => (
+                            <Badge key={idx} variant="outline" className="text-[0.7rem] py-0.5 px-2 bg-primary/5 border-primary/30">
+                              {festival.Name_of_Festival}
+                            </Badge>
+                          ))}
+                          {film.Festivals.length > 3 && (
+                            <Badge variant="outline" className="text-[0.7rem] py-0.5 px-2 bg-muted">
+                              +{film.Festivals.length - 3} more
+                            </Badge>
+                          )}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </Link>
