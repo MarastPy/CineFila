@@ -1,6 +1,7 @@
 import { useFilms } from '@/hooks/useFilms';
 import { Film } from '@/types/film';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { getFilmPosterPath, getPlaceholderImage } from '@/utils/imageHelpers';
 
@@ -18,7 +19,7 @@ export const Catalogue = () => {
     <section id="catalogue" className="py-12 sm:py-16 px-4 sm:px-8">
       <div className="max-w-[1200px] mx-auto">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-serif text-center mb-4">Line Up Preview</h2>
-        <div className="w-20 h-1 bg-primary mx-auto mb-12"></div>
+        <div className="w-40 h-1 bg-primary mx-auto mb-12"></div>
         
         {loading && <p className="text-center">Loading films...</p>}
         {error && <p className="text-center text-destructive">Error: {error}</p>}
@@ -50,23 +51,23 @@ export const Catalogue = () => {
                       }}
                     />
                   </div>
-                  <div className="p-5">
-                    <h3 className="font-serif text-2xl mb-1 group-hover:text-primary transition-colors">
+                  <div className="p-6">
+                    <h3 className="font-serif text-2xl mb-2 group-hover:text-primary transition-colors">
                       {title}
                     </h3>
                     {f.Title_Original !== title && (
-                      <p className="text-sm text-muted-foreground mb-2 italic">{f.Title_Original}</p>
+                      <p className="text-sm text-muted-foreground mb-3 italic">{f.Title_Original}</p>
                     )}
-                    <div className="flex flex-wrap gap-2 mb-2">
+                    <div className="flex flex-wrap gap-2 mb-3">
                       {f.Genre_List && f.Genre_List.length > 0 && f.Genre_List.map((genre, idx) => (
                         <Badge key={idx} variant="secondary" className="text-xs">{genre}</Badge>
                       ))}
                     </div>
-                    <p className="text-sm text-muted-foreground mb-2">
+                    <p className="text-sm text-muted-foreground mb-3 font-medium">
                       {runtime} • {year}
                     </p>
-                    <p className="text-sm mb-2">by {director}</p>
-                    <p className="text-sm text-foreground/80 line-clamp-3">
+                    <p className="text-sm mb-3 font-medium">by {director}</p>
+                    <p className="text-sm text-foreground/80 line-clamp-3 leading-relaxed">
                       {film.Logline}
                     </p>
                     
@@ -96,12 +97,11 @@ export const Catalogue = () => {
         </div>
 
         <div className="text-center mt-8">
-          <Link 
-            to="/catalogue" 
-            className="inline-block px-8 py-3 bg-background border-2 border-foreground text-foreground font-semibold rounded hover:bg-foreground hover:text-background transition-all"
-          >
-            ALL FILMS
-          </Link>
+          <Button asChild variant="dark" size="lg" className="text-base font-bold">
+            <Link to="/catalogue">
+              ALL FILMS
+            </Link>
+          </Button>
         </div>
       </div>
     </section>

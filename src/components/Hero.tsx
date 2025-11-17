@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 export const Hero = () => {
   return (
     <section 
@@ -37,24 +39,36 @@ export const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 lg:gap-[70px] mt-10">
-          <a
-            href="#whatcanwedo"
-            className="flex items-center justify-center w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] px-4 py-2.5 border-4 border-white text-white text-[1em] sm:text-[1.2em] font-bold hover:bg-white hover:text-[#2b2b2b] transition-all duration-300"
+          <Button 
+            asChild 
+            variant="dark" 
+            size="lg" 
+            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-[1em] sm:text-[1.2em] font-bold"
           >
-            What can we do for you
-          </a>
-          <a
-            href="#catalogue"
-            className="flex items-center justify-center w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] px-4 py-2.5 border-4 border-white text-white text-[1em] sm:text-[1.2em] font-bold hover:bg-white hover:text-[#2b2b2b] transition-all duration-300"
+            <a href="#whatcanwedo">
+              What can we do for you
+            </a>
+          </Button>
+          <Button 
+            asChild 
+            variant="dark" 
+            size="lg" 
+            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-[1em] sm:text-[1.2em] font-bold"
           >
-            Line Up
-          </a>
-          <a
-            href="#about"
-            className="flex items-center justify-center w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] px-4 py-2.5 border-4 border-white text-white text-[1em] sm:text-[1.2em] font-bold hover:bg-white hover:text-[#2b2b2b] transition-all duration-300"
+            <a href="#catalogue">
+              Line Up
+            </a>
+          </Button>
+          <Button 
+            asChild 
+            variant="dark" 
+            size="lg" 
+            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-[1em] sm:text-[1.2em] font-bold"
           >
-            About us & contact
-          </a>
+            <a href="#about">
+              About us & contact
+            </a>
+          </Button>
         </div>
       </div>
     </section>
