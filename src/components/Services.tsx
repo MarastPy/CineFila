@@ -5,8 +5,8 @@ export const Services = () => {
     <>
       <section className="py-12 sm:py-[90px] bg-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-[2cm]">
-          <h1 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] lg:text-[3em] mb-4">For Independent Filmmakers:<br />Take Your Film to the World</h1>
-          <div className="w-40 h-1 bg-primary mx-auto mb-12"></div>
+          <h1 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] lg:text-[3em] mb-4 text-left">For Independent Filmmakers:<br />Take Your Film to the World</h1>
+          <div className="w-40 h-1 bg-primary mb-12"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 text-[#222]">
             <div className="text-justify text-[1.05rem]">
@@ -28,8 +28,8 @@ export const Services = () => {
 
       <section className="py-12 sm:py-[90px] bg-[#f0f2f5]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-[2cm]">
-          <h1 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] lg:text-[3em] mb-4">For Festivals &amp; Cinemas</h1>
-          <div className="w-40 h-1 bg-primary mx-auto mb-12"></div>
+          <h1 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] lg:text-[3em] mb-4 text-left">For Festivals &amp; Cinemas</h1>
+          <div className="w-40 h-1 bg-primary mb-12"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 text-[#222]">
             <div className="text-justify text-[1.05rem]">
@@ -50,34 +50,38 @@ export const Services = () => {
         </div>
       </section>
 
-      <section className="py-12 sm:py-[90px] bg-[#f0f2f5]">
+      <section className="py-12 sm:py-[90px] bg-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-[2cm]">
-          <h1 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] lg:text-[3em] mb-4">For Film Schools &amp; Institutions</h1>
-          <div className="w-40 h-1 bg-primary mx-auto mb-12"></div>
+          <h1 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] lg:text-[3em] mb-4 text-left">For Film Schools &amp; Institutions</h1>
+          <div className="w-40 h-1 bg-primary mb-12"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 text-[#222]">
             <div className="text-justify text-[1.05rem]">
-              <p className="mb-4">CINEFILA supports academic and cultural organisations through workshops and lectures focused on festival distribution and strategy. Learn how to choose the right festivals, prepare materials for promotion, and navigate your film's entire festival lifecycle. Expect insider tips, practical advice, and actionable workflows that maximise a film's potential.</p>
-              <p>Building on Alexandra's experience with FAMUfilms.cz, the first European SVOD platform dedicated to film schools, we aim to inspire and educate the next generation of filmmakers and scholars.</p>
+              <p className="mb-4">Building on Alexandra's experience with FAMUfilms.cz, the first European SVOD platform dedicated to film schools, we aim to inspire and educate the next generation of filmmakers and scholars.</p>
             </div>
             <div className="text-justify text-[1.05rem]">
               <p className="mb-4">For film institutions, we provide comprehensive festival distribution services so your films reach the right audiences and receive the recognition they deserve. We tailor strategies to institutional needs, including curation, positioning, and long-term planning.</p>
               <p>Our expertise in logistics, marketing, and communications ensures your films are presented in the best possible light—connecting them with festivals, markets, and viewers worldwide.</p>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="border-t border-gray-300 pt-10 mt-10">
-            <h2 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] mb-4">Workshops</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 text-[#222]">
-              <div className="text-justify text-[1.05rem]">
-                <p className="mb-4">We offer specialized workshops and lectures on festival distribution strategies, helping filmmakers and institutions navigate the complex world of film festivals. Our sessions combine insider knowledge with practical, actionable advice.</p>
-              </div>
-              <div className="text-justify text-[1.05rem]">
-                <p className="mb-4">Learn how to select festivals, prepare promotional materials, and maximize your film's festival journey through hands-on sessions tailored to your needs.</p>
-                <Button asChild variant="dark" size="lg" className="text-base font-bold">
-                  <a href="/workshops">Learn More</a>
-                </Button>
-              </div>
+      <section className="py-12 sm:py-[90px] bg-[#f0f2f5]">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-[2cm]">
+          <h1 className="font-serif text-[#222] text-[1.5em] sm:text-[2em] lg:text-[3em] mb-4 text-left">Workshops</h1>
+          <div className="w-40 h-1 bg-primary mb-12"></div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 text-[#222]">
+            <div className="text-justify text-[1.05rem]">
+              <p className="mb-4">CINEFILA supports academic and cultural organisations through workshops and lectures focused on festival distribution and strategy. Learn how to choose the right festivals, prepare materials for promotion, and navigate your film's entire festival lifecycle. Expect insider tips, practical advice, and actionable workflows that maximise a film's potential.</p>
+            </div>
+            <div className="text-justify text-[1.05rem]">
+              <p className="mb-4">We offer specialized workshops and lectures on festival distribution strategies, helping filmmakers and institutions navigate the complex world of film festivals. Our sessions combine insider knowledge with practical, actionable advice.</p>
+              <p className="mb-4">Learn how to select festivals, prepare promotional materials, and maximize your film's festival journey through hands-on sessions tailored to your needs.</p>
+              <Button asChild variant="dark" size="lg" className="text-base font-bold">
+                <a href="/workshops">Learn More</a>
+              </Button>
             </div>
           </div>
         </div>
