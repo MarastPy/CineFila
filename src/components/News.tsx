@@ -7,7 +7,8 @@ const newsItems = [
     date: "26/09/2025",
     excerpt: "Hello Internationales Filmfestival SCHLINGEL! 🇩🇪 📽 Vlček / Wolfie will be featured on this fantastic film festival for children and young audience in a German premiere!",
     fullContent: "Hello Internationales Filmfestival SCHLINGEL! 🇩🇪 📽 Vlček / Wolfie will be featured on this fantastic film festival for children and young audience in a German premiere! Wolfie will screen in the International Animated Short Film Competition of SCHLiNGEL during the programme part \"Neighbourhood\" for kids & families (5+) on 28. 09., 15:30 at CineStar Cinema Chemnitz!",
-    image: "/images/posters/wolfie/wolfie.jpg"
+    image: "/images/posters/wolfie/wolfie.jpg",
+    link: "https://www.facebook.com/photo/?fbid=122144326394736463&set=a.122107909304736463"
   },
   {
     title: "Soul Shift",
@@ -42,11 +43,11 @@ export const News = () => {
           <h1 className="font-serif text-[#1c1c1c] text-5xl sm:text-6xl lg:text-7xl mb-3 font-light tracking-tight">
             News
           </h1>
-          <div className="w-20 h-px bg-[#1c1c1c] mt-6"></div>
+          <div className="w-20 h-1 bg-primary mx-auto mb-12"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {newsItems.map((item, index) => (
+          {newsItems.slice(0, 3).map((item, index) => (
             <button
               key={index}
               onClick={() => setSelectedNews(item)}
@@ -102,6 +103,18 @@ export const News = () => {
                 <p className="text-base leading-relaxed text-justify">
                   {selectedNews.fullContent}
                 </p>
+                {selectedNews.link && (
+                  <div className="mt-6 pt-4 border-t border-border">
+                    <a 
+                      href={selectedNews.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-semibold transition-colors"
+                    >
+                      View on Facebook →
+                    </a>
+                  </div>
+                )}
               </div>
             </>
           )}
