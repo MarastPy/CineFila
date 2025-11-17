@@ -81,10 +81,10 @@ export default function News() {
       <main className="min-h-screen bg-white pt-[60px] sm:pt-[90px]">
         <section className="py-12 sm:py-16 md:py-24">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-[2cm]">
-            <h1 className="font-serif text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6">
+            <h1 className="font-serif text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 text-left">
               Latest News
             </h1>
-            <div className="w-40 h-1 bg-primary mx-auto mb-12"></div>
+            <div className="w-40 h-1 bg-primary mb-12"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {visibleItems.map((item) => (
