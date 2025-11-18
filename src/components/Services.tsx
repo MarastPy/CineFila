@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button";
-
 export const Services = () => {
   return (
     <>
@@ -79,10 +77,16 @@ export const Services = () => {
             <div className="text-justify text-[1.05rem]">
               <p className="mb-4">We offer specialized workshops and lectures on festival distribution strategies, helping filmmakers and institutions navigate the complex world of film festivals. Our sessions combine insider knowledge with practical, actionable advice.</p>
               <p className="mb-4">Learn how to select festivals, prepare promotional materials, and maximize your film's festival journey through hands-on sessions tailored to your needs.</p>
-              <Button asChild variant="dark" size="lg" className="text-base font-bold">
-                <a href="/workshops">Learn More</a>
-              </Button>
             </div>
+          </div>
+          
+          <div className="text-center">
+            <a 
+              href="/workshops" 
+              className="inline-block py-3 px-8 rounded-sm transition-all duration-300 text-base font-medium border border-[#1c1c1c] bg-transparent text-[#1c1c1c] hover:bg-[#1c1c1c] hover:text-white"
+            >
+              Learn More
+            </a>
           </div>
         </div>
       </section>

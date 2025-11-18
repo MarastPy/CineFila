@@ -56,28 +56,25 @@ export const Footer = () => {
             ))}
           </div>
           
-          <div className="pt-8 border-t border-white/10 space-y-8">
+          <div className="pt-6 border-t border-white/10 space-y-6">
             {/* Company Information */}
-            <div className="text-white/80 text-[0.92rem] leading-relaxed max-w-4xl mx-auto">
-              <h4 className="font-serif text-white text-[1.3rem] mb-5 tracking-wide">Company Information</h4>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="space-y-2">
-                  <p className="font-semibold text-white/90 text-sm uppercase tracking-wider mb-3">Legal Details</p>
+            <div className="text-white/70 text-[0.8rem] leading-relaxed">
+              <h4 className="font-serif text-white text-[1.1rem] mb-4 tracking-wide">Company Information</h4>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-[0.78rem]">
+                <div className="space-y-1">
+                  <p className="font-semibold text-white/85 text-[0.7rem] uppercase tracking-wider mb-2">Legal Details</p>
                   <p className="text-white">Cinefila s.r.o.</p>
-                  <p>IČ: 23478357</p>
-                  <p>DIČ/VAT: CZ23478357</p>
-                  <p className="mt-3 text-[0.85rem] text-white/60 leading-relaxed">Registered in the Commercial Register maintained by the Municipal Court in Prague, Section C, Insert 427737.</p>
+                  <p>IČ: 23478357 | DIČ/VAT: CZ23478357</p>
+                  <p className="mt-2 text-[0.75rem] text-white/50 leading-snug">Commercial Register, Municipal Court Prague, Section C, Insert 427737</p>
                 </div>
-                <div className="space-y-2">
-                  <p className="font-semibold text-white/90 text-sm uppercase tracking-wider mb-3">Contact Address</p>
-                  <p>V olšinách 421/37</p>
-                  <p>100 00 Praha 10</p>
-                  <p>Czech Republic</p>
+                <div className="space-y-1">
+                  <p className="font-semibold text-white/85 text-[0.7rem] uppercase tracking-wider mb-2">Contact</p>
+                  <p>V olšinách 421/37, 100 00 Praha 10, Czech Republic</p>
                 </div>
-                <div className="space-y-2">
-                  <p className="font-semibold text-white/90 text-sm uppercase tracking-wider mb-3">Banking Details</p>
+                <div className="space-y-1">
+                  <p className="font-semibold text-white/85 text-[0.7rem] uppercase tracking-wider mb-2">Banking</p>
                   <p>Account: 2347835778/5500</p>
-                  <p className="break-all">IBAN: CZ2555000000002347835778</p>
+                  <p className="break-all text-[0.75rem]">IBAN: CZ2555000000002347835778</p>
                 </div>
               </div>
             </div>
