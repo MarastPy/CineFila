@@ -364,10 +364,10 @@ export default function Catalogue() {
                     <Link 
                       key={idx} 
                       to={`/film/${slug}`}
-                      className="block group"
+                      className="block group h-full"
                     >
-                      <div className="bg-card rounded-lg overflow-hidden transition-transform hover:scale-105">
-                        <div className="aspect-video bg-muted relative overflow-hidden">
+                      <div className="bg-card rounded-lg overflow-hidden transition-transform hover:scale-105 h-full flex flex-col">
+                        <div className="aspect-video bg-muted relative overflow-hidden flex-shrink-0">
                           <img 
                             src={getFilmPosterPath(film)} 
                             alt={`Still from ${title}`}
@@ -377,14 +377,16 @@ export default function Catalogue() {
                             }}
                           />
                         </div>
-                        <div className="p-5">
-                          <h3 className="font-serif text-2xl mb-1 group-hover:text-primary transition-colors">
+                        <div className="p-5 flex flex-col flex-grow">
+                          <h3 className="font-serif text-2xl mb-1 group-hover:text-primary transition-colors line-clamp-2 min-h-[3.5rem]">
                             {title}
                           </h3>
-                          {f.Title_Original !== title && (
-                            <p className="text-sm text-muted-foreground mb-2 italic">{f.Title_Original}</p>
-                          )}
-                          <div className="flex flex-wrap gap-2 mb-2">
+                          <div className="min-h-[1.25rem] mb-2">
+                            {f.Title_Original !== title && (
+                              <p className="text-sm text-muted-foreground italic line-clamp-1">{f.Title_Original}</p>
+                            )}
+                          </div>
+                          <div className="flex flex-wrap gap-2 mb-2 min-h-[1.75rem]">
                             {f.Genre_List && f.Genre_List.length > 0 && f.Genre_List.map((genre, idx) => (
                               <Badge key={idx} variant="secondary" className="text-xs">{genre}</Badge>
                             ))}
@@ -393,28 +395,30 @@ export default function Catalogue() {
                             {exactMinutes && `${exactMinutes} min`} {exactMinutes && filmYear && '•'} {filmYear}
                           </p>
                           <p className="text-sm mb-2">by {director}</p>
-                          <p className="text-sm text-foreground/80 line-clamp-3">
+                          <p className="text-sm text-foreground/80 line-clamp-3 mb-2 flex-grow">
                             {film.Logline}
                           </p>
                           
                           {/* Festival Information */}
-                          {film.Festivals && film.Festivals.length > 0 && (
-                            <div className="mt-4 pt-4 border-t border-border/50">
-                              <p className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide">Featured at:</p>
-                              <div className="flex flex-wrap gap-1.5">
-                                {film.Festivals.slice(0, 3).map((festival, idx) => (
-                                  <Badge key={idx} variant="outline" className="text-[0.7rem] py-0.5 px-2 bg-primary/5 border-primary/30">
-                                    {festival.Name_of_Festival}
-                                  </Badge>
-                                ))}
-                                {film.Festivals.length > 3 && (
-                                  <Badge variant="outline" className="text-[0.7rem] py-0.5 px-2 bg-muted">
-                                    +{film.Festivals.length - 3} more
-                                  </Badge>
-                                )}
-                              </div>
-                            </div>
-                          )}
+                          <div className="mt-auto pt-4 border-t border-border/50 min-h-[5rem]">
+                            {film.Festivals && film.Festivals.length > 0 && (
+                              <>
+                                <p className="text-xs font-semibold text-primary mb-2 uppercase tracking-wide">Featured at:</p>
+                                <div className="flex flex-wrap gap-1.5">
+                                  {film.Festivals.slice(0, 3).map((festival, idx) => (
+                                    <Badge key={idx} variant="outline" className="text-[0.7rem] py-0.5 px-2 bg-primary/5 border-primary/30">
+                                      {festival.Name_of_Festival}
+                                    </Badge>
+                                  ))}
+                                  {film.Festivals.length > 3 && (
+                                    <Badge variant="outline" className="text-[0.7rem] py-0.5 px-2 bg-muted">
+                                      +{film.Festivals.length - 3} more
+                                    </Badge>
+                                  )}
+                                </div>
+                              </>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </Link>
