@@ -43,7 +43,7 @@ export const Hero = () => {
             asChild 
             variant="dark" 
             size="lg" 
-            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-[1em] sm:text-[1.2em] font-bold"
+            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
           >
             <a href="#whatcanwedo">
               What can we do for you
@@ -53,7 +53,7 @@ export const Hero = () => {
             asChild 
             variant="dark" 
             size="lg" 
-            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-[1em] sm:text-[1.2em] font-bold"
+            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
           >
             <a href="#catalogue">
               Line Up
@@ -63,7 +63,7 @@ export const Hero = () => {
             asChild 
             variant="dark" 
             size="lg" 
-            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-[1em] sm:text-[1.2em] font-bold"
+            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
           >
             <a href="#about">
               About us & contact
