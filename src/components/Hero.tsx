@@ -20,7 +20,7 @@ export const Hero = () => {
         <hr className="border-white/20 mb-10" />
 
         {/* Definition */}
-        <div className="max-w-[650px] mx-auto text-left space-y-3 py-8">
+        <div className="max-w-[500px] mx-auto text-center space-y-3 py-8">
           <p className="font-serif text-[1.3em] text-white/90 tracking-wide mb-4">
             cinefila / cinefil / cinéphile / cinéfilo / σινεфίл / シネフィル
           </p>
