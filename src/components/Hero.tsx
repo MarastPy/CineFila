@@ -20,19 +20,28 @@ export const Hero = () => {
         <hr className="border-white/20 mb-10" />
 
         {/* Definition */}
-        <div className="max-w-[600px] mx-auto text-left space-y-5">
-          <p className="font-serif text-[1.8em] text-[#999] mb-5 italic">
-            " cinefila / cinefil / cinéphile / cinéfilo / σινεфίл / シネフィル "
+        <div className="max-w-[600px] mx-auto text-left space-y-5 relative">
+          {/* Opening quotation mark */}
+          <div className="text-[4em] text-[#666] leading-none absolute -top-4 -left-8 font-serif">"</div>
+          
+          <p className="font-serif text-[1.2em] text-[#999] mb-3 pl-6">
+            cinefila / cinefil / cinéphile / cinéfilo / σινεфίл / シネフィル
           </p>
-          <p className="text-[1.2em] text-[#999] mb-2.5 font-bold">
-            <strong>noun</strong>
+          
+          <p className="text-[1em] text-[#999] mb-4 pl-6">
+            noun
           </p>
-          <p className="text-[1.1em] text-[#999] mb-1.5">
+          
+          <p className="text-[1.05em] text-[#999] mb-2 pl-6">
             1. A person who lives and breathes the cinema
           </p>
-          <p className="text-[1.1em] text-[#999] mb-1.5">
+          
+          <p className="text-[1.05em] text-[#999] mb-2 pl-6">
             2. A film lover; enthusiastically interested in and knowledgeable about cinema
           </p>
+          
+          {/* Closing quotation mark */}
+          <div className="text-[4em] text-[#666] leading-none absolute -bottom-8 right-0 font-serif">"</div>
         </div>
 
         <hr className="border-white/20 mt-10" />
