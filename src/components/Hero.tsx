@@ -22,7 +22,7 @@ export const Hero = () => {
         {/* Definition */}
         <div className="relative max-w-[500px] mx-auto text-center space-y-3 py-8">
           {/* Opening quotation mark */}
-          <div className="absolute -left-8 top-0 text-[4.5em] text-white/50 font-serif leading-none">"</div>
+          <div className="absolute -left-8 top-0 text-[4.5em] text-white/50 font-serif leading-none">„</div>
           
           <p className="font-serif text-[1.3em] text-white/90 tracking-wide mb-4">
             cinefila / cinefil / cinéphile / cineast / cinéfilo / σινεφίλ / シネフィル /
@@ -33,14 +33,12 @@ export const Hero = () => {
           </p>
           
           <div className="space-y-3 text-white/80 leading-relaxed text-left">
-            <p className="text-[1.05em]">
-              <span className="font-semibold">1.</span>
-              <span className="inline-block ml-6">A person who lives and breathes the cinema</span>
+            <p className="text-[1.05em] pl-6 -indent-6">
+              <span className="font-semibold">1.</span> A person who lives and breathes the cinema
             </p>
             
-            <p className="text-[1.05em]">
-              <span className="font-semibold">2.</span>
-              <span className="inline-block ml-6">A film lover; a person who is enthusiastically interested in and knowledgeable about cinema</span>
+            <p className="text-[1.05em] pl-6 -indent-6">
+              <span className="font-semibold">2.</span> A film lover; a person who is enthusiastically interested in and knowledgeable about cinema
             </p>
           </div>
           
