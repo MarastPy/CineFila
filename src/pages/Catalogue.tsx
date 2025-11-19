@@ -405,7 +405,7 @@ export default function Catalogue() {
                         </div>
                         <div className="p-5 flex flex-col flex-grow">
                           <h3 className="font-serif text-2xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                            {f.Title_Original || title} {exactMinutes && `| ${exactMinutes} {" "} min`}{" "}
+                            {f.Title_Original || title} {exactMinutes && `| ${exactMinutes} min`} min`}{" "}
                             {filmYear && `| ${filmYear}`}
                           </h3>
                           <div className="flex flex-wrap gap-2 mb-2 min-h-[1.75rem]">
