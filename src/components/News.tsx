@@ -57,7 +57,7 @@ export const News = () => {
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
               <h3 className="text-[#1c1c1c] text-xl font-serif font-bold mb-2 group-hover:text-[#666] transition-colors">
