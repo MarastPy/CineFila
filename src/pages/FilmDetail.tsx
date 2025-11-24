@@ -231,8 +231,8 @@ export default function FilmDetail() {
               </div>
             </div>
 
-            {/* Right column - Info */}
-            <div className="space-y-6">
+            {/* Right column - All text content */}
+            <div className="space-y-8">
               {/* Genres */}
               {f.Genre_List && f.Genre_List.length > 0 && (
                 <div>
@@ -274,8 +274,8 @@ export default function FilmDetail() {
                 <div>
                   <h3 className="text-xl font-serif mb-2">Target Group</h3>
                   <div className="space-y-1">
-                    {f.Target_Group.Rating && <p><strong>Rating:</strong> {f.Target_Group.Rating}</p>}
-                    {f.Target_Group.Audience && <p><strong>Audience:</strong> {f.Target_Group.Audience}</p>}
+                    {f.Target_Group.Rating && <p><span className="font-semibold">Rating:</span> {f.Target_Group.Rating}</p>}
+                    {f.Target_Group.Audience && <p><span className="font-semibold">Audience:</span> {f.Target_Group.Audience}</p>}
                   </div>
                 </div>
               )}
@@ -287,202 +287,193 @@ export default function FilmDetail() {
                   <p className="text-foreground/90">{f.Keywords}</p>
                 </div>
               )}
+
+              <hr className="border-border" />
+
+              {/* Crew section */}
+              {(crew['Director(s)'] || crew['Screenplay_writer(s)'] || crew['Director(s)_of_Photography'] || 
+                crew['Editor(s)'] || crew['Music_composer(s)'] || crew['Sound_director(s)'] || 
+                crew['Art_director(s)'] || film.Producer_Representative || film.Production_Company) && (
+                <div>
+                  <h2 className="text-2xl font-serif mb-4">Crew</h2>
+                  <div className="space-y-2">
+                    {crew['Director(s)'] && (
+                      <div>
+                        <span className="font-semibold">Director:</span> {crew['Director(s)']}
+                      </div>
+                    )}
+                    {crew['Screenplay_writer(s)'] && (
+                      <div>
+                        <span className="font-semibold">Writer:</span> {crew['Screenplay_writer(s)']}
+                      </div>
+                    )}
+                    {crew['Director(s)_of_Photography'] && (
+                      <div>
+                        <span className="font-semibold">Cinematographer:</span> {crew['Director(s)_of_Photography']}
+                      </div>
+                    )}
+                    {crew['Editor(s)'] && (
+                      <div>
+                        <span className="font-semibold">Editor:</span> {crew['Editor(s)']}
+                      </div>
+                    )}
+                    {crew['Music_composer(s)'] && (
+                      <div>
+                        <span className="font-semibold">Music Composer:</span> {crew['Music_composer(s)']}
+                      </div>
+                    )}
+                    {crew['Sound_director(s)'] && (
+                      <div>
+                        <span className="font-semibold">Sound Director:</span> {crew['Sound_director(s)']}
+                      </div>
+                    )}
+                    {crew['Art_director(s)'] && (
+                      <div>
+                        <span className="font-semibold">Art Director:</span> {crew['Art_director(s)']}
+                      </div>
+                    )}
+                    {film.Producer_Representative && (
+                      <div>
+                        <span className="font-semibold">Producer:</span> {typeof film.Producer_Representative === 'string' ? film.Producer_Representative : JSON.stringify(film.Producer_Representative)}
+                      </div>
+                    )}
+                    {film.Production_Company && (
+                      <div>
+                        <span className="font-semibold">Company:</span> {typeof film.Production_Company === 'string' ? film.Production_Company : JSON.stringify(film.Production_Company)}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Cast */}
+              {crew.Cast && crew.Cast.length > 0 && (
+                <div>
+                  <h2 className="text-2xl font-serif mb-4">Cast</h2>
+                  <ul className="list-disc list-inside space-y-1 text-foreground/90">
+                    {crew.Cast.map((actor: any, i: number) => (
+                      <li key={i}>{typeof actor === 'string' ? actor : JSON.stringify(actor)}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Tech Specs */}
+              {(f.Runtime || film.Technical_Details?.Sound_mix || film.Technical_Details?.Aspect_ratio || 
+                film.Technical_Details?.Color || f.Date_of_completion) && (
+                <div>
+                  <h2 className="text-2xl font-serif mb-4">Tech Specs</h2>
+                  <div className="space-y-2">
+                    {f.Runtime && (
+                      <div>
+                        <span className="font-semibold">Runtime:</span> {formatRuntime(film)}
+                      </div>
+                    )}
+                    {film.Technical_Details?.Sound_mix && (
+                      <div>
+                        <span className="font-semibold">Sound Mix:</span> {film.Technical_Details.Sound_mix}
+                      </div>
+                    )}
+                    {film.Technical_Details?.Aspect_ratio && (
+                      <div>
+                        <span className="font-semibold">Aspect Ratio:</span> {film.Technical_Details.Aspect_ratio}
+                      </div>
+                    )}
+                    {film.Technical_Details?.Color && (
+                      <div>
+                        <span className="font-semibold">Color:</span> {film.Technical_Details.Color}
+                      </div>
+                    )}
+                    {f.Date_of_completion && (
+                      <div>
+                        <span className="font-semibold">Date Release:</span> {f.Date_of_completion}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Awards */}
+              {film.Awards && film.Awards.length > 0 && film.Awards[0].Festival_Section_of_Competition && (
+                <div>
+                  <h2 className="text-2xl font-serif mb-4">Awards</h2>
+                  <ul className="space-y-2 text-foreground/90">
+                    {film.Awards.map((award, i) => (
+                      award.Festival_Section_of_Competition && (
+                        <li key={i}>
+                          <strong>{award.Festival_Section_of_Competition}</strong>
+                          {award.Country && <span> ({award.Country})</span>}
+                          {award.Date && <span className="text-muted-foreground"> - {award.Date}</span>}
+                        </li>
+                      )
+                    ))}
+                  </ul>
+                </div>
+              )}
+              
+              {/* Festivals */}
+              {film.Festivals && film.Festivals.length > 0 && film.Festivals[0].Name_of_Festival && (
+                <div>
+                  <h2 className="text-2xl font-serif mb-4">Festivals</h2>
+                  <ul className="space-y-2 text-foreground/90">
+                    {film.Festivals.map((fest, i) => (
+                      fest.Name_of_Festival && (
+                        <li key={i}>
+                          <strong>{fest.Name_of_Festival}</strong>
+                          {fest.Country && <span> ({fest.Country})</span>}
+                          {fest.Date && <span className="text-muted-foreground"> - {fest.Date}</span>}
+                        </li>
+                      )
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Director Bio */}
+              {film.Director_Bio?.Bio_Text && (
+                <div>
+                  <h2 className="text-2xl font-serif mb-4">Director Biography</h2>
+                  <p className="text-foreground/90 text-justify">{film.Director_Bio.Bio_Text}</p>
+                </div>
+              )}
+
+              {/* Director Filmography */}
+              {film.Director_Filmography && film.Director_Filmography.length > 0 && (
+                <div>
+                  <h2 className="text-2xl font-serif mb-4">Director's Filmography</h2>
+                  <ul className="list-disc list-inside space-y-1 text-foreground/90">
+                    {film.Director_Filmography.map((filmEntry: any, i: number) => (
+                      <li key={i}>{typeof filmEntry === 'string' ? filmEntry : JSON.stringify(filmEntry)}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Additional Metadata */}
+              {(film.Festival_Distribution_Only || film.Sales || film.Status) && (
+                <div className="space-y-4">
+                  {film.Festival_Distribution_Only && (
+                    <div>
+                      <h3 className="text-lg font-serif mb-2">Festival Distribution Only</h3>
+                      <p className="text-foreground/90">{film.Festival_Distribution_Only}</p>
+                    </div>
+                  )}
+                  {film.Sales && (
+                    <div>
+                      <h3 className="text-lg font-serif mb-2">Sales</h3>
+                      <p className="text-foreground/90">{film.Sales}</p>
+                    </div>
+                  )}
+                  {film.Status && (
+                    <div>
+                      <h3 className="text-lg font-serif mb-2">Status</h3>
+                      <p className="text-foreground/90">{film.Status}</p>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
-
-          {/* Full width sections below */}
-          <hr className="border-border mb-8" />
-
-          {/* Crew section */}
-          {(crew['Director(s)'] || crew['Screenplay_writer(s)'] || crew['Director(s)_of_Photography'] || 
-            crew['Editor(s)'] || crew['Music_composer(s)'] || crew['Sound_director(s)'] || 
-            crew['Art_director(s)'] || film.Producer_Representative || film.Production_Company) && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-serif mb-4">Crew</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
-                {crew['Director(s)'] && (
-                  <div>
-                    <span className="font-semibold">Director:</span> {crew['Director(s)']}
-                  </div>
-                )}
-                {crew['Screenplay_writer(s)'] && (
-                  <div>
-                    <span className="font-semibold">Writer:</span> {crew['Screenplay_writer(s)']}
-                  </div>
-                )}
-                {crew['Director(s)_of_Photography'] && (
-                  <div>
-                    <span className="font-semibold">Cinematographer:</span> {crew['Director(s)_of_Photography']}
-                  </div>
-                )}
-                {crew['Editor(s)'] && (
-                  <div>
-                    <span className="font-semibold">Editor:</span> {crew['Editor(s)']}
-                  </div>
-                )}
-                {crew['Music_composer(s)'] && (
-                  <div>
-                    <span className="font-semibold">Music Composer:</span> {crew['Music_composer(s)']}
-                  </div>
-                )}
-                {crew['Sound_director(s)'] && (
-                  <div>
-                    <span className="font-semibold">Sound Director:</span> {crew['Sound_director(s)']}
-                  </div>
-                )}
-                {crew['Art_director(s)'] && (
-                  <div>
-                    <span className="font-semibold">Art Director:</span> {crew['Art_director(s)']}
-                  </div>
-                )}
-                {film.Producer_Representative && (
-                  <div>
-                    <span className="font-semibold">Producer:</span> {typeof film.Producer_Representative === 'string' ? film.Producer_Representative : JSON.stringify(film.Producer_Representative)}
-                  </div>
-                )}
-                {film.Production_Company && (
-                  <div>
-                    <span className="font-semibold">Company:</span> {typeof film.Production_Company === 'string' ? film.Production_Company : JSON.stringify(film.Production_Company)}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Cast */}
-          {crew.Cast && crew.Cast.length > 0 && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-serif mb-4">Cast</h2>
-              <ul className="list-disc list-inside space-y-1 text-foreground/90">
-                {crew.Cast.map((actor: any, i: number) => (
-                  <li key={i}>{typeof actor === 'string' ? actor : JSON.stringify(actor)}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Tech Specs */}
-          {(f.Runtime || film.Technical_Details?.Sound_mix || film.Technical_Details?.Aspect_ratio || 
-            film.Technical_Details?.Color || f.Date_of_completion) && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-serif mb-4">Tech Specs</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-3">
-                {f.Runtime && (
-                  <div>
-                    <span className="font-semibold">Runtime:</span> {formatRuntime(film)}
-                  </div>
-                )}
-                {film.Technical_Details?.Sound_mix && (
-                  <div>
-                    <span className="font-semibold">Sound Mix:</span> {film.Technical_Details.Sound_mix}
-                  </div>
-                )}
-                {film.Technical_Details?.Aspect_ratio && (
-                  <div>
-                    <span className="font-semibold">Aspect Ratio:</span> {film.Technical_Details.Aspect_ratio}
-                  </div>
-                )}
-                {film.Technical_Details?.Color && (
-                  <div>
-                    <span className="font-semibold">Color:</span> {film.Technical_Details.Color}
-                  </div>
-                )}
-                {f.Date_of_completion && (
-                  <div>
-                    <span className="font-semibold">Date Release:</span> {f.Date_of_completion}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Awards & Festivals */}
-          {((film.Awards && film.Awards.length > 0 && film.Awards[0].Festival_Section_of_Competition) || 
-            (film.Festivals && film.Festivals.length > 0 && film.Festivals[0].Name_of_Festival)) && (
-            <div className="mb-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {film.Awards && film.Awards.length > 0 && film.Awards[0].Festival_Section_of_Competition && (
-                  <div>
-                    <h2 className="text-2xl font-serif mb-4">Awards</h2>
-                    <ul className="space-y-2 text-foreground/90">
-                      {film.Awards.map((award, i) => (
-                        award.Festival_Section_of_Competition && (
-                          <li key={i}>
-                            <strong>{award.Festival_Section_of_Competition}</strong>
-                            {award.Country && <span> ({award.Country})</span>}
-                            {award.Date && <span className="text-muted-foreground"> - {award.Date}</span>}
-                          </li>
-                        )
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                {film.Festivals && film.Festivals.length > 0 && film.Festivals[0].Name_of_Festival && (
-                  <div>
-                    <h2 className="text-2xl font-serif mb-4">Festivals</h2>
-                    <ul className="space-y-2 text-foreground/90">
-                      {film.Festivals.map((fest, i) => (
-                        fest.Name_of_Festival && (
-                          <li key={i}>
-                            <strong>{fest.Name_of_Festival}</strong>
-                            {fest.Country && <span> ({fest.Country})</span>}
-                            {fest.Date && <span className="text-muted-foreground"> - {fest.Date}</span>}
-                          </li>
-                        )
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
-          {/* Director Bio */}
-          {film.Director_Bio?.Bio_Text && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-serif mb-4">Director Biography</h2>
-              <p className="text-foreground/90 text-justify">{film.Director_Bio.Bio_Text}</p>
-            </div>
-          )}
-
-          {/* Director Filmography */}
-          {film.Director_Filmography && film.Director_Filmography.length > 0 && (
-            <div className="mb-12">
-              <h2 className="text-2xl font-serif mb-4">Director's Filmography</h2>
-              <ul className="list-disc list-inside space-y-1 text-foreground/90">
-                {film.Director_Filmography.map((filmEntry: any, i: number) => (
-                  <li key={i}>{typeof filmEntry === 'string' ? filmEntry : JSON.stringify(filmEntry)}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          {/* Additional Metadata */}
-          {(film.Festival_Distribution_Only || film.Sales || film.Status) && (
-            <div className="mb-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {film.Festival_Distribution_Only && (
-                  <div>
-                    <h3 className="text-lg font-serif mb-2">Festival Distribution Only</h3>
-                    <p className="text-foreground/90">{film.Festival_Distribution_Only}</p>
-                  </div>
-                )}
-                {film.Sales && (
-                  <div>
-                    <h3 className="text-lg font-serif mb-2">Sales</h3>
-                    <p className="text-foreground/90">{film.Sales}</p>
-                  </div>
-                )}
-                {film.Status && (
-                  <div>
-                    <h3 className="text-lg font-serif mb-2">Status</h3>
-                    <p className="text-foreground/90">{film.Status}</p>
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
         </div>
       </main>
       
