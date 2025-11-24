@@ -28,12 +28,12 @@ export const Hero = () => {
 
           <p className="text-[13.4px] text-white/60 italic mb-6 tracking-wider" style={{ fontFamily: 'EB Garamond, serif' }}>noun</p>
 
-          <div className="space-y-3 text-white/80 leading-relaxed text-left">
-            <p className="text-[1.05em] pl-6 -indent-6">
+          <div className="text-[13px] text-white/80 leading-relaxed text-left" style={{ fontFamily: 'EB Garamond, serif' }}>
+            <p className="text-[13.4px] pl-6 -indent-6">
               <span className="font-semibold">1.</span> A person who lives and breathes the cinema
             </p>
 
-            <p className="text-[1.05em] pl-6 -indent-6">
+            <p className="text-[13.4px] pl-6 -indent-6">
               <span className="font-semibold">2.</span> A film lover; a person who is enthusiastically interested in and
               knowledgeable about cinema
             </p>
@@ -46,7 +46,14 @@ export const Hero = () => {
         <hr className="border-white/20 mt-10" />
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 lg:gap-[70px] mt-10">
+          <Button
+            asChild
+            variant="dark"
+            size="lg"
+            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
+          >
+            <a href="/news">News</a>
+          </Button>
           <Button
             asChild
             variant="dark"
@@ -61,7 +68,15 @@ export const Hero = () => {
             size="lg"
             className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
           >
-            <a href="#catalogue">Line Up</a>
+            <a href="/workshops">Workshops</a>
+          </Button>
+          <Button
+            asChild
+            variant="dark"
+            size="lg"
+            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
+          >
+            <a href="/catalogue">Line Up</a>
           </Button>
           <Button
             asChild
@@ -71,7 +86,6 @@ export const Hero = () => {
           >
             <a href="#about">About us & contact</a>
           </Button>
-        </div>
       </div>
     </section>
   );

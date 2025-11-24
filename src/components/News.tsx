@@ -37,21 +37,29 @@ export const News = () => {
   const [selectedNews, setSelectedNews] = useState<typeof newsItems[0] | null>(null);
 
   return (
-    <section id="news" className="py-16 sm:py-24 bg-white">
+    <section id="news" className="py-16 sm:py-24" style={{ backgroundColor: '#EDF0F2' }}>
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="mb-16">
           <h1 className="font-serif text-[#1c1c1c] text-5xl sm:text-6xl lg:text-7xl mb-3 font-light tracking-tight text-left">
             News
           </h1>
-          <div className="w-40 h-1 bg-border mb-12"></div>
+          <div className="w-40 h-[2px] bg-border mb-12"></div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {newsItems.slice(0, 3).map((item, index) => (
-            <button
+            <a
               key={index}
-              onClick={() => setSelectedNews(item)}
-              className="group text-left transition-all duration-300 hover:-translate-y-2"
+              href={item.link || '#'}
+              target={item.link ? "_blank" : undefined}
+              rel={item.link ? "noopener noreferrer" : undefined}
+              onClick={(e) => {
+                if (!item.link) {
+                  e.preventDefault();
+                  setSelectedNews(item);
+                }
+              }}
+              className="group text-left transition-all duration-300 hover:-translate-y-2 block"
             >
               <div className="aspect-[3/2] relative overflow-hidden rounded-sm mb-4 ring-1 ring-gray-200 group-hover:ring-[#1c1c1c] transition-all">
                 <img 
@@ -60,14 +68,14 @@ export const News = () => {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
               </div>
-              <h3 className="text-[#1c1c1c] text-xl font-serif font-bold mb-2 group-hover:text-[#666] transition-colors">
+              <h3 className="text-[#1c1c1c] text-[15px] font-bold mb-2 group-hover:text-[#666] transition-colors" style={{ fontFamily: 'Nunito, sans-serif' }}>
                 {item.title}
               </h3>
-              <p className="text-sm text-[#666] mb-3 font-medium">{item.date}</p>
-              <p className="text-base text-[#2c2c2c] leading-relaxed line-clamp-3">
+              <p className="text-[10px] text-[#666] mb-3 font-medium" style={{ fontFamily: 'Nunito, sans-serif' }}>{item.date}</p>
+              <p className="text-[13px] text-[#2c2c2c] leading-relaxed line-clamp-3" style={{ fontFamily: 'Nunito, sans-serif' }}>
                 {item.excerpt}
               </p>
-            </button>
+            </a>
           ))}
         </div>
 
