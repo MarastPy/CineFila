@@ -78,13 +78,13 @@ export default function News() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-white pt-[60px] sm:pt-[90px]">
+      <main className="min-h-screen pt-[60px] sm:pt-[90px]" style={{ backgroundColor: '#EDF0F2' }}>
         <section className="py-12 sm:py-16 md:py-24">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-[2cm]">
             <h1 className="font-serif text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 text-left">
               Latest News
             </h1>
-            <div className="w-40 h-1 bg-border mb-12"></div>
+            <div className="w-40 h-[2px] bg-border mb-12"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {visibleItems.map((item) => (
@@ -92,7 +92,7 @@ export default function News() {
                   key={item.id}
                   className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
                 >
-                  <Link to={item.link} className="block">
+                  <a href={item.link} target={item.link !== '#' ? "_blank" : undefined} rel={item.link !== '#' ? "noopener noreferrer" : undefined} className="block">
                     <div className="relative w-full pt-[66.67%] overflow-hidden bg-gray-100">
                       <img 
                         src={item.image} 
@@ -103,15 +103,15 @@ export default function News() {
                     </div>
                     
                     <div className="p-6">
-                      <h3 className="font-serif text-2xl text-gray-900 mb-3 group-hover:text-[#C5262A] transition-colors duration-300">
+                      <h3 className="text-[15px] text-gray-900 font-bold mb-3 group-hover:text-[#C5262A] transition-colors duration-300" style={{ fontFamily: 'Nunito, sans-serif' }}>
                         {item.title}
                       </h3>
-                      <p className="text-sm font-bold text-gray-500 mb-4">{item.date}</p>
-                      <p className="text-base text-gray-700 leading-relaxed line-clamp-3">
+                      <p className="text-[10px] font-medium text-gray-500 mb-4" style={{ fontFamily: 'Nunito, sans-serif' }}>{item.date}</p>
+                      <p className="text-[13px] text-gray-700 leading-relaxed line-clamp-3" style={{ fontFamily: 'Nunito, sans-serif' }}>
                         {item.excerpt}
                       </p>
                     </div>
-                  </Link>
+                  </a>
                 </article>
               ))}
             </div>
