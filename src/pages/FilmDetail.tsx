@@ -79,6 +79,54 @@ export default function FilmDetail() {
   const crew = film.Crew;
   const title = f.Title_English || f.Title_Original || 'Untitled';
   const year = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || '';
+  
+  // Calculate runtime display
+  const getRuntimeDisplay = () => {
+    if (!f.Runtime) return null;
+    
+    // Check if it's a series
+    const numSeries = parseInt(f.Number_of_series) || 0;
+    const numEpisodes = parseInt(f.Number_of_episodes) || 0;
+    
+    if (numSeries > 0 && numEpisodes > 0) {
+      // Parse runtime to get minutes per episode
+      const cleanStr = f.Runtime.trim().toLowerCase().replace(/[^0-9:]/g, '');
+      const parts = cleanStr.split(':').map(p => parseFloat(p));
+      let totalMinutes = 0;
+      
+      if (parts.length === 3) {
+        const [hours, minutes, seconds] = parts;
+        totalMinutes = (hours || 0) * 60 + (minutes || 0) + Math.round((seconds || 0) / 60);
+      } else if (parts.length === 2) {
+        const [minutes, seconds] = parts;
+        totalMinutes = (minutes || 0) + Math.round((seconds || 0) / 60);
+      } else if (parts.length === 1) {
+        totalMinutes = parts[0];
+      }
+      
+      const episodeCount = numSeries * numEpisodes;
+      return `${episodeCount} × ${Math.round(totalMinutes)} min`;
+    }
+    
+    // Standard runtime conversion
+    const cleanStr = f.Runtime.trim().toLowerCase().replace(/[^0-9:]/g, '');
+    const parts = cleanStr.split(':').map(p => parseFloat(p));
+    let totalMinutes = 0;
+    
+    if (parts.length === 3) {
+      const [hours, minutes, seconds] = parts;
+      totalMinutes = (hours || 0) * 60 + (minutes || 0) + Math.round((seconds || 0) / 60);
+    } else if (parts.length === 2) {
+      const [minutes, seconds] = parts;
+      totalMinutes = (minutes || 0) + Math.round((seconds || 0) / 60);
+    } else if (parts.length === 1) {
+      totalMinutes = parts[0];
+    }
+    
+    return `${Math.round(totalMinutes)} min`;
+  };
+  
+  const runtimeDisplay = getRuntimeDisplay();
 
   return (
     <>
@@ -100,7 +148,7 @@ export default function FilmDetail() {
             )}
             <div className="flex flex-wrap gap-4 text-sm">
               {year && <span className="font-bold">{year}</span>}
-              {f.Runtime && <span className="font-bold">{f.Runtime}</span>}
+              {runtimeDisplay && <span className="font-bold">{runtimeDisplay}</span>}
               {f.Country_of_production && <span>{f.Country_of_production}</span>}
               {f.Language_Original && <span>Language: {f.Language_Original}</span>}
             </div>
@@ -265,25 +313,8 @@ export default function FilmDetail() {
             </div>
           )}
 
-          {/* Festivals & Awards */}
+          {/* Awards & Festivals - Awards first */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            {film.Festivals && film.Festivals.length > 0 && film.Festivals[0].Name_of_Festival && (
-              <div>
-                <h3 className="text-2xl font-serif mb-3">Festivals</h3>
-                <ul className="space-y-2">
-                  {film.Festivals.map((fest, i) => (
-                    fest.Name_of_Festival && (
-                      <li key={i}>
-                        <strong>{fest.Name_of_Festival}</strong>
-                        {fest.Country && <span> ({fest.Country})</span>}
-                        {fest.Date && <span className="text-muted-foreground"> - {fest.Date}</span>}
-                      </li>
-                    )
-                  ))}
-                </ul>
-              </div>
-            )}
-
             {film.Awards && film.Awards.length > 0 && film.Awards[0].Festival_Section_of_Competition && (
               <div>
                 <h3 className="text-2xl font-serif mb-3">Awards</h3>
@@ -294,6 +325,23 @@ export default function FilmDetail() {
                         <strong>{award.Festival_Section_of_Competition}</strong>
                         {award.Country && <span> ({award.Country})</span>}
                         {award.Date && <span className="text-muted-foreground"> - {award.Date}</span>}
+                      </li>
+                    )
+                  ))}
+                </ul>
+              </div>
+            )}
+            
+            {film.Festivals && film.Festivals.length > 0 && film.Festivals[0].Name_of_Festival && (
+              <div>
+                <h3 className="text-2xl font-serif mb-3">Festivals</h3>
+                <ul className="space-y-2">
+                  {film.Festivals.map((fest, i) => (
+                    fest.Name_of_Festival && (
+                      <li key={i}>
+                        <strong>{fest.Name_of_Festival}</strong>
+                        {fest.Country && <span> ({fest.Country})</span>}
+                        {fest.Date && <span className="text-muted-foreground"> - {fest.Date}</span>}
                       </li>
                     )
                   ))}

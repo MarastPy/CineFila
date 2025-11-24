@@ -7,13 +7,13 @@
 @layer base {
   :root {
     --background: 0 0% 17%;
-    --foreground: 0 0% 100%;
+    --foreground: 0 0% 85%;
 
     --card: 0 0% 20%;
-    --card-foreground: 0 0% 100%;
+    --card-foreground: 0 0% 85%;
 
     --popover: 0 0% 20%;
-    --popover-foreground: 0 0% 100%;
+    --popover-foreground: 0 0% 85%;
 
     --primary: 358 68% 46%;
     --primary-foreground: 0 0% 100%;
@@ -35,6 +35,11 @@
     --ring: 358 68% 46%;
 
     --radius: 0;
+    
+    /* Custom colors */
+    --text-grey: 0 0% 85%;
+    --bg-black: 0 0% 17%;
+    --bg-grey: 210 18% 93%;
   }
 }
 
@@ -50,10 +55,16 @@
     font-family: 'Nunito', sans-serif;
     @apply bg-background text-foreground;
     line-height: 1.6;
+    font-size: 13px;
   }
 
   h1, h2, h3 {
     font-family: 'EB Garamond', serif;
+    font-weight: 600;
+  }
+  
+  h1 {
+    font-size: 45px;
   }
 
   p {

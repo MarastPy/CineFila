@@ -192,13 +192,20 @@ export default function Catalogue() {
 
       const title = (f.Title_English || f.Title_Original || "").toLowerCase();
       const originalTitle = (f.Title_Original || "").toLowerCase();
-      const logline = (film.Logline || "").toLowerCase();
+      const filmYear = (f.Date_of_completion || "").toLowerCase();
+      const language = (f.Language_Original || "").toLowerCase();
       const director = (crew["Director(s)"] || "").toLowerCase();
+      const producer = (film.Production_Company?.Name || "").toLowerCase();
+      const themes = (f.Keywords || "").toLowerCase();
+      const country = (f.Country_of_production || "").toLowerCase();
+      const targetGroup = (f.Target_Group?.Audience || "").toLowerCase();
+      const festivals = (film.Festivals || []).map(fest => fest.Name_of_Festival || "").join(" ").toLowerCase();
+      const awards = (film.Awards || []).map(award => award.Festival_Section_of_Competition || "").join(" ").toLowerCase();
       const search = searchTerm.toLowerCase();
 
       const genres = f.Genre_List?.map((g) => g.toLowerCase()) || [];
       const runtimeCategory = getRoundedRuntime(f.Runtime);
-      const filmYear = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || "";
+      const yearMatch = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || "";
       const filmAudience = f.Target_Group?.Audience?.toLowerCase() || "";
       const filmKeywords = f.Keywords ? f.Keywords.split(",").map((k) => k.trim().toLowerCase()) : [];
 
@@ -206,10 +213,18 @@ export default function Catalogue() {
         (!searchTerm ||
           title.includes(search) ||
           originalTitle.includes(search) ||
-          logline.includes(search) ||
-          director.includes(search)) &&
+          filmYear.includes(search) ||
+          language.includes(search) ||
+          director.includes(search) ||
+          producer.includes(search) ||
+          themes.includes(search) ||
+          genres.join(" ").includes(search) ||
+          country.includes(search) ||
+          targetGroup.includes(search) ||
+          festivals.includes(search) ||
+          awards.includes(search)) &&
         (genre === "all" || !genre || genres.includes(genre.toLowerCase())) &&
-        (year === "all" || !year || filmYear === year) &&
+        (year === "all" || !year || yearMatch === year) &&
         (length === "all" || !length || runtimeCategory === length) &&
         (audience === "all" || !audience || filmAudience === audience.toLowerCase()) &&
         (keywords === "all" || !keywords || filmKeywords.includes(keywords.toLowerCase()))
@@ -274,7 +289,7 @@ export default function Catalogue() {
             <div className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto">
               <Input
                 type="text"
-                placeholder="Search by title, director, synopsis…"
+                placeholder="Search by title, director, festivals…"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="flex-1 bg-card border-border"
@@ -322,10 +337,22 @@ export default function Catalogue() {
                   <SelectValue placeholder="Length" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="all">All Lengths</SelectItem>
-                  <SelectItem value="short">Short (under 40 min)</SelectItem>
-                  <SelectItem value="mid-length">Mid-length (40-70 min)</SelectItem>
-                  <SelectItem value="full-length">Full-length (over 70 min)</SelectItem>
+                  {filterOptions.lengths.length === 0 ? (
+                    <SelectItem value="all">All Lengths</SelectItem>
+                  ) : (
+                    <>
+                      {filterOptions.lengths.length > 1 && <SelectItem value="all">All Lengths</SelectItem>}
+                      {filterOptions.lengths.includes("short") && (
+                        <SelectItem value="short">Short (under 40 min)</SelectItem>
+                      )}
+                      {filterOptions.lengths.includes("mid-length") && (
+                        <SelectItem value="mid-length">Mid-length (40-70 min)</SelectItem>
+                      )}
+                      {filterOptions.lengths.includes("full-length") && (
+                        <SelectItem value="full-length">Full-length (over 70 min)</SelectItem>
+                      )}
+                    </>
+                  )}
                 </SelectContent>
               </Select>
 
