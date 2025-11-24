@@ -85,96 +85,10 @@ export default function Catalogue() {
   const [visibleCount, setVisibleCount] = useState(15);
 
   // Extract unique filter options based on currently filtered films (cascading)
+
+  // Extract unique filter options based on currently filtered films (cascading)
   const filterOptions = useMemo(() => {
-    const currentFilters = {
-      searchTerm,
-      genre,
-      year,
-      length,
-      audience,
-      keywords,
-    };
-
-    // Helper function to get films matching all filters EXCEPT the specified one
-    const getRelevantFilmsForFilter = (excludeFilterKey: keyof typeof currentFilters) => {
-      return allFilms.filter((film) => {
-        const f = film.Film;
-        const crew = film.Crew;
-
-        const title = (f.Title_English || f.Title_Original || "").toLowerCase();
-        const originalTitle = (f.Title_Original || "").toLowerCase();
-        const logline = (film.Logline || "").toLowerCase();
-        const director = (crew["Director(s)"] || "").toLowerCase();
-        const search = searchTerm.toLowerCase();
-
-        const genres = f.Genre_List?.map((g) => g.toLowerCase()) || [];
-        const runtimeCategory = getRoundedRuntime(f.Runtime);
-        const filmYear = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || "";
-        const filmAudience = f.Target_Group?.Audience?.toLowerCase() || "";
-        const filmKeywords = f.Keywords ? f.Keywords.split(",").map((k) => k.trim().toLowerCase()) : [];
-
-        return (
-          (excludeFilterKey === "searchTerm" ||
-            !searchTerm ||
-            title.includes(search) ||
-            originalTitle.includes(search) ||
-            logline.includes(search) ||
-            director.includes(search)) &&
-          (excludeFilterKey === "genre" || genre === "all" || !genre || genres.includes(genre.toLowerCase())) &&
-          (excludeFilterKey === "year" || year === "all" || !year || filmYear === year) &&
-          (excludeFilterKey === "length" || length === "all" || !length || runtimeCategory === length) &&
-          (excludeFilterKey === "audience" ||
-            audience === "all" ||
-            !audience ||
-            filmAudience === audience.toLowerCase()) &&
-          (excludeFilterKey === "keywords" ||
-            keywords === "all" ||
-            !keywords ||
-            filmKeywords.includes(keywords.toLowerCase()))
-        );
-      });
-    };
-
-    // Get unique options for each filter
-    const genreFilms = getRelevantFilmsForFilter("genre");
-    const yearFilms = getRelevantFilmsForFilter("year");
-    const lengthFilms = getRelevantFilmsForFilter("length");
-    const audienceFilms = getRelevantFilmsForFilter("audience");
-    const keywordFilms = getRelevantFilmsForFilter("keywords");
-
-    const genres = new Set<string>();
-    const years = new Set<string>();
-    const lengths = new Set<string>();
-    const audiences = new Set<string>();
-    const keywordsList = new Set<string>();
-
-    genreFilms.forEach((film) => {
-      film.Film.Genre_List?.forEach((g) => genres.add(g.trim()));
-    });
-
-    yearFilms.forEach((film) => {
-      const yearMatch = film.Film.Date_of_completion?.match(/\b\d{4}\b/);
-      if (yearMatch) years.add(yearMatch[0]);
-    });
-
-    lengthFilms.forEach((film) => {
-      const len = getRoundedRuntime(film.Film.Runtime);
-      if (len) lengths.add(len);
-    });
-
-    audienceFilms.forEach((film) => {
-      if (film.Film.Target_Group?.Audience) audiences.add(film.Film.Target_Group.Audience.trim());
-    });
-
-    keywordFilms.forEach((film) => {
-      if (film.Film.Keywords) {
-        film.Film.Keywords.split(",").forEach((k) => {
-          const trimmed = k.trim();
-          if (trimmed) keywordsList.add(trimmed);
-        });
-      }
-    });
-
+...
     return {
       genres: Array.from(genres).sort(),
       years: Array.from(years).sort((a, b) => parseInt(b) - parseInt(a)),
@@ -183,6 +97,13 @@ export default function Catalogue() {
       keywords: Array.from(keywordsList).sort(),
     };
   }, [allFilms, searchTerm, genre, year, length, audience, keywords]);
+  
+  // Auto-select single option for length filter
+  useEffect(() => {
+    if (filterOptions.lengths.length === 1 && length === "all") {
+      setLength(filterOptions.lengths[0]);
+    }
+  }, [filterOptions.lengths, length]);
 
   // Filter films for display
   const filteredFilms = useMemo(() => {
