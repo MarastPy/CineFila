@@ -1,17 +1,20 @@
-import { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import { useFilms } from '@/hooks/useFilms';
-import { Film } from '@/types/film';
-import { Header } from '@/components/Header';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
-import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
-import { getFilmPosterPath, getFilmStillPaths, getPlaceholderImage } from '@/utils/imageHelpers';
+import { useEffect, useState } from "react";
+import { useParams, Link } from "react-router-dom";
+import { useFilms } from "@/hooks/useFilms";
+import { Film } from "@/types/film";
+import { Header } from "@/components/Header";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import { getFilmPosterPath, getFilmStillPaths, getPlaceholderImage } from "@/utils/imageHelpers";
 
 const getFilmSlug = (film: Film): string => {
   const title = film.Film.Title_English || film.Film.Title_Original;
-  return title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
 };
 
 const parseRuntimeToMinutes = (runtimeString: string): number | null => {
@@ -20,9 +23,9 @@ const parseRuntimeToMinutes = (runtimeString: string): number | null => {
   const cleanStr = runtimeString
     .trim()
     .toLowerCase()
-    .replace(/[^0-9:]/g, '');
+    .replace(/[^0-9:]/g, "");
   let totalMinutes = 0;
-  const parts = cleanStr.split(':').map(p => parseFloat(p));
+  const parts = cleanStr.split(":").map((p) => parseFloat(p));
 
   if (parts.length === 3) {
     const [hours, minutes, seconds] = parts;
@@ -30,7 +33,7 @@ const parseRuntimeToMinutes = (runtimeString: string): number | null => {
   } else if (parts.length === 2) {
     const [minutes, seconds] = parts;
     totalMinutes = (minutes || 0) + (seconds || 0) / 60;
-  } else if (parts.length === 1 && cleanStr !== '') {
+  } else if (parts.length === 1 && cleanStr !== "") {
     totalMinutes = parts[0];
   } else {
     return null;
@@ -42,21 +45,21 @@ const parseRuntimeToMinutes = (runtimeString: string): number | null => {
 
 const formatRuntime = (film: Film): string => {
   const f = film.Film;
-  
+
   // Check if it's a series
-  const numSeries = parseInt(f.Number_of_series || '0');
-  const numEpisodes = parseInt(f.Number_of_episodes || '0');
-  
+  const numSeries = parseInt(f.Number_of_series || "0");
+  const numEpisodes = parseInt(f.Number_of_episodes || "0");
+
   if (numSeries > 0 && numEpisodes > 0) {
     const episodeRuntime = parseRuntimeToMinutes(f.Runtime);
     if (episodeRuntime) {
       return `${numSeries * numEpisodes} × ${episodeRuntime} min`;
     }
   }
-  
+
   // Regular film
   const minutes = parseRuntimeToMinutes(f.Runtime);
-  return minutes ? `${minutes} min` : f.Runtime || '';
+  return minutes ? `${minutes} min` : f.Runtime || "";
 };
 
 export default function FilmDetail() {
@@ -68,9 +71,9 @@ export default function FilmDetail() {
 
   useEffect(() => {
     if (!loading && allFilms.length > 0 && slug) {
-      const foundFilm = allFilms.find(f => getFilmSlug(f) === slug);
+      const foundFilm = allFilms.find((f) => getFilmSlug(f) === slug);
       setFilm(foundFilm || null);
-      
+
       if (foundFilm) {
         const poster = getFilmPosterPath(foundFilm);
         const stills = getFilmStillPaths(foundFilm);
@@ -122,8 +125,8 @@ export default function FilmDetail() {
 
   const f = film.Film;
   const crew = film.Crew;
-  const title = f.Title_English || f.Title_Original || 'Untitled';
-  const year = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || '';
+  const title = f.Title_English || f.Title_Original || "Untitled";
+  const year = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || "";
 
   return (
     <>
@@ -144,9 +147,9 @@ export default function FilmDetail() {
               <p className="text-xl italic text-muted-foreground mb-2">{f.Title_Original}</p>
             )}
             <div className="flex flex-wrap gap-4 text-sm">
-              {year && <span className="font-bold">{year}</span>}
-              {f.Runtime && <span className="font-bold">{formatRuntime(film)}</span>}
-              {f.Country_of_production && <span>{f.Country_of_production}</span>}
+              {year && <span className="font-bold">{year}</span>} |
+              {f.Runtime && <span className="font-bold">{formatRuntime(film)}</span>} |
+              {f.Country_of_production && <span>{f.Country_of_production}</span>} |
               {f.Language_Original && <span>Language: {f.Language_Original}</span>}
             </div>
           </div>
@@ -157,12 +160,12 @@ export default function FilmDetail() {
           <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 mb-8">
             {/* Left column - Poster and Stills */}
             <div>
-              <div 
+              <div
                 className="aspect-[2/3] bg-muted rounded-lg overflow-hidden mb-4 cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => setSelectedImageIndex(0)}
               >
-                <img 
-                  src={getFilmPosterPath(film)} 
+                <img
+                  src={getFilmPosterPath(film)}
                   alt={`${title} poster`}
                   className="w-full h-full object-cover"
                   onError={(e) => {
@@ -170,20 +173,20 @@ export default function FilmDetail() {
                   }}
                 />
               </div>
-              
+
               {/* Stills Gallery */}
               {getFilmStillPaths(film).length > 0 && (
                 <div>
                   <h3 className="text-lg font-serif mb-3">Film Stills</h3>
                   <div className="grid grid-cols-3 gap-2">
                     {getFilmStillPaths(film).map((stillPath, idx) => (
-                      <div 
+                      <div
                         key={idx}
                         className="aspect-video bg-muted rounded overflow-hidden cursor-pointer hover:opacity-75 transition-opacity"
                         onClick={() => setSelectedImageIndex(idx + 1)}
                       >
-                        <img 
-                          src={stillPath} 
+                        <img
+                          src={stillPath}
                           alt={`${title} still ${idx + 1}`}
                           className="w-full h-full object-cover"
                           onError={(e) => {
@@ -195,7 +198,7 @@ export default function FilmDetail() {
                   </div>
                 </div>
               )}
-              
+
               {film.Trailer_url && (
                 <Button asChild className="w-full mt-4">
                   <a href={film.Trailer_url} target="_blank" rel="noopener noreferrer">
@@ -239,7 +242,9 @@ export default function FilmDetail() {
                   <h3 className="text-xl font-serif mb-2">Genres</h3>
                   <div className="flex flex-wrap gap-2">
                     {f.Genre_List.map((g, i) => (
-                      <Badge key={i} variant="secondary">{g}</Badge>
+                      <Badge key={i} variant="secondary">
+                        {g}
+                      </Badge>
                     ))}
                   </div>
                 </div>
@@ -274,8 +279,16 @@ export default function FilmDetail() {
                 <div>
                   <h3 className="text-xl font-serif mb-2">Target Group</h3>
                   <div className="space-y-1">
-                    {f.Target_Group.Rating && <p><span className="font-semibold">Rating:</span> {f.Target_Group.Rating}</p>}
-                    {f.Target_Group.Audience && <p><span className="font-semibold">Audience:</span> {f.Target_Group.Audience}</p>}
+                    {f.Target_Group.Rating && (
+                      <p>
+                        <span className="font-semibold">Rating:</span> {f.Target_Group.Rating}
+                      </p>
+                    )}
+                    {f.Target_Group.Audience && (
+                      <p>
+                        <span className="font-semibold">Audience:</span> {f.Target_Group.Audience}
+                      </p>
+                    )}
                   </div>
                 </div>
               )}
@@ -291,55 +304,67 @@ export default function FilmDetail() {
               <hr className="border-border" />
 
               {/* Crew section */}
-              {(crew['Director(s)'] || crew['Screenplay_writer(s)'] || crew['Director(s)_of_Photography'] || 
-                crew['Editor(s)'] || crew['Music_composer(s)'] || crew['Sound_director(s)'] || 
-                crew['Art_director(s)'] || film.Producer_Representative || film.Production_Company) && (
+              {(crew["Director(s)"] ||
+                crew["Screenplay_writer(s)"] ||
+                crew["Director(s)_of_Photography"] ||
+                crew["Editor(s)"] ||
+                crew["Music_composer(s)"] ||
+                crew["Sound_director(s)"] ||
+                crew["Art_director(s)"] ||
+                film.Producer_Representative ||
+                film.Production_Company) && (
                 <div>
                   <h2 className="text-2xl font-serif mb-4">Crew</h2>
                   <div className="space-y-2">
-                    {crew['Director(s)'] && (
+                    {crew["Director(s)"] && (
                       <div>
-                        <span className="font-semibold">Director:</span> {crew['Director(s)']}
+                        <span className="font-semibold">Director:</span> {crew["Director(s)"]}
                       </div>
                     )}
-                    {crew['Screenplay_writer(s)'] && (
+                    {crew["Screenplay_writer(s)"] && (
                       <div>
-                        <span className="font-semibold">Writer:</span> {crew['Screenplay_writer(s)']}
+                        <span className="font-semibold">Writer:</span> {crew["Screenplay_writer(s)"]}
                       </div>
                     )}
-                    {crew['Director(s)_of_Photography'] && (
+                    {crew["Director(s)_of_Photography"] && (
                       <div>
-                        <span className="font-semibold">Cinematographer:</span> {crew['Director(s)_of_Photography']}
+                        <span className="font-semibold">Cinematographer:</span> {crew["Director(s)_of_Photography"]}
                       </div>
                     )}
-                    {crew['Editor(s)'] && (
+                    {crew["Editor(s)"] && (
                       <div>
-                        <span className="font-semibold">Editor:</span> {crew['Editor(s)']}
+                        <span className="font-semibold">Editor:</span> {crew["Editor(s)"]}
                       </div>
                     )}
-                    {crew['Music_composer(s)'] && (
+                    {crew["Music_composer(s)"] && (
                       <div>
-                        <span className="font-semibold">Music Composer:</span> {crew['Music_composer(s)']}
+                        <span className="font-semibold">Music Composer:</span> {crew["Music_composer(s)"]}
                       </div>
                     )}
-                    {crew['Sound_director(s)'] && (
+                    {crew["Sound_director(s)"] && (
                       <div>
-                        <span className="font-semibold">Sound Director:</span> {crew['Sound_director(s)']}
+                        <span className="font-semibold">Sound Director:</span> {crew["Sound_director(s)"]}
                       </div>
                     )}
-                    {crew['Art_director(s)'] && (
+                    {crew["Art_director(s)"] && (
                       <div>
-                        <span className="font-semibold">Art Director:</span> {crew['Art_director(s)']}
+                        <span className="font-semibold">Art Director:</span> {crew["Art_director(s)"]}
                       </div>
                     )}
                     {film.Producer_Representative && (
                       <div>
-                        <span className="font-semibold">Producer:</span> {typeof film.Producer_Representative === 'string' ? film.Producer_Representative : JSON.stringify(film.Producer_Representative)}
+                        <span className="font-semibold">Producer:</span>{" "}
+                        {typeof film.Producer_Representative === "string"
+                          ? film.Producer_Representative
+                          : JSON.stringify(film.Producer_Representative)}
                       </div>
                     )}
                     {film.Production_Company && (
                       <div>
-                        <span className="font-semibold">Company:</span> {typeof film.Production_Company === 'string' ? film.Production_Company : JSON.stringify(film.Production_Company)}
+                        <span className="font-semibold">Company:</span>{" "}
+                        {typeof film.Production_Company === "string"
+                          ? film.Production_Company
+                          : JSON.stringify(film.Production_Company)}
                       </div>
                     )}
                   </div>
@@ -352,15 +377,18 @@ export default function FilmDetail() {
                   <h2 className="text-2xl font-serif mb-4">Cast</h2>
                   <ul className="list-disc list-inside space-y-1 text-foreground/90">
                     {crew.Cast.map((actor: any, i: number) => (
-                      <li key={i}>{typeof actor === 'string' ? actor : JSON.stringify(actor)}</li>
+                      <li key={i}>{typeof actor === "string" ? actor : JSON.stringify(actor)}</li>
                     ))}
                   </ul>
                 </div>
               )}
 
               {/* Tech Specs */}
-              {(f.Runtime || film.Technical_Details?.Sound_mix || film.Technical_Details?.Aspect_ratio || 
-                film.Technical_Details?.Color || f.Date_of_completion) && (
+              {(f.Runtime ||
+                film.Technical_Details?.Sound_mix ||
+                film.Technical_Details?.Aspect_ratio ||
+                film.Technical_Details?.Color ||
+                f.Date_of_completion) && (
                 <div>
                   <h2 className="text-2xl font-serif mb-4">Tech Specs</h2>
                   <div className="space-y-2">
@@ -398,33 +426,35 @@ export default function FilmDetail() {
                 <div>
                   <h2 className="text-2xl font-serif mb-4">Awards</h2>
                   <ul className="space-y-2 text-foreground/90">
-                    {film.Awards.map((award, i) => (
-                      award.Festival_Section_of_Competition && (
-                        <li key={i}>
-                          <strong>{award.Festival_Section_of_Competition}</strong>
-                          {award.Country && <span> ({award.Country})</span>}
-                          {award.Date && <span className="text-muted-foreground"> - {award.Date}</span>}
-                        </li>
-                      )
-                    ))}
+                    {film.Awards.map(
+                      (award, i) =>
+                        award.Festival_Section_of_Competition && (
+                          <li key={i}>
+                            <strong>{award.Festival_Section_of_Competition}</strong>
+                            {award.Country && <span> ({award.Country})</span>}
+                            {award.Date && <span className="text-muted-foreground"> - {award.Date}</span>}
+                          </li>
+                        ),
+                    )}
                   </ul>
                 </div>
               )}
-              
+
               {/* Festivals */}
               {film.Festivals && film.Festivals.length > 0 && film.Festivals[0].Name_of_Festival && (
                 <div>
                   <h2 className="text-2xl font-serif mb-4">Festivals</h2>
                   <ul className="space-y-2 text-foreground/90">
-                    {film.Festivals.map((fest, i) => (
-                      fest.Name_of_Festival && (
-                        <li key={i}>
-                          <strong>{fest.Name_of_Festival}</strong>
-                          {fest.Country && <span> ({fest.Country})</span>}
-                          {fest.Date && <span className="text-muted-foreground"> - {fest.Date}</span>}
-                        </li>
-                      )
-                    ))}
+                    {film.Festivals.map(
+                      (fest, i) =>
+                        fest.Name_of_Festival && (
+                          <li key={i}>
+                            <strong>{fest.Name_of_Festival}</strong>
+                            {fest.Country && <span> ({fest.Country})</span>}
+                            {fest.Date && <span className="text-muted-foreground"> - {fest.Date}</span>}
+                          </li>
+                        ),
+                    )}
                   </ul>
                 </div>
               )}
@@ -443,7 +473,7 @@ export default function FilmDetail() {
                   <h2 className="text-2xl font-serif mb-4">Director's Filmography</h2>
                   <ul className="list-disc list-inside space-y-1 text-foreground/90">
                     {film.Director_Filmography.map((filmEntry: any, i: number) => (
-                      <li key={i}>{typeof filmEntry === 'string' ? filmEntry : JSON.stringify(filmEntry)}</li>
+                      <li key={i}>{typeof filmEntry === "string" ? filmEntry : JSON.stringify(filmEntry)}</li>
                     ))}
                   </ul>
                 </div>
@@ -476,27 +506,27 @@ export default function FilmDetail() {
           </div>
         </div>
       </main>
-      
+
       {/* Image Gallery Dialog */}
       <Dialog open={selectedImageIndex !== null} onOpenChange={() => setSelectedImageIndex(null)}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] p-0">
           <div className="relative w-full h-full flex items-center justify-center bg-black">
             {selectedImageIndex !== null && allImages[selectedImageIndex] && (
               <>
-                <img 
-                  src={allImages[selectedImageIndex]} 
+                <img
+                  src={allImages[selectedImageIndex]}
                   alt={`${title} - Image ${selectedImageIndex + 1}`}
                   className="max-w-full max-h-[90vh] object-contain"
                 />
-                
+
                 {/* Navigation buttons */}
                 {allImages.length > 1 && (
                   <>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedImageIndex((prev) => 
-                          prev === null ? null : (prev === 0 ? allImages.length - 1 : prev - 1)
+                        setSelectedImageIndex((prev) =>
+                          prev === null ? null : prev === 0 ? allImages.length - 1 : prev - 1,
                         );
                       }}
                       className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors"
@@ -504,12 +534,12 @@ export default function FilmDetail() {
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </button>
-                    
+
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
-                        setSelectedImageIndex((prev) => 
-                          prev === null ? null : (prev === allImages.length - 1 ? 0 : prev + 1)
+                        setSelectedImageIndex((prev) =>
+                          prev === null ? null : prev === allImages.length - 1 ? 0 : prev + 1,
                         );
                       }}
                       className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-colors"
@@ -517,7 +547,7 @@ export default function FilmDetail() {
                     >
                       <ChevronRight className="w-6 h-6" />
                     </button>
-                    
+
                     {/* Image counter */}
                     <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-full text-sm">
                       {selectedImageIndex + 1} / {allImages.length}
