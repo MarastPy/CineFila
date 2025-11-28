@@ -68,6 +68,7 @@ export default function FilmDetail() {
   const [film, setFilm] = useState<Film | null>(null);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
   const [allImages, setAllImages] = useState<string[]>([]);
+  const [isTrailerOpen, setIsTrailerOpen] = useState(false);
 
   useEffect(() => {
     if (!loading && allFilms.length > 0 && slug) {
@@ -200,10 +201,8 @@ export default function FilmDetail() {
               )}
 
               {film.Trailer_url && (
-                <Button asChild className="w-full mt-4">
-                  <a href={film.Trailer_url} target="_blank" rel="noopener noreferrer">
-                    Watch Trailer
-                  </a>
+                <Button onClick={() => setIsTrailerOpen(true)} className="w-full mt-4">
+                  Watch Trailer
                 </Button>
               )}
 
@@ -559,6 +558,23 @@ export default function FilmDetail() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Trailer Dialog */}
+      {film?.Trailer_url && (
+        <Dialog open={isTrailerOpen} onOpenChange={setIsTrailerOpen}>
+          <DialogContent className="max-w-4xl p-0">
+            <div className="aspect-video w-full bg-black">
+              <iframe
+                src={film.Trailer_url.replace('vimeo.com/', 'player.vimeo.com/video/')}
+                className="w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Film Trailer"
+              />
+            </div>
+          </DialogContent>
+        </Dialog>
+      )}
     </>
   );
 }
