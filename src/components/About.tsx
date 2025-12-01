@@ -84,7 +84,7 @@ export const About = () => {
                   
                   <div className="space-y-4 pt-4">
                     {member.bio.map((paragraph, pIndex) => (
-                      <p key={pIndex} className="text-[#2c2c2c] font-nunito text-[13px] leading-relaxed text-justify font-light">
+                      <p key={pIndex} className="text-[#2c2c2c] font-nunito text-[17px] leading-relaxed text-justify font-light">
                         {paragraph}
                       </p>
                     ))}

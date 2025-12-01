@@ -13,7 +13,7 @@ const Workshops = () => {
           <div className="w-40 h-[2px] bg-gray-400 mb-12"></div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10 text-[#222]">
-            <div className="text-justify font-nunito text-[13px]">
+            <div className="text-justify font-nunito text-[17px]">
               <h2 className="font-serif text-[1.5em] mb-4">Festival Distribution & Strategy</h2>
               <p className="mb-4">Our workshops are designed for filmmakers, students, and cultural professionals who want to master the art of festival distribution. We cover everything from selecting the right festivals to preparing compelling promotional materials and navigating the entire festival lifecycle.</p>
               <p className="mb-4">Through interactive sessions and practical exercises, participants gain insider knowledge about:</p>

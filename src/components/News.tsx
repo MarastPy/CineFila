@@ -69,7 +69,7 @@ export const News = () => {
                 {item.title}
               </h3>
               <p className="font-nunito text-[10px] text-[#666] mb-3 font-medium">{item.date}</p>
-              <p className="font-nunito text-[13px] text-[#2c2c2c] leading-relaxed line-clamp-3">{item.excerpt}</p>
+              <p className="font-nunito text-[17px] text-[#2c2c2c] leading-relaxed line-clamp-3">{item.excerpt}</p>
             </a>
           ))}
         </div>
@@ -77,7 +77,7 @@ export const News = () => {
         <div className="text-center">
           <a
             href="/news"
-            className="inline-block py-3 px-8 rounded-sm transition-all duration-300 font-nunito text-[13px] font-medium border border-[#1c1c1c] bg-transparent text-[#1c1c1c] hover:bg-[#1c1c1c] hover:text-white"
+            className="inline-block py-3 px-8 rounded-sm transition-all duration-300 font-nunito text-[17px] font-medium border border-[#1c1c1c] bg-transparent text-[#1c1c1c] hover:bg-[#1c1c1c] hover:text-white"
           >
             Read More News
           </a>
