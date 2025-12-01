@@ -42,8 +42,8 @@ const getFilmSlug = (film: Film): string => {
 export const Catalogue = () => {
   const { allFilms, loading, error } = useFilms();
 
-  // Show top 3 films for preview on index page
-  const topFilms = allFilms.slice(0, 3);
+  // Show top 9 films for preview on index page
+  const topFilms = allFilms.slice(0, 9);
   return (
     <section id="catalogue" className="py-12 sm:py-16 px-4 sm:px-8">
       <div className="max-w-[1200px] mx-auto">
