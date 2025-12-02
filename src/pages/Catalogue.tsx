@@ -417,11 +417,6 @@ export default function Catalogue() {
                           />
                         </div>
                         <div className="p-5 flex flex-col flex-grow">
-                          <h3 className="font-nunito text-2xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                            {f.Title_Original || title} {exactMinutes && `| ${exactMinutes} min`}{" "}
-                            {filmYear && `| ${filmYear}`}
-                          </h3>
-                          <p className="text-sm mb-2">by {director}</p>
                           <p className="text-sm text-foreground/80 line-clamp-3 mb-2 flex-grow min-h-[3.6rem]">
                             {film.Logline}
                           </p>
