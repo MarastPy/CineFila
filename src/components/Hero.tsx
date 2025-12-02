@@ -11,7 +11,7 @@ export const Hero = () => {
           className="max-w-[250px] h-auto mx-auto mb-5 block"
         />
 
-        <h2 className="font-nunito text-[17px] mb-10 text-[#D9D9D9] font-normal">
+        <h2 className="font-nunito text-[20px] mb-10 text-[#D9D9D9] font-normal">
           Festival strategy | Sales | Distribution
         </h2>
 
