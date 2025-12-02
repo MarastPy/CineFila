@@ -22,13 +22,13 @@ export const Hero = () => {
           {/* Opening quotation mark */}
           <div className="absolute -left-9 -top-4 text-[7em] text-[#D9D9D9]/50 font-garamond leading-none">“</div>
 
-          <p className="font-garamond text-[13.4px] text-[#D9D9D9] tracking-wide mb-4">
+          <p className="font-garamond text-[14.0px] text-[#D9D9D9] tracking-wide mb-4">
             cinefila / cinefil / cinéphile / cineast / cinéfilo / σινεφίλ / シネフィル /
           </p>
 
           <p className="font-garamond text-[13.4px] text-[#D9D9D9]/60 italic mb-6 tracking-wider">noun</p>
 
-          <div className="space-y-3 text-[#D9D9D9] leading-relaxed text-left font-garamond text-[14.4px]">
+          <div className="space-y-3 text-[#D9D9D9] leading-relaxed text-left font-garamond text-[14.0px]">
             <p className="pl-6 -indent-6">
               <span className="font-semibold">1.</span> A person who lives and breathes the cinema
             </p>
