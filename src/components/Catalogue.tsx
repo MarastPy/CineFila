@@ -68,7 +68,7 @@ export const Catalogue = () => {
                 <div className="bg-card rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105 h-full flex flex-col">
                   <div className="aspect-video bg-muted relative overflow-hidden flex-shrink-0">
                     <img
-                      src={getFilmStillPathsPath(film, 1)}
+                      src={getFilmStillPaths(film, 1)[0]}
                       alt={title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       onError={(e) => {
