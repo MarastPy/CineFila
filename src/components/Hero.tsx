@@ -46,12 +46,12 @@ export const Hero = () => {
         <hr className="border-white/20 border-t-2 mt-10" />
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-8 lg:gap-[70px] mt-10">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6 lg:gap-8 mt-10 flex-wrap">
           <Button
             asChild
             variant="dark"
             size="lg"
-            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
+            className="w-full sm:w-[180px] lg:w-[200px] h-[60px] sm:h-[70px] text-base font-bold"
           >
             <a href="#whatcanwedo">What can we do for you</a>
           </Button>
@@ -59,7 +59,7 @@ export const Hero = () => {
             asChild
             variant="dark"
             size="lg"
-            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
+            className="w-full sm:w-[180px] lg:w-[200px] h-[60px] sm:h-[70px] text-base font-bold"
           >
             <a href="#catalogue">Line Up</a>
           </Button>
@@ -67,7 +67,23 @@ export const Hero = () => {
             asChild
             variant="dark"
             size="lg"
-            className="w-full sm:w-[200px] lg:w-[220px] h-[60px] sm:h-[70px] text-base font-bold"
+            className="w-full sm:w-[180px] lg:w-[200px] h-[60px] sm:h-[70px] text-base font-bold"
+          >
+            <a href="#news">News</a>
+          </Button>
+          <Button
+            asChild
+            variant="dark"
+            size="lg"
+            className="w-full sm:w-[180px] lg:w-[200px] h-[60px] sm:h-[70px] text-base font-bold"
+          >
+            <a href="/workshops">Workshops</a>
+          </Button>
+          <Button
+            asChild
+            variant="dark"
+            size="lg"
+            className="w-full sm:w-[180px] lg:w-[200px] h-[60px] sm:h-[70px] text-base font-bold"
           >
             <a href="#about">About us & contact</a>
           </Button>

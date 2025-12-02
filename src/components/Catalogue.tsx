@@ -45,7 +45,7 @@ export const Catalogue = () => {
   // Show top 9 films for preview on index page
   const topFilms = allFilms.slice(0, 9);
   return (
-    <section id="catalogue" className="py-12 sm:py-16 px-4 sm:px-8">
+    <section id="catalogue" className="py-12 sm:py-16 px-4 sm:px-8 scroll-mt-[90px]">
       <div className="max-w-[1200px] mx-auto">
           <h1 className="font-garamond text-[45px] mb-4 text-left font-bold">
             Line Up Preview

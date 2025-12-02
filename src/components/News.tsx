@@ -42,7 +42,7 @@ const newsItems = [
 
 export const News = () => {
   return (
-    <section id="news" className="py-16 sm:py-24" style={{ backgroundColor: "#FFFFFF" }}>
+    <section id="news" className="py-16 sm:py-24 scroll-mt-[90px]" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="mb-16">
           <h1 className="font-garamond text-[45px] text-[#1c1c1c] mb-3 font-bold tracking-tight text-left">News</h1>
