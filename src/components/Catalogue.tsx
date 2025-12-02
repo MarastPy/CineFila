@@ -3,7 +3,7 @@ import { Film } from "@/types/film";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { getFilmPosterPath, getPlaceholderImage } from "@/utils/imageHelpers";
+import { getFilmPosterPath, getPlaceholderImage, getFilmStillPaths } from "@/utils/imageHelpers";
 
 const parseRuntimeToMinutes = (runtimeString: string): number | null => {
   if (!runtimeString) return null;
@@ -68,7 +68,7 @@ export const Catalogue = () => {
                 <div className="bg-card rounded-lg overflow-hidden shadow-lg transition-transform hover:scale-105 h-full flex flex-col">
                   <div className="aspect-video bg-muted relative overflow-hidden flex-shrink-0">
                     <img
-                      src={getFilmPosterPath(film)}
+                      src={getFilmStillPathsPath(film, 1)}
                       alt={title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       onError={(e) => {
