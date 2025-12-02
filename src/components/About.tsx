@@ -33,7 +33,7 @@ const teamMembers = [
 
 export const About = () => {
   return (
-    <section id="about" className="py-24 sm:py-32 bg-white">
+    <section id="about" className="py-24 sm:py-32 bg-white scroll-mt-[90px]">
       <div className="max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-16">
         <div className="mb-20">
           <h1 className="font-garamond text-[45px] text-[#1c1c1c] mb-3 font-bold tracking-tight text-left">
