@@ -199,7 +199,15 @@ export default function FilmDetail() {
                   </div>
                 </div>
               )}
-
+              <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/10 transition-colors">
+                <svg
+                  className="h-16 w-16 fill-white opacity-90 group-hover:h-20 group-hover:w-20 group-hover:opacity-100 transition-all duration-300"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M7 6v12l10-6z" />
+                </svg>
+              </div>
               {film.Trailer_url && (
                 <Button onClick={() => setIsTrailerOpen(true)} className="w-full mt-4">
                   Watch Trailer
