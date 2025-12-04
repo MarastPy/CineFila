@@ -11,7 +11,7 @@ export const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       // Calculate progress: 0 at top, 1 when hero logo is fully scrolled past
-      const heroLogoEnd = window.innerHeight * 0.4; // When hero logo leaves viewport
+      const heroLogoEnd = window.innerHeight * 0.3; // When hero logo leaves viewport
       const transitionStart = heroLogoEnd * 0.6;
       const transitionEnd = heroLogoEnd;
 
