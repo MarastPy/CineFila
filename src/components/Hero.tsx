@@ -20,13 +20,17 @@ export const Hero = () => {
         {/* Definition */}
         <div className="relative max-w-[500px] mx-auto text-center space-y-3 py-6 sm:py-8 px-6 sm:px-0">
           {/* Opening quotation mark */}
-          <div className="absolute -left-1 sm:-left-9 -top-2 sm:-top-4 text-[4em] sm:text-[5em] lg:text-[7em] text-[#D9D9D9]/50 font-garamond leading-none">"</div>
+          <div className="absolute -left-1 sm:-left-9 -top-2 sm:-top-4 text-[4em] sm:text-[5em] lg:text-[7em] text-[#D9D9D9]/50 font-garamond leading-none">
+            “
+          </div>
 
           <p className="font-garamond text-[12px] sm:text-[13px] lg:text-[15px] text-[#D9D9D9] tracking-wide mb-4">
             cinefila / cinefil / cinéphile / cineast / cinéfilo / σινεφίλ / シネフィル /
           </p>
 
-          <p className="font-garamond text-[11px] sm:text-[12px] lg:text-[14px] text-[#D9D9D9]/60 italic mb-6 tracking-wider">noun</p>
+          <p className="font-garamond text-[11px] sm:text-[12px] lg:text-[14px] text-[#D9D9D9]/60 italic mb-6 tracking-wider">
+            noun
+          </p>
 
           <div className="space-y-3 text-[#D9D9D9] leading-relaxed text-left font-garamond text-[12px] sm:text-[13px] lg:text-[15px]">
             <p className="pl-6 -indent-6">
@@ -40,7 +44,9 @@ export const Hero = () => {
           </div>
 
           {/* Closing quotation mark */}
-          <div className="absolute -right-1 sm:-right-11 -bottom-10 sm:-bottom-12 text-[4em] sm:text-[5em] lg:text-[7em] text-[#D9D9D9]/50 font-garamond leading-none">"</div>
+          <div className="absolute -right-1 sm:-right-11 -bottom-10 sm:-bottom-12 text-[4em] sm:text-[5em] lg:text-[7em] text-[#D9D9D9]/50 font-garamond leading-none">
+            ”
+          </div>
         </div>
 
         <hr className="border-white/20 border-t-2 mt-8 sm:mt-10" />
