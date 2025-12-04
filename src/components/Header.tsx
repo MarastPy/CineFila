@@ -41,9 +41,9 @@ export const Header = () => {
             className="logo-top"
             style={{
               opacity: logoProgress,
-              transform: `translateY(${(1 - logoProgress) * 10}px) scale(${0.7 + logoProgress * 0.2})`,
-              transition: "transform 0.1s ease-out",
-              pointerEvents: logoProgress > 0.5 ? "auto" : "none",
+              transform: `translateY(${(1 - logoProgress) * 30}px) scale(${0.7 + logoProgress * 0.2})`,
+              transition: "transform 0.2s ease-out",
+              pointerEvents: logoProgress > 0.4 ? "auto" : "none",
             }}
           >
             <Link to="/">
