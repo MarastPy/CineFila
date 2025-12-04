@@ -14,7 +14,7 @@ export const Header = () => {
       const heroLogoEnd = window.innerHeight * 0.5; // When hero logo leaves viewport
       const transitionStart = heroLogoEnd * 0.6;
       const transitionEnd = heroLogoEnd;
-      
+
       const progress = Math.min(1, Math.max(0, (window.scrollY - transitionStart) / (transitionEnd - transitionStart)));
       setLogoProgress(progress);
     };
@@ -33,27 +33,21 @@ export const Header = () => {
   return (
     <>
       <SearchOverlay isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
-      
-      <header
-        className="fixed top-0 left-0 right-0 z-[1000] bg-black text-white border-b border-gray-800 h-[90px]"
-      >
+
+      <header className="fixed top-0 left-0 right-0 z-[1000] bg-black text-white border-b border-gray-800 h-[90px]">
         <div className="max-w-[1200px] mx-auto h-full px-4 sm:px-8 grid grid-cols-[auto_1fr_auto] gap-2 sm:gap-4 items-center">
           {/* Logo - animates in from hero position */}
-          <div 
+          <div
             className="logo-top"
             style={{
               opacity: logoProgress,
-              transform: `translateY(${(1 - logoProgress) * 30}px) scale(${0.8 + logoProgress * 0.2})`,
-              transition: 'transform 0.1s ease-out',
-              pointerEvents: logoProgress > 0.5 ? 'auto' : 'none'
+              transform: `translateY(${(1 - logoProgress) * 30}px) scale(${0.6 + logoProgress * 0.2})`,
+              transition: "transform 0.1s ease-out",
+              pointerEvents: logoProgress > 0.5 ? "auto" : "none",
             }}
           >
             <Link to="/">
-              <img 
-                src="/images/logo/Cinefila_logo_white_web.svg"
-                alt="Cinefila Logo" 
-                className="h-[50px]"
-              />
+              <img src="/images/logo/Cinefila_logo_white_web.svg" alt="Cinefila Logo" className="h-[50px]" />
             </Link>
           </div>
 
@@ -90,7 +84,6 @@ export const Header = () => {
         }`}
         onClick={() => setMenuOpen(false)}
       >
-        
         {/* Close button */}
         <button
           onClick={() => setMenuOpen(false)}
@@ -102,90 +95,88 @@ export const Header = () => {
           </svg>
         </button>
 
-        <nav 
+        <nav
           className="relative h-full flex flex-col justify-center items-center gap-6 w-full"
           onClick={(e) => e.stopPropagation()}
         >
-          <Link 
-            to="/news" 
+          <Link
+            to="/news"
             className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
               menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ 
+            style={{
               animationDelay: "0.1s",
               fontWeight: 300,
-              letterSpacing: "0.02em"
+              letterSpacing: "0.02em",
             }}
             onClick={() => setMenuOpen(false)}
           >
             News
           </Link>
-          
-          <Link 
-            to="/catalogue" 
+
+          <Link
+            to="/catalogue"
             className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
               menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ 
+            style={{
               animationDelay: "0.2s",
               fontWeight: 300,
-              letterSpacing: "0.02em"
+              letterSpacing: "0.02em",
             }}
             onClick={() => setMenuOpen(false)}
           >
             Line Up
           </Link>
-          
-          <Link 
-            to="/#whatcanwedo" 
+
+          <Link
+            to="/#whatcanwedo"
             className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
               menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ 
+            style={{
               animationDelay: "0.3s",
               fontWeight: 300,
-              letterSpacing: "0.02em"
+              letterSpacing: "0.02em",
             }}
             onClick={() => setMenuOpen(false)}
           >
             What can we do for you
           </Link>
-          
-          <Link 
-            to="/workshops" 
+
+          <Link
+            to="/workshops"
             className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
               menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ 
+            style={{
               animationDelay: "0.4s",
               fontWeight: 300,
-              letterSpacing: "0.02em"
+              letterSpacing: "0.02em",
             }}
             onClick={() => setMenuOpen(false)}
           >
             Workshops
           </Link>
-          
-          <Link 
-            to="/#about" 
+
+          <Link
+            to="/#about"
             className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
               menuOpen ? "animate-fade-in" : "opacity-0"
             }`}
-            style={{ 
+            style={{
               animationDelay: "0.5s",
               fontWeight: 300,
-              letterSpacing: "0.02em"
+              letterSpacing: "0.02em",
             }}
             onClick={() => setMenuOpen(false)}
           >
             About us & contact
           </Link>
-          
+
           {/* Decorative line */}
-          <div 
-            className={`w-32 h-px bg-white/30 mt-8 ${
-              menuOpen ? "animate-fade-in" : "opacity-0"
-            }`}
+          <div
+            className={`w-32 h-px bg-white/30 mt-8 ${menuOpen ? "animate-fade-in" : "opacity-0"}`}
             style={{ animationDelay: "0.6s" }}
           ></div>
         </nav>
