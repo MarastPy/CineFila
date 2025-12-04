@@ -47,7 +47,7 @@ export const Catalogue = () => {
   return (
     <section id="catalogue" className="py-12 sm:py-16 px-4 sm:px-8 scroll-mt-[90px]">
       <div className="max-w-[1200px] mx-auto">
-        <h1 className="font-garamond text-[45px] mb-4 text-left font-bold">Line Up Preview</h1>
+        <h1 className="font-garamond text-[45px] mb-4 text-left font-bold">Line Up</h1>
         <div className="w-full h-[2px] bg-border mb-12"></div>
 
         {loading && <p className="text-center">Loading films...</p>}
@@ -72,7 +72,9 @@ export const Catalogue = () => {
                     </h3>
                     <p className="text-xs text-foreground/70">by {director}</p>
                     {f.Country_of_production && (
-                      <p className="text-xs"><span className="font-bold">Country of production:</span> {f.Country_of_production}</p>
+                      <p className="text-xs">
+                        <span className="font-bold">Country of production:</span> {f.Country_of_production}
+                      </p>
                     )}
                   </div>
                   <div className="aspect-video bg-muted relative overflow-hidden flex-shrink-0">
