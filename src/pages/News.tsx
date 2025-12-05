@@ -81,33 +81,32 @@ export default function News() {
       <main className="min-h-screen bg-white pt-[60px] sm:pt-[90px]">
         <section className="py-12 sm:py-16 md:py-24">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-8 lg:px-[2cm]">
-            <h1 className="font-serif text-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-6 text-left">
+            <h1 className="font-garamond text-[45px] text-[#1c1c1c] mb-3 font-bold tracking-tight text-left">
               Latest News
             </h1>
-            <div className="w-40 h-1 bg-border mb-12"></div>
+            <div className="w-full h-[2px] bg-gray-400 mb-12"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {visibleItems.map((item) => (
                 <article 
                   key={item.id}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
+                  className="group bg-white overflow-hidden transition-all duration-300 hover:-translate-y-2"
                 >
                   <Link to={item.link} className="block">
-                    <div className="relative w-full pt-[66.67%] overflow-hidden bg-gray-100">
+                    <div className="relative w-full pt-[66.67%] overflow-hidden bg-gray-100 rounded-sm mb-4">
                       <img 
                         src={item.image} 
                         alt={item.title}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        className="absolute inset-0 w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                     
-                    <div className="p-6">
-                      <h3 className="font-serif text-2xl text-gray-900 mb-3 group-hover:text-[#C5262A] transition-colors duration-300">
+                    <div className="pt-2">
+                      <h3 className="font-nunito text-[15px] text-[#1c1c1c] font-bold mb-2 group-hover:text-[#666] transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-sm font-bold text-gray-500 mb-4">{item.date}</p>
-                      <p className="text-base text-gray-700 leading-relaxed line-clamp-3">
+                      <p className="font-nunito text-[10px] text-[#666] mb-3 font-medium">{item.date}</p>
+                      <p className="font-nunito text-[17px] text-[#2c2c2c] leading-relaxed line-clamp-3">
                         {item.excerpt}
                       </p>
                     </div>

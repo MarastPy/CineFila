@@ -58,7 +58,7 @@ export const News = () => {
               rel={item.link?.startsWith("http") ? "noopener noreferrer" : undefined}
               className="group text-left transition-all duration-300 hover:-translate-y-2 block"
             >
-              <div className="aspect-[3/2] relative overflow-hidden rounded-sm mb-4 ring-1 ring-gray-200 group-hover:ring-[#1c1c1c] transition-all">
+              <div className="aspect-[3/2] relative overflow-hidden rounded-sm mb-4">
                 <img
                   src={item.image}
                   alt={item.title}
