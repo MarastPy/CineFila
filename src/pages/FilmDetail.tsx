@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useFilms } from "@/hooks/useFilms";
 import { Film } from "@/types/film";
 import { Header } from "@/components/Header";
@@ -7,7 +7,7 @@ import { Footer } from "@/components/Footer";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Mail } from "lucide-react";
 import { getFilmPosterPath, getFilmStillPaths, getPlaceholderImage } from "@/utils/imageHelpers";
 
 const getFilmSlug = (film: Film): string => {
@@ -63,6 +63,26 @@ const formatRuntime = (film: Film): string => {
   return minutes ? `${minutes} min` : f.Runtime || "";
 };
 
+// Convert director name to author photo path
+const getDirectorPhotoPath = (directorName: string): string => {
+  if (!directorName) return "";
+  // Convert name to folder format: remove accents, lowercase, replace spaces with underscores
+  const normalized = directorName
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // Remove diacritics
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, "") // Remove special chars
+    .trim()
+    .replace(/\s+/g, "_"); // Replace spaces with underscores
+  return `/images/authors/${normalized}.jpg`;
+};
+
+// Capitalize first letter only
+const capitalizeFirst = (str: string): string => {
+  if (!str) return "";
+  return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+};
+
 export default function FilmDetail() {
   const { slug } = useParams<{ slug: string }>();
   const { allFilms, loading, error } = useFilms();
@@ -71,6 +91,8 @@ export default function FilmDetail() {
   const [allImages, setAllImages] = useState<string[]>([]);
   const [validStills, setValidStills] = useState<string[]>([]);
   const [isTrailerOpen, setIsTrailerOpen] = useState(false);
+  const [directorPhotoExists, setDirectorPhotoExists] = useState(false);
+  const [directorPhotoPath, setDirectorPhotoPath] = useState("");
 
   useEffect(() => {
     if (!loading && allFilms.length > 0 && slug) {
@@ -104,6 +126,17 @@ export default function FilmDetail() {
         };
         
         checkStills();
+
+        // Check director photo
+        const directorName = foundFilm.Crew?.["Director(s)"];
+        if (directorName) {
+          const photoPath = getDirectorPhotoPath(directorName);
+          setDirectorPhotoPath(photoPath);
+          const img = new Image();
+          img.onload = () => setDirectorPhotoExists(true);
+          img.onerror = () => setDirectorPhotoExists(false);
+          img.src = photoPath;
+        }
       }
     }
   }, [slug, allFilms, loading]);
@@ -112,8 +145,8 @@ export default function FilmDetail() {
     return (
       <>
         <Header />
-        <div className="min-h-screen pt-24 px-8">
-          <p className="text-center">Loading film details...</p>
+        <div className="min-h-screen pt-24 px-8 bg-[#1c1c1c]">
+          <p className="text-center text-white">Loading film details...</p>
         </div>
       </>
     );
@@ -123,8 +156,8 @@ export default function FilmDetail() {
     return (
       <>
         <Header />
-        <div className="min-h-screen pt-24 px-8">
-          <p className="text-center text-destructive">Error: {error}</p>
+        <div className="min-h-screen pt-24 px-8 bg-[#1c1c1c]">
+          <p className="text-center text-red-400">Error: {error}</p>
         </div>
       </>
     );
@@ -134,15 +167,9 @@ export default function FilmDetail() {
     return (
       <>
         <Header />
-        <div className="min-h-screen pt-24 px-8">
+        <div className="min-h-screen pt-24 px-8 bg-[#1c1c1c]">
           <div className="max-w-[1200px] mx-auto">
-            <Link to="/catalogue">
-              <Button variant="outline" className="mb-4">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Catalogue
-              </Button>
-            </Link>
-            <p className="text-center">Film not found.</p>
+            <p className="text-center text-white">Film not found.</p>
           </div>
         </div>
       </>
@@ -154,46 +181,51 @@ export default function FilmDetail() {
   const title = f.Title_English || f.Title_Original || "Untitled";
   const year = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || "";
 
+  // Contact info for films
+  const contactInfo = {
+    name: "MAREK KOUTEŠ",
+    role: "Film Curator and Student Film Specialist",
+    email: "marek@cinefila.cz",
+    image: "/images/contacts/Marek/Marek.jpg"
+  };
+
   return (
     <>
       <Header />
-      <main className="min-h-screen pt-20 sm:pt-24 pb-8 sm:pb-16 font-nunito text-[17px]">
+      <main className="min-h-screen pt-20 sm:pt-24 pb-8 sm:pb-16 font-nunito text-[17px] bg-[#1c1c1c] text-white">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
-          <Link to="/catalogue">
-            <Button variant="outline" className="mb-6">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Catalogue
-            </Button>
-          </Link>
-
           {/* Title section */}
           <div className="mb-8">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-nunito mb-2">{title}</h1>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-garamond font-bold mb-4 text-white">{title}</h1>
             {f.Title_Original && f.Title_Original !== title && (
-              <p className="text-xl text-white mb-2">Original title: {f.Title_Original}</p>
+              <div className="mb-4">
+                <span className="text-lg text-white/70 uppercase tracking-wide font-light">ORIGINAL TITLE: </span>
+                <span className="text-lg text-white font-bold">{capitalizeFirst(f.Title_Original)}</span>
+              </div>
             )}
-            <div className="flex flex-wrap gap-4 text-sm">
+            <div className="w-full h-[1px] bg-white/30 mb-4"></div>
+            <div className="flex flex-wrap gap-4 text-sm text-white">
               {year && <span className="font-bold">{year}</span>} |
               {f.Runtime && <span className="font-bold">{formatRuntime(film)}</span>} |
-              {f.Country_of_production && <span>{f.Country_of_production}</span>} |
-              {f.Language_Original && <span>Language: {f.Language_Original}</span>}
+              {f.Country_of_production && <span className="font-light">{f.Country_of_production}</span>} |
+              {f.Language_Original && <span className="font-light">Language: {f.Language_Original}</span>}
             </div>
           </div>
 
-          <hr className="border-border mb-8" />
+          <hr className="border-white/20 mb-8" />
 
           {/* Main content grid */}
           <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-8 mb-8">
             {/* Left column - Poster and Stills */}
             <div>
               <div
-                className="aspect-[2/3] bg-muted rounded-lg overflow-hidden mb-4 cursor-pointer hover:opacity-90 transition-opacity"
+                className="bg-muted rounded-lg overflow-hidden mb-4 cursor-pointer hover:opacity-90 transition-opacity"
                 onClick={() => setSelectedImageIndex(0)}
               >
                 <img
                   src={getFilmPosterPath(film)}
                   alt={`${title} poster`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-auto object-contain"
                   onError={(e) => {
                     e.currentTarget.src = getPlaceholderImage();
                   }}
@@ -225,7 +257,7 @@ export default function FilmDetail() {
                         return getPlaceholderImage();
                       })()}
                       alt="Trailer preview"
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover"
                       onError={(e) => {
                         e.currentTarget.src = getPlaceholderImage();
                       }}
@@ -264,22 +296,22 @@ export default function FilmDetail() {
               )}
 
               {/* Downloads section */}
-              <div className="mt-4 space-y-2">
-                <h3 className="text-lg font-nunito mb-2">Downloads</h3>
-                <Button asChild variant="outline" className="w-full">
+              <div className="mt-6 space-y-2">
+                <h3 className="text-lg font-garamond font-bold mb-2 text-white">Downloads</h3>
+                <Button asChild variant="outline" className="w-full border-white/30 text-white hover:bg-white/10">
                   <a href={getFilmPosterPath(film)} download={`${title.replace(/[^a-z0-9]/gi, "_")}_poster.jpg`}>
                     Poster
                   </a>
                 </Button>
                 {film.Download_stills && (
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="outline" className="w-full border-white/30 text-white hover:bg-white/10">
                     <a href={film.Download_stills} target="_blank" rel="noopener noreferrer">
                       Stills
                     </a>
                   </Button>
                 )}
                 {film.Download_presskit && (
-                  <Button asChild variant="outline" className="w-full">
+                  <Button asChild variant="outline" className="w-full border-white/30 text-white hover:bg-white/10">
                     <a href={film.Download_presskit} target="_blank" rel="noopener noreferrer">
                       Press Kit
                     </a>
@@ -293,10 +325,10 @@ export default function FilmDetail() {
               {/* Genres */}
               {f.Genre_List && f.Genre_List.length > 0 && (
                 <div>
-                  <h3 className="text-xl font-nunito mb-2">Genres</h3>
+                  <h3 className="text-xl font-garamond font-bold mb-2 text-white">Genres</h3>
                   <div className="flex flex-wrap gap-2">
                     {f.Genre_List.map((g, i) => (
-                      <Badge key={i} variant="secondary">
+                      <Badge key={i} variant="secondary" className="bg-white/10 text-white border-white/20">
                         {g}
                       </Badge>
                     ))}
@@ -307,40 +339,48 @@ export default function FilmDetail() {
               {/* Logline */}
               {film.Logline && (
                 <div>
-                  <h3 className="text-xl font-nunito mb-2">Logline</h3>
-                  <p className="text-foreground/90">{film.Logline}</p>
+                  <h3 className="text-xl font-garamond font-bold mb-2 text-white">Logline</h3>
+                  <p className="text-white/90 font-light">{film.Logline}</p>
                 </div>
               )}
 
               {/* Synopsis */}
               {film.Synopsis && (
                 <div>
-                  <h3 className="text-xl font-nunito mb-2">Synopsis</h3>
-                  <p className="text-foreground/90 text-justify">{film.Synopsis}</p>
+                  <h3 className="text-xl font-garamond font-bold mb-2 text-white">Synopsis</h3>
+                  <p className="text-white/90 text-justify font-light">{film.Synopsis}</p>
+                </div>
+              )}
+
+              {/* Review Excerpt */}
+              {film.Review && (
+                <div>
+                  <h3 className="text-xl font-garamond font-bold mb-2 text-white">Review</h3>
+                  <p className="text-white/90 italic font-light">{film.Review}</p>
                 </div>
               )}
 
               {/* Director's Note */}
               {film.Directors_Note && (
                 <div>
-                  <h3 className="text-xl font-nunito mb-2">Director's Note</h3>
-                  <p className="text-foreground/90 text-justify">{film.Directors_Note}</p>
+                  <h3 className="text-xl font-garamond font-bold mb-2 text-white">Director's Note</h3>
+                  <p className="text-white/90 text-justify font-light">{film.Directors_Note}</p>
                 </div>
               )}
 
               {/* Target Group */}
               {(f.Target_Group?.Rating || f.Target_Group?.Audience) && (
                 <div>
-                  <h3 className="text-xl font-nunito mb-2">Target Group</h3>
-                  <div className="space-y-1">
+                  <h3 className="text-xl font-garamond font-bold mb-2 text-white">Target Group</h3>
+                  <div className="space-y-1 text-white">
                     {f.Target_Group.Rating && (
                       <p>
-                        <span className="font-semibold">Rating:</span> {f.Target_Group.Rating}
+                        <span className="font-bold">Rating:</span> <span className="font-light">{f.Target_Group.Rating}</span>
                       </p>
                     )}
                     {f.Target_Group.Audience && (
                       <p>
-                        <span className="font-semibold">Audience:</span> {f.Target_Group.Audience}
+                        <span className="font-bold">Audience:</span> <span className="font-light">{f.Target_Group.Audience}</span>
                       </p>
                     )}
                   </div>
@@ -350,12 +390,12 @@ export default function FilmDetail() {
               {/* Story Topics */}
               {f.Keywords && (
                 <div>
-                  <h3 className="text-xl font-nunito mb-2">Story Topics</h3>
-                  <p className="text-foreground/90">{f.Keywords}</p>
+                  <h3 className="text-xl font-garamond font-bold mb-2 text-white">Story Topics</h3>
+                  <p className="text-white/90 font-light">{f.Keywords}</p>
                 </div>
               )}
 
-              <hr className="border-border" />
+              <hr className="border-white/20" />
 
               {/* Crew section */}
               {(crew["Director(s)"] ||
@@ -368,57 +408,61 @@ export default function FilmDetail() {
                 film.Producer_Representative ||
                 film.Production_Company) && (
                 <div>
-                  <h2 className="text-2xl font-nunito mb-4">Crew</h2>
-                  <div className="space-y-2">
+                  <h2 className="text-2xl font-garamond font-bold mb-4 text-white">Crew</h2>
+                  <div className="space-y-2 text-white">
                     {crew["Director(s)"] && (
                       <div>
-                        <span className="font-semibold">Director:</span> {crew["Director(s)"]}
+                        <span className="font-bold">Director:</span> <span className="font-light">{crew["Director(s)"]}</span>
                       </div>
                     )}
                     {crew["Screenplay_writer(s)"] && (
                       <div>
-                        <span className="font-semibold">Writer:</span> {crew["Screenplay_writer(s)"]}
+                        <span className="font-bold">Writer:</span> <span className="font-light">{crew["Screenplay_writer(s)"]}</span>
                       </div>
                     )}
                     {crew["Director(s)_of_Photography"] && (
                       <div>
-                        <span className="font-semibold">Cinematographer:</span> {crew["Director(s)_of_Photography"]}
+                        <span className="font-bold">Cinematographer:</span> <span className="font-light">{crew["Director(s)_of_Photography"]}</span>
                       </div>
                     )}
                     {crew["Editor(s)"] && (
                       <div>
-                        <span className="font-semibold">Editor:</span> {crew["Editor(s)"]}
+                        <span className="font-bold">Editor:</span> <span className="font-light">{crew["Editor(s)"]}</span>
                       </div>
                     )}
                     {crew["Music_composer(s)"] && (
                       <div>
-                        <span className="font-semibold">Music Composer:</span> {crew["Music_composer(s)"]}
+                        <span className="font-bold">Music Composer:</span> <span className="font-light">{crew["Music_composer(s)"]}</span>
                       </div>
                     )}
                     {crew["Sound_director(s)"] && (
                       <div>
-                        <span className="font-semibold">Sound Director:</span> {crew["Sound_director(s)"]}
+                        <span className="font-bold">Sound Director:</span> <span className="font-light">{crew["Sound_director(s)"]}</span>
                       </div>
                     )}
                     {crew["Art_director(s)"] && (
                       <div>
-                        <span className="font-semibold">Art Director:</span> {crew["Art_director(s)"]}
+                        <span className="font-bold">Art Director:</span> <span className="font-light">{crew["Art_director(s)"]}</span>
                       </div>
                     )}
                     {film.Producer_Representative && (
                       <div>
-                        <span className="font-semibold">Producer:</span>{" "}
-                        {typeof film.Producer_Representative === "string"
-                          ? film.Producer_Representative
-                          : JSON.stringify(film.Producer_Representative)}
+                        <span className="font-bold">Producer:</span>{" "}
+                        <span className="font-light">
+                          {typeof film.Producer_Representative === "string"
+                            ? film.Producer_Representative
+                            : JSON.stringify(film.Producer_Representative)}
+                        </span>
                       </div>
                     )}
                     {film.Production_Company && (
                       <div>
-                        <span className="font-semibold">Company:</span>{" "}
-                        {typeof film.Production_Company === "string"
-                          ? film.Production_Company
-                          : JSON.stringify(film.Production_Company)}
+                        <span className="font-bold">Company:</span>{" "}
+                        <span className="font-light">
+                          {typeof film.Production_Company === "string"
+                            ? film.Production_Company
+                            : JSON.stringify(film.Production_Company)}
+                        </span>
                       </div>
                     )}
                   </div>
@@ -428,8 +472,8 @@ export default function FilmDetail() {
               {/* Cast */}
               {crew.Cast && crew.Cast.length > 0 && (
                 <div>
-                  <h2 className="text-2xl font-nunito mb-4">Cast</h2>
-                  <ul className="list-disc list-inside space-y-1 text-foreground/90">
+                  <h2 className="text-2xl font-garamond font-bold mb-4 text-white">Cast</h2>
+                  <ul className="list-disc list-inside space-y-1 text-white/90 font-light">
                     {crew.Cast.map((actor: any, i: number) => (
                       <li key={i}>{typeof actor === "string" ? actor : JSON.stringify(actor)}</li>
                     ))}
@@ -444,31 +488,31 @@ export default function FilmDetail() {
                 film.Technical_Details?.Color ||
                 f.Date_of_completion) && (
                 <div>
-                  <h2 className="text-2xl font-nunito mb-4">Tech Specs</h2>
-                  <div className="space-y-2">
+                  <h2 className="text-2xl font-garamond font-bold mb-4 text-white">Tech Specs</h2>
+                  <div className="space-y-2 text-white">
                     {f.Runtime && (
                       <div>
-                        <span className="font-semibold">Runtime:</span> {formatRuntime(film)}
+                        <span className="font-bold">Runtime:</span> <span className="font-light">{formatRuntime(film)}</span>
                       </div>
                     )}
                     {film.Technical_Details?.Sound_mix && (
                       <div>
-                        <span className="font-semibold">Sound Mix:</span> {film.Technical_Details.Sound_mix}
+                        <span className="font-bold">Sound Mix:</span> <span className="font-light">{film.Technical_Details.Sound_mix}</span>
                       </div>
                     )}
                     {film.Technical_Details?.Aspect_ratio && (
                       <div>
-                        <span className="font-semibold">Aspect Ratio:</span> {film.Technical_Details.Aspect_ratio}
+                        <span className="font-bold">Aspect Ratio:</span> <span className="font-light">{film.Technical_Details.Aspect_ratio}</span>
                       </div>
                     )}
                     {film.Technical_Details?.Color && (
                       <div>
-                        <span className="font-semibold">Color:</span> {film.Technical_Details.Color}
+                        <span className="font-bold">Color:</span> <span className="font-light">{film.Technical_Details.Color}</span>
                       </div>
                     )}
                     {f.Date_of_completion && (
                       <div>
-                        <span className="font-semibold">Date Release:</span> {f.Date_of_completion}
+                        <span className="font-bold">Release Date:</span> <span className="font-light">{f.Date_of_completion}</span>
                       </div>
                     )}
                   </div>
@@ -478,15 +522,15 @@ export default function FilmDetail() {
               {/* Awards */}
               {film.Awards && film.Awards.length > 0 && film.Awards[0].Festival_Section_of_Competition && (
                 <div>
-                  <h2 className="text-2xl font-nunito mb-4">Awards</h2>
-                  <ul className="space-y-2 text-foreground/90">
+                  <h2 className="text-2xl font-garamond font-bold mb-4 text-white">Awards</h2>
+                  <ul className="space-y-2 text-white/90 font-light">
                     {film.Awards.map(
                       (award, i) =>
                         award.Festival_Section_of_Competition && (
                           <li key={i}>
-                            <strong>{award.Festival_Section_of_Competition}</strong>
+                            <span className="font-bold">{award.Festival_Section_of_Competition}</span>
                             {award.Country && <span> ({award.Country})</span>}
-                            {award.Date && <span className="text-muted-foreground"> - {award.Date}</span>}
+                            {award.Date && <span className="text-white/60"> - {award.Date}</span>}
                           </li>
                         ),
                     )}
@@ -494,18 +538,18 @@ export default function FilmDetail() {
                 </div>
               )}
 
-              {/* Festivals */}
+              {/* Festival Selections */}
               {film.Festivals && film.Festivals.length > 0 && film.Festivals[0].Name_of_Festival && (
                 <div>
-                  <h2 className="text-2xl font-nunito mb-4">Festivals</h2>
-                  <ul className="space-y-2 text-foreground/90">
+                  <h2 className="text-2xl font-garamond font-bold mb-4 text-white">Festival Selections</h2>
+                  <ul className="space-y-2 text-white/90 font-light">
                     {film.Festivals.map(
                       (fest, i) =>
                         fest.Name_of_Festival && (
                           <li key={i}>
-                            <strong>{fest.Name_of_Festival}</strong>
+                            <span className="font-bold">{fest.Name_of_Festival}</span>
                             {fest.Country && <span> ({fest.Country})</span>}
-                            {fest.Date && <span className="text-muted-foreground"> - {fest.Date}</span>}
+                            {fest.Date && <span className="text-white/60"> - {fest.Date}</span>}
                           </li>
                         ),
                     )}
@@ -513,19 +557,34 @@ export default function FilmDetail() {
                 </div>
               )}
 
-              {/* Director Bio */}
+              {/* Director Bio with Photo */}
               {film.Director_Bio?.Bio_Text && (
                 <div>
-                  <h2 className="text-2xl font-nunito mb-4">Director Biography</h2>
-                  <p className="text-foreground/90 text-justify">{film.Director_Bio.Bio_Text}</p>
+                  <h2 className="text-2xl font-garamond font-bold mb-4 text-white">Director Biography</h2>
+                  <div className="flex flex-col sm:flex-row gap-6">
+                    {directorPhotoExists && directorPhotoPath && (
+                      <div className="flex-shrink-0">
+                        <div className="w-[120px] h-[120px] rounded-full overflow-hidden ring-1 ring-white/20">
+                          <img
+                            src={directorPhotoPath}
+                            alt={crew["Director(s)"] || "Director"}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    )}
+                    <div className="flex-grow">
+                      <p className="text-white/90 text-justify font-light whitespace-pre-line">{film.Director_Bio.Bio_Text}</p>
+                    </div>
+                  </div>
                 </div>
               )}
 
               {/* Director Filmography */}
               {film.Director_Filmography && film.Director_Filmography.length > 0 && (
                 <div>
-                  <h2 className="text-2xl font-nunito mb-4">Director's Filmography</h2>
-                  <ul className="list-disc list-inside space-y-1 text-foreground/90">
+                  <h2 className="text-2xl font-garamond font-bold mb-4 text-white">Director's Filmography</h2>
+                  <ul className="list-disc list-inside space-y-1 text-white/90 font-light">
                     {film.Director_Filmography.map((filmEntry: any, i: number) => (
                       <li key={i}>{typeof filmEntry === "string" ? filmEntry : JSON.stringify(filmEntry)}</li>
                     ))}
@@ -533,29 +592,72 @@ export default function FilmDetail() {
                 </div>
               )}
 
-              {/* Additional Metadata */}
-              {(film.Festival_Distribution_Only || film.Sales || film.Status) && (
-                <div className="space-y-4">
-                  {film.Festival_Distribution_Only && (
-                    <div>
-                      <h3 className="text-lg font-nunito mb-2">Festival Distribution Only</h3>
-                      <p className="text-foreground/90">{film.Festival_Distribution_Only}</p>
+              {/* Status, Festival Distribution, Sales - Conditional Display */}
+              <div className="space-y-4">
+                {/* Status */}
+                {film.Status && (
+                  <div>
+                    <h3 className="text-lg font-garamond font-bold mb-2 text-white">Status</h3>
+                    <p className="text-white/90 font-light capitalize">{film.Status}</p>
+                  </div>
+                )}
+
+                {/* Festival Distribution Only - Show only if "Yes" */}
+                {film.Festival_Distribution_Only && film.Festival_Distribution_Only.toLowerCase() === "yes" && (
+                  <div>
+                    <h3 className="text-lg font-garamond font-bold mb-2 text-white">Festival Distribution Only</h3>
+                    <p className="text-white/90 font-light">Yes</p>
+                  </div>
+                )}
+
+                {/* Sales - Show as link if filled */}
+                {film.Sales && film.Sales.trim() !== "" && (
+                  <div>
+                    <h3 className="text-lg font-garamond font-bold mb-2 text-white">Sales</h3>
+                    {film.Sales.startsWith("http") ? (
+                      <a 
+                        href={film.Sales} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-white/90 font-light underline hover:text-white transition-colors"
+                      >
+                        {film.Sales}
+                      </a>
+                    ) : (
+                      <p className="text-white/90 font-light">{film.Sales}</p>
+                    )}
+                  </div>
+                )}
+              </div>
+
+              <hr className="border-white/20" />
+
+              {/* Contact Section */}
+              <div>
+                <h2 className="text-2xl font-garamond font-bold mb-6 text-white">Contact</h2>
+                <div className="flex flex-col sm:flex-row gap-6 items-start">
+                  <div className="flex-shrink-0">
+                    <div className="w-[100px] h-[100px] rounded-full overflow-hidden ring-1 ring-white/20">
+                      <img
+                        src={contactInfo.image}
+                        alt={contactInfo.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                  )}
-                  {film.Sales && (
-                    <div>
-                      <h3 className="text-lg font-nunito mb-2">Sales</h3>
-                      <p className="text-foreground/90">{film.Sales}</p>
-                    </div>
-                  )}
-                  {film.Status && (
-                    <div>
-                      <h3 className="text-lg font-nunito mb-2">Status</h3>
-                      <p className="text-foreground/90">{film.Status}</p>
-                    </div>
-                  )}
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-white font-bold text-lg uppercase tracking-wide">{contactInfo.name}</h3>
+                    <p className="text-white/70 font-light italic">{contactInfo.role}</p>
+                    <a 
+                      href={`mailto:${contactInfo.email}`}
+                      className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors"
+                    >
+                      <Mail className="w-4 h-4" />
+                      <span className="font-light">{contactInfo.email}</span>
+                    </a>
+                  </div>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>
