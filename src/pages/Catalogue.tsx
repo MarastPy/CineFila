@@ -550,8 +550,9 @@ export default function Catalogue() {
                   return (
                     <Link key={idx} to={`/film/${slug}`} className="block group h-full">
                       <div className="bg-card rounded-lg overflow-hidden transition-transform hover:scale-105 h-full flex flex-col">
-                        <div className="p-5 flex flex-col flex-grow">
-                          <h3 className="font-nunito text-xl mb-1 group-hover:text-primary transition-colors line-clamp-2 min-h-[3.5rem]">
+                        {/* Fixed header section - title, director, country */}
+                        <div className="p-5 h-[140px] flex flex-col justify-start flex-shrink-0">
+                          <h3 className="font-nunito text-xl mb-1 group-hover:text-primary transition-colors line-clamp-2">
                             {title} {runtime && `| ${runtime}`} {filmYear && `| ${filmYear}`}
                           </h3>
                           <p className="text-xs text-white">by {director}</p>
@@ -561,42 +562,42 @@ export default function Catalogue() {
                             </p>
                           )}
                         </div>
+                        {/* Fixed still image */}
                         <div className="aspect-video bg-muted relative overflow-hidden flex-shrink-0">
                           <img
                             src={getFilmStillPaths(film, 1)[0]}
-                            alt={`Poster for ${title}`}
+                            alt={`Still from ${title}`}
                             className="w-full h-full object-cover"
                             onError={(e) => {
                               e.currentTarget.src = getPlaceholderImage();
                             }}
                           />
                         </div>
+                        {/* Dynamic content section - logline and festivals */}
                         <div className="p-5 flex flex-col flex-grow">
-                          <p className="text-sm text-foreground/80 mb-2 flex-grow">
+                          <p className="text-sm text-foreground/80 mb-2">
                             {film.Logline}
                           </p>
 
                           {/* Festival Information */}
-                          <div className="mt-auto pt-4 border-t border-border/50 min-h-[5rem]">
-                            {film.Festivals && film.Festivals.length > 0 && (
-                              <>
-                                <p className="text-xs font-bold text-primary mb-2 tracking-wide">
-                                  Festival selections:
-                                </p>
-                                <ul className="text-[0.7rem] space-y-0.5">
-                                  {film.Festivals.slice(0, 3).map((festival, idx) => (
-                                    <li key={idx} className="flex items-start">
-                                      <span className="mr-1.5">•</span>
-                                      <span>{festival.Name_of_Festival}</span>
-                                    </li>
-                                  ))}
-                                  {film.Festivals.length > 3 && (
-                                    <li className="text-muted-foreground">+{film.Festivals.length - 3} more</li>
-                                  )}
-                                </ul>
-                              </>
-                            )}
-                          </div>
+                          {film.Festivals && film.Festivals.length > 0 && (
+                            <div className="mt-auto pt-4 border-t border-border/50">
+                              <p className="text-xs font-bold text-primary mb-2 tracking-wide">
+                                Festival selections:
+                              </p>
+                              <ul className="text-[0.7rem] space-y-0.5">
+                                {film.Festivals.slice(0, 3).map((festival, fidx) => (
+                                  <li key={fidx} className="flex items-start">
+                                    <span className="mr-1.5">•</span>
+                                    <span>{festival.Name_of_Festival}</span>
+                                  </li>
+                                ))}
+                                {film.Festivals.length > 3 && (
+                                  <li className="text-muted-foreground">+{film.Festivals.length - 3} more</li>
+                                )}
+                              </ul>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </Link>
