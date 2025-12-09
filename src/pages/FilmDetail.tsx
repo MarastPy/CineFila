@@ -181,14 +181,6 @@ export default function FilmDetail() {
   const title = f.Title_English || f.Title_Original || "Untitled";
   const year = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || "";
 
-  // Contact info for films
-  const contactInfo = {
-    name: "MAREK KOUTEŠ",
-    role: "Film Curator and Student Film Specialist",
-    email: "marek@cinefila.cz",
-    image: "/images/contacts/Marek/Marek.jpg",
-  };
-
   return (
     <>
       <Header />
@@ -640,7 +632,6 @@ export default function FilmDetail() {
                   </div>
                 )}
               </div>
-
             </div>
           </div>
         </div>
