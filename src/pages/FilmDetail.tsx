@@ -103,7 +103,7 @@ export default function FilmDetail() {
         const poster = getFilmPosterPath(foundFilm);
         // Check which stills actually exist (up to 20)
         const potentialStills = getFilmStillPaths(foundFilm, 20);
-        
+
         // Validate each still by attempting to load it
         const checkStills = async () => {
           const validPaths: string[] = [];
@@ -124,7 +124,7 @@ export default function FilmDetail() {
           setValidStills(validPaths);
           setAllImages([poster, ...validPaths]);
         };
-        
+
         checkStills();
 
         // Check director photo
@@ -186,7 +186,7 @@ export default function FilmDetail() {
     name: "MAREK KOUTEŠ",
     role: "Film Curator and Student Film Specialist",
     email: "marek@cinefila.cz",
-    image: "/images/contacts/Marek/Marek.jpg"
+    image: "/images/contacts/Marek/Marek.jpg",
   };
 
   return (
@@ -203,7 +203,6 @@ export default function FilmDetail() {
                 <span className="text-lg text-white font-bold">{capitalizeFirst(f.Title_Original)}</span>
               </div>
             )}
-            <div className="w-full h-[1px] bg-white/30 mb-4"></div>
             <div className="flex flex-wrap gap-4 text-sm text-white">
               {year && <span className="font-bold">{year}</span>} |
               {f.Runtime && <span className="font-bold">{formatRuntime(film)}</span>} |
@@ -284,11 +283,7 @@ export default function FilmDetail() {
                         className="aspect-video bg-muted rounded overflow-hidden cursor-pointer hover:opacity-75 transition-opacity"
                         onClick={() => setSelectedImageIndex(idx + 1)}
                       >
-                        <img
-                          src={stillPath}
-                          alt={`${title} still ${idx + 1}`}
-                          className="w-full h-full object-cover"
-                        />
+                        <img src={stillPath} alt={`${title} still ${idx + 1}`} className="w-full h-full object-cover" />
                       </div>
                     ))}
                   </div>
@@ -375,12 +370,14 @@ export default function FilmDetail() {
                   <div className="space-y-1 text-white">
                     {f.Target_Group.Rating && (
                       <p>
-                        <span className="font-bold">Rating:</span> <span className="font-light">{f.Target_Group.Rating}</span>
+                        <span className="font-bold">Rating:</span>{" "}
+                        <span className="font-light">{f.Target_Group.Rating}</span>
                       </p>
                     )}
                     {f.Target_Group.Audience && (
                       <p>
-                        <span className="font-bold">Audience:</span> <span className="font-light">{f.Target_Group.Audience}</span>
+                        <span className="font-bold">Audience:</span>{" "}
+                        <span className="font-light">{f.Target_Group.Audience}</span>
                       </p>
                     )}
                   </div>
@@ -412,37 +409,44 @@ export default function FilmDetail() {
                   <div className="space-y-2 text-white">
                     {crew["Director(s)"] && (
                       <div>
-                        <span className="font-bold">Director:</span> <span className="font-light">{crew["Director(s)"]}</span>
+                        <span className="font-bold">Director:</span>{" "}
+                        <span className="font-light">{crew["Director(s)"]}</span>
                       </div>
                     )}
                     {crew["Screenplay_writer(s)"] && (
                       <div>
-                        <span className="font-bold">Writer:</span> <span className="font-light">{crew["Screenplay_writer(s)"]}</span>
+                        <span className="font-bold">Writer:</span>{" "}
+                        <span className="font-light">{crew["Screenplay_writer(s)"]}</span>
                       </div>
                     )}
                     {crew["Director(s)_of_Photography"] && (
                       <div>
-                        <span className="font-bold">Cinematographer:</span> <span className="font-light">{crew["Director(s)_of_Photography"]}</span>
+                        <span className="font-bold">Cinematographer:</span>{" "}
+                        <span className="font-light">{crew["Director(s)_of_Photography"]}</span>
                       </div>
                     )}
                     {crew["Editor(s)"] && (
                       <div>
-                        <span className="font-bold">Editor:</span> <span className="font-light">{crew["Editor(s)"]}</span>
+                        <span className="font-bold">Editor:</span>{" "}
+                        <span className="font-light">{crew["Editor(s)"]}</span>
                       </div>
                     )}
                     {crew["Music_composer(s)"] && (
                       <div>
-                        <span className="font-bold">Music Composer:</span> <span className="font-light">{crew["Music_composer(s)"]}</span>
+                        <span className="font-bold">Music Composer:</span>{" "}
+                        <span className="font-light">{crew["Music_composer(s)"]}</span>
                       </div>
                     )}
                     {crew["Sound_director(s)"] && (
                       <div>
-                        <span className="font-bold">Sound Director:</span> <span className="font-light">{crew["Sound_director(s)"]}</span>
+                        <span className="font-bold">Sound Director:</span>{" "}
+                        <span className="font-light">{crew["Sound_director(s)"]}</span>
                       </div>
                     )}
                     {crew["Art_director(s)"] && (
                       <div>
-                        <span className="font-bold">Art Director:</span> <span className="font-light">{crew["Art_director(s)"]}</span>
+                        <span className="font-bold">Art Director:</span>{" "}
+                        <span className="font-light">{crew["Art_director(s)"]}</span>
                       </div>
                     )}
                     {film.Producer_Representative && (
@@ -492,27 +496,32 @@ export default function FilmDetail() {
                   <div className="space-y-2 text-white">
                     {f.Runtime && (
                       <div>
-                        <span className="font-bold">Runtime:</span> <span className="font-light">{formatRuntime(film)}</span>
+                        <span className="font-bold">Runtime:</span>{" "}
+                        <span className="font-light">{formatRuntime(film)}</span>
                       </div>
                     )}
                     {film.Technical_Details?.Sound_mix && (
                       <div>
-                        <span className="font-bold">Sound Mix:</span> <span className="font-light">{film.Technical_Details.Sound_mix}</span>
+                        <span className="font-bold">Sound Mix:</span>{" "}
+                        <span className="font-light">{film.Technical_Details.Sound_mix}</span>
                       </div>
                     )}
                     {film.Technical_Details?.Aspect_ratio && (
                       <div>
-                        <span className="font-bold">Aspect Ratio:</span> <span className="font-light">{film.Technical_Details.Aspect_ratio}</span>
+                        <span className="font-bold">Aspect Ratio:</span>{" "}
+                        <span className="font-light">{film.Technical_Details.Aspect_ratio}</span>
                       </div>
                     )}
                     {film.Technical_Details?.Color && (
                       <div>
-                        <span className="font-bold">Color:</span> <span className="font-light">{film.Technical_Details.Color}</span>
+                        <span className="font-bold">Color:</span>{" "}
+                        <span className="font-light">{film.Technical_Details.Color}</span>
                       </div>
                     )}
                     {f.Date_of_completion && (
                       <div>
-                        <span className="font-bold">Release Date:</span> <span className="font-light">{f.Date_of_completion}</span>
+                        <span className="font-bold">Release Date:</span>{" "}
+                        <span className="font-light">{f.Date_of_completion}</span>
                       </div>
                     )}
                   </div>
@@ -574,7 +583,9 @@ export default function FilmDetail() {
                       </div>
                     )}
                     <div className="flex-grow">
-                      <p className="text-white/90 text-justify font-light whitespace-pre-line">{film.Director_Bio.Bio_Text}</p>
+                      <p className="text-white/90 text-justify font-light whitespace-pre-line">
+                        {film.Director_Bio.Bio_Text}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -615,9 +626,9 @@ export default function FilmDetail() {
                   <div>
                     <h3 className="text-lg font-garamond font-bold mb-2 text-white">Sales</h3>
                     {film.Sales.startsWith("http") ? (
-                      <a 
-                        href={film.Sales} 
-                        target="_blank" 
+                      <a
+                        href={film.Sales}
+                        target="_blank"
                         rel="noopener noreferrer"
                         className="text-white/90 font-light underline hover:text-white transition-colors"
                       >
@@ -638,17 +649,13 @@ export default function FilmDetail() {
                 <div className="flex flex-col sm:flex-row gap-6 items-start">
                   <div className="flex-shrink-0">
                     <div className="w-[100px] h-[100px] rounded-full overflow-hidden ring-1 ring-white/20">
-                      <img
-                        src={contactInfo.image}
-                        alt={contactInfo.name}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={contactInfo.image} alt={contactInfo.name} className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <div className="space-y-2">
                     <h3 className="text-white font-bold text-lg uppercase tracking-wide">{contactInfo.name}</h3>
                     <p className="text-white/70 font-light italic">{contactInfo.role}</p>
-                    <a 
+                    <a
                       href={`mailto:${contactInfo.email}`}
                       className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors"
                     >
