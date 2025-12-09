@@ -644,25 +644,7 @@ export default function FilmDetail() {
               <hr className="border-white/20" />
 
               {/* Contact Section */}
-              <div>
-                <h2 className="text-2xl font-garamond font-bold mb-6 text-white">Contact</h2>
-                <div className="flex flex-col sm:flex-row gap-6 items-start">
-                  <div className="flex-shrink-0">
-                    <div className="w-[100px] h-[100px] rounded-full overflow-hidden ring-1 ring-white/20">
-                      <img src={contactInfo.image} alt={contactInfo.name} className="w-full h-full object-cover" />
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="text-white font-bold text-lg uppercase tracking-wide">{contactInfo.name}</h3>
-                    <p className="text-white/70 font-light italic">{contactInfo.role}</p>
-                    <a
-                      href={`mailto:${contactInfo.email}`}
-                      className="inline-flex items-center gap-2 text-white hover:text-white/80 transition-colors"
-                    >
-                      <Mail className="w-4 h-4" />
-                      <span className="font-light">{contactInfo.email}</span>
-                    </a>
-                  </div>
+              
                 </div>
               </div>
             </div>
