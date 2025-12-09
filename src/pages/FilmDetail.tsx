@@ -265,7 +265,7 @@ export default function FilmDetail() {
                 </div>
               )}
 
-              {/* Stills Gallery - Show first 3 with decorative arrows inside */}
+              {/* Stills Gallery - Show first 3 with clickable arrows */}
               {validStills.length > 0 && (
                 <div className="relative">
                   <div className="grid grid-cols-3 gap-2">
@@ -279,8 +279,18 @@ export default function FilmDetail() {
                       </div>
                     ))}
                   </div>
-                  <ChevronLeft className="absolute left-2 top-1/2 -translate-y-1/2 w-6 h-6 text-white/70" />
-                  <ChevronRight className="absolute right-2 top-1/2 -translate-y-1/2 w-6 h-6 text-white/70" />
+                  <button 
+                    onClick={() => setSelectedImageIndex(1)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"
+                  >
+                    <ChevronLeft className="w-5 h-5 text-black" />
+                  </button>
+                  <button 
+                    onClick={() => setSelectedImageIndex(validStills.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-white/80 transition-colors"
+                  >
+                    <ChevronRight className="w-5 h-5 text-black" />
+                  </button>
                 </div>
               )}
 
