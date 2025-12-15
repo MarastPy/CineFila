@@ -37,8 +37,8 @@ const getRoundedRuntime = (runtimeString: string): string | null => {
   totalMinutes = Math.round(totalMinutes);
 
   if (totalMinutes < 40) return "short";
-  if (totalMinutes <= 70) return "mid-length";
-  return "full-length";
+  if (totalMinutes < 60) return "mid-length";
+  return "feature";
 };
 
 const parseRuntimeToMinutes = (runtimeString: string): number | null => {
@@ -145,17 +145,20 @@ const MultiSelectFilter = ({
       </PopoverTrigger>
       <PopoverContent className="w-[220px] p-0 bg-card border-border z-50" align="start">
         <div className="max-h-[300px] overflow-auto p-2">
-          {selectedValues.length > 0 && (
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={clearAll}
-              className="w-full justify-start text-xs mb-2 text-muted-foreground hover:text-foreground"
-            >
-              <X className="mr-2 h-3 w-3" />
-              Clear selection
-            </Button>
-          )}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={clearAll}
+            disabled={selectedValues.length === 0}
+            className={`w-full justify-start text-xs mb-2 ${
+              selectedValues.length === 0 
+                ? "text-muted-foreground/50 cursor-not-allowed" 
+                : "text-foreground hover:text-foreground"
+            }`}
+          >
+            <X className="mr-2 h-3 w-3" />
+            Clear selection
+          </Button>
           {options.map((option) => {
             const isAvailable = availableOptions.has(option);
             const isSelected = selectedValues.includes(option);
@@ -220,7 +223,7 @@ export default function Catalogue() {
     return {
       genres: Array.from(genres).sort(),
       years: Array.from(years).sort((a, b) => parseInt(b) - parseInt(a)),
-      lengths: ["short", "mid-length", "full-length"].filter((cat) => lengths.has(cat)),
+      lengths: ["short", "mid-length", "feature"].filter((cat) => lengths.has(cat)),
       audiences: Array.from(audiences).sort(),
       keywords: Array.from(keywords).sort(),
     };
@@ -406,8 +409,8 @@ export default function Catalogue() {
 
   const formatLengthOption = (value: string) => {
     if (value === "short") return "Short (under 40 min)";
-    if (value === "mid-length") return "Mid-length (40-70 min)";
-    return "Full-length (over 70 min)";
+    if (value === "mid-length") return "Mid-length (40–59 min)";
+    return "Feature (60 min and more)";
   };
 
   const hasActiveFilters =

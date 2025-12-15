@@ -15,6 +15,11 @@ npm install
 # Build the project
 npm run build
 
+ or
+ 
+set VITE_BASE_PATH=/CineFila/ && npm run build
+npx gh-pages -d dist
+
 # Deploy to GitHub Pages
 npm install gh-pages --save-dev
 npx gh-pages -d dist
