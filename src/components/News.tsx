@@ -15,11 +15,11 @@ const newsItems = [
     title: "Wolfie at SCHLINGEL Film Festival",
     date: "26/09/2025",
     excerpt:
-      "At this year’s @animateka_festival we had an opportunity to offer the Cinefila Festival Distribution Award to one of the projects presented at the Rise & Shine workshop for young talents. 💡 The award covers a two-year festival distribution prize valued at €4,000. The winner among the 11 amazing projects was 𝑺𝒕𝒐𝒓𝒎𝒔𝒖𝒓𝒈𝒆 directed by Anna Tőkés @tokes_anna_ and produced by Balint Gelley of CUB Animation @cubanimation!",
+      "Hello Internationales Filmfestival SCHLINGEL! 🇩🇪 📽 Vlček / Wolfie will be featured on this fantastic film festival for children and young audience in a German premiere!",
     fullContent:
       'Hello Internationales Filmfestival SCHLINGEL! 🇩🇪 📽 Vlček / Wolfie will be featured on this fantastic film festival for children and young audience in a German premiere! Wolfie will screen in the International Animated Short Film Competition of SCHLiNGEL during the programme part "Neighbourhood" for kids & families (5+) on 28. 09., 15:30 at CineStar Cinema Chemnitz!',
-    image: `${baseUrl}images/news/animateka_2025.jpg`,
-    link: "https://www.instagram.com/p/DSNZ9i6Coa7/?img_index=1",
+    image: `${baseUrl}images/posters/wolfie/wolfie.jpg`,
+    link: "https://www.facebook.com/photo/?fbid=122144326394736463&set=a.122107909304736463",
   },
   {
     title: "Soul Shift",
@@ -29,15 +29,6 @@ const newsItems = [
     fullContent:
       "Soul Shift, animated science-fiction comedy series, will premiere in the competition at Cartoons on the Bay – International Festival of Animation, Transmedia and Meta-Arts! This is an exciting opportunity for the series to be showcased at one of the most prestigious animation festivals in Europe.",
     image: `${baseUrl}images/posters/soul_shift/soul_shift.jpg`,
-  },
-  {
-    title: "Film Premiere Announcement",
-    date: "05/02/2025",
-    excerpt:
-      "Details about an upcoming film premiere, including dates, venues, and what makes this film a must-see for audiences.",
-    fullContent:
-      "We are thrilled to announce the premiere of our latest production. This film represents a significant milestone in our catalogue and we look forward to sharing it with audiences worldwide. Stay tuned for more details about screenings and festival selections.",
-    image: `${baseUrl}images/homepage/BOTY_CANNES_crop.jpg`,
   },
 ];
 
