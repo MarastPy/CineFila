@@ -12,14 +12,14 @@ const newsItems = [
     link: "https://www.instagram.com/p/DSViKSCipzZ/",
   },
   {
-    title: "Wolfie at SCHLINGEL Film Festival",
+    title: "Animateka",
     date: "26/09/2025",
     excerpt:
-      "Hello Internationales Filmfestival SCHLINGEL! 🇩🇪 📽 Vlček / Wolfie will be featured on this fantastic film festival for children and young audience in a German premiere!",
+      "At this year’s @animateka_festival we had an opportunity to offer the Cinefila Festival Distribution Award to one of the projects presented at the Rise & Shine workshop for young talents. 💡 The award covers a two-year festival distribution prize valued at €4,000.The winner among the 11 amazing projects was 𝑺𝒕𝒐𝒓𝒎𝒔𝒖𝒓𝒈𝒆 directed by Anna Tőkés @tokes_anna_ and produced by Balint Gelley of CUB Animation @cubanimation!",
     fullContent:
       'Hello Internationales Filmfestival SCHLINGEL! 🇩🇪 📽 Vlček / Wolfie will be featured on this fantastic film festival for children and young audience in a German premiere! Wolfie will screen in the International Animated Short Film Competition of SCHLiNGEL during the programme part "Neighbourhood" for kids & families (5+) on 28. 09., 15:30 at CineStar Cinema Chemnitz!',
-    image: `${baseUrl}images/posters/wolfie/wolfie.jpg`,
-    link: "https://www.facebook.com/photo/?fbid=122144326394736463&set=a.122107909304736463",
+    image: `${baseUrl}images/news/animateka_2025.jpg`,
+    link: "https://www.instagram.com/p/DSNZ9i6Coa7/?img_index=1",
   },
   {
     title: "Soul Shift",
