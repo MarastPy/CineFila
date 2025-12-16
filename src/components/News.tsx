@@ -2,10 +2,10 @@ const baseUrl = import.meta.env.BASE_URL;
 
 const newsItems = [
   {
-    title: "Wolfie",
+    title: "I died in Irpin",
     date: "10/02/2025",
     excerpt:
-      "A brief description of another exciting news article. This will entice readers to click and learn more about the topic.",
+      " We are speechless! I Died in Irpin, a short animated documentary by Anastasiia Falileieva, is shortlisted for the Animated Short Film category for the 98th Academy Awards®! Big big congratulations to the whole team behind the movie!",
     fullContent:
       " We are speechless! I Died in Irpin, a short animated documentary by Anastasiia Falileieva, is shortlisted for the Animated Short Film category for the 98th Academy Awards®! Big big congratulations to the whole team behind the movie!",
     image: `${baseUrl}images/posters/i_died_in_irpin/i_died_in_irpin.jpg`,
