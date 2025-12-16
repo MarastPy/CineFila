@@ -583,20 +583,20 @@ export default function Catalogue() {
                           </p>
 
                           {/* Festival Information */}
-                          {film.Festivals && film.Festivals.length > 0 && (
+                          {film.Festivals && film.Festivals.filter(f => f.Name_of_Festival?.trim()).length > 0 && (
                             <div className="mt-auto pt-4">
                               <p className="text-xs font-bold text-primary mb-2 tracking-wide">
                                 Festival selections:
                               </p>
                               <ul className="text-[0.7rem] space-y-0.5">
-                                {film.Festivals.slice(0, 3).map((festival, fidx) => (
+                                {film.Festivals.filter(f => f.Name_of_Festival?.trim()).slice(0, 3).map((festival, fidx) => (
                                   <li key={fidx} className="flex items-start">
                                     <span className="mr-1.5">•</span>
                                     <span>{festival.Name_of_Festival}</span>
                                   </li>
                                 ))}
-                                {film.Festivals.length > 3 && (
-                                  <li className="text-muted-foreground">+{film.Festivals.length - 3} more</li>
+                                {film.Festivals.filter(f => f.Name_of_Festival?.trim()).length > 3 && (
+                                  <li className="text-muted-foreground">+{film.Festivals.filter(f => f.Name_of_Festival?.trim()).length - 3} more</li>
                                 )}
                               </ul>
                             </div>
