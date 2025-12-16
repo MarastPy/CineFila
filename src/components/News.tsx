@@ -4,6 +4,14 @@ const baseUrl = import.meta.env.BASE_URL;
 
 const newsItems = [
   {
+    date: "16/12/2024",
+    excerpt:
+      "Cinefila Distribution brings WTF OFF — the acclaimed curated programme of bold, experimental animation by Sébastien Sperer — to SVOD platforms and theatrical distribution. Stay tuned for the 2026 premiere!",
+    image: `${baseUrl}images/wtf_off/wtf_off_logo.jpg`,
+    link: "/wtf-off",
+    isInternal: true,
+  },
+  {
     date: "10/12/2024",
     excerpt:
       "We are speechless! I Died in Irpin, a short animated documentary by Anastasiia Falileieva, is shortlisted for the Animated Short Film category for the 98th Academy Awards®! Big big congratulations to the whole team behind the movie!",
