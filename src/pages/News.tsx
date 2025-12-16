@@ -8,6 +8,15 @@ const baseUrl = import.meta.env.BASE_URL;
 
 const newsItems = [
   {
+    id: 0,
+    date: "16/12/2024",
+    excerpt:
+      "Cinefila Distribution brings WTF OFF — the acclaimed curated programme of bold, experimental animation by Sébastien Sperer — to SVOD platforms and theatrical distribution. Stay tuned for the 2026 premiere!",
+    image: `${baseUrl}images/wtf_off/wtf_off_logo.jpg`,
+    link: "/wtf-off",
+    isInternal: true,
+  },
+  {
     id: 1,
     date: "10/12/2024",
     excerpt:
