@@ -326,17 +326,16 @@ export default function FilmDetail() {
 
             {/* Right column - All text content */}
             <div className="space-y-8">
-              {/* Review Quote - Centered in the right column */}
+              {/* Review - styled like Logline */}
               {film.Review && (
-                <div className="mb-10 text-center">
-                  <p className="text-2xl sm:text-3xl font-garamond italic text-white/90 leading-tight">
+                <div>
+                  <h3 className="text-xl font-nunito font-bold mb-2 text-white">Review</h3>
+                  <p className="text-white/90 font-light italic">
                     "{film.Review}"
+                    {film.Review_name && (
+                      <span className="text-white/70 not-italic"> — {film.Review_name}</span>
+                    )}
                   </p>
-                  {film.Review_name && (
-                    <p className="text-sm font-nunito text-white/70 mt-3 uppercase tracking-widest">
-                      — {film.Review_name}
-                    </p>
-                  )}
                 </div>
               )}
 
@@ -436,6 +435,31 @@ export default function FilmDetail() {
                 <div>
                   <h3 className="text-xl font-nunito font-bold mb-2 text-white">Note</h3>
                   <p className="text-white/90 text-justify font-light">{film.Directors_Note}</p>
+                </div>
+              )}
+
+              {/* Director Bio with Photo - moved here under Note */}
+              {film.Director_Bio?.Bio_Text && (
+                <div>
+                  <h2 className="text-xl font-nunito font-bold mb-4 text-white">Director's Biography</h2>
+                  <div className="flex flex-col sm:flex-row gap-6">
+                    {directorPhotoExists && directorPhotoPath && (
+                      <div className="flex-shrink-0">
+                        <div className="w-[120px] h-[120px] rounded-full overflow-hidden ring-1 ring-white/20">
+                          <img
+                            src={directorPhotoPath}
+                            alt={crew["Director(s)"] || "Director"}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      </div>
+                    )}
+                    <div className="flex-grow">
+                      <p className="text-white/90 text-justify font-light whitespace-pre-line">
+                        {film.Director_Bio.Bio_Text}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               )}
 
@@ -626,30 +650,6 @@ export default function FilmDetail() {
                 </div>
               </div>
 
-              {/* Director Bio with Photo */}
-              {film.Director_Bio?.Bio_Text && (
-                <div>
-                  <h2 className="text-2xl font-nunito font-bold mb-4 text-white">Director's Biography</h2>
-                  <div className="flex flex-col sm:flex-row gap-6">
-                    {directorPhotoExists && directorPhotoPath && (
-                      <div className="flex-shrink-0">
-                        <div className="w-[120px] h-[120px] rounded-full overflow-hidden ring-1 ring-white/20">
-                          <img
-                            src={directorPhotoPath}
-                            alt={crew["Director(s)"] || "Director"}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </div>
-                    )}
-                    <div className="flex-grow">
-                      <p className="text-white/90 text-justify font-light whitespace-pre-line">
-                        {film.Director_Bio.Bio_Text}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              )}
 
               {/* Director Filmography */}
               {film.Director_Filmography && film.Director_Filmography.length > 0 && (
