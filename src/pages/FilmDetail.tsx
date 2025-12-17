@@ -326,18 +326,29 @@ export default function FilmDetail() {
 
             {/* Right column - All text content */}
             <div className="space-y-8">
-              {/* Review Quote - centered in right column, above Info Grid */}
+              {/* Review Quote - Now aligned with Logline/Content */}
               {film.Review && (
-                <div className="text-center mb-6">
-                  <p className="text-2xl font-garamond italic text-white/90">"{film.Review}"</p>
+                <div className="mb-10 border-l-4 border-white/20 pl-6">
+                  {" "}
+                  {/* Removed text-center, added a left border for style */}
+                  <p className="text-2xl sm:text-3xl font-garamond italic text-white/90 leading-tight">
+                    "{film.Review}"
+                  </p>
                   {film.Review_name && (
-                    <p className="text-sm font-nunito text-white/70 mt-2">— {film.Review_name}</p>
+                    <p className="text-sm font-nunito text-white/70 mt-3 uppercase tracking-widest">
+                      — {film.Review_name}
+                    </p>
                   )}
                 </div>
               )}
 
               {/* Info Grid - 3 columns, 2 rows */}
-              {(film.Status || (f.Target_Group?.Rating || f.Target_Group?.Audience) || f.Keywords || film.Sales || film.Festival_Distribution_Only === "yes") && (
+              {(film.Status ||
+                f.Target_Group?.Rating ||
+                f.Target_Group?.Audience ||
+                f.Keywords ||
+                film.Sales ||
+                film.Festival_Distribution_Only === "yes") && (
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
                   {/* Row 1 */}
                   {film.Status && (
@@ -346,7 +357,7 @@ export default function FilmDetail() {
                       <p className="text-white/90 font-light capitalize">{film.Status}</p>
                     </div>
                   )}
-                  
+
                   {(f.Target_Group?.Rating || f.Target_Group?.Audience) && (
                     <div>
                       <h3 className="text-lg font-nunito font-bold mb-2 text-white">Target group</h3>
@@ -357,7 +368,7 @@ export default function FilmDetail() {
                       </p>
                     </div>
                   )}
-                  
+
                   {f.Keywords && (
                     <div>
                       <h3 className="text-lg font-nunito font-bold mb-2 text-white">Story topics</h3>
@@ -383,7 +394,7 @@ export default function FilmDetail() {
                       </ul>
                     </div>
                   )}
-                  
+
                   {film.Festival_Distribution_Only === "yes" && (
                     <div>
                       <h3 className="text-lg font-nunito font-bold mb-2 text-white">Festival distribution only</h3>
@@ -614,7 +625,6 @@ export default function FilmDetail() {
                       </div>
                     </div>
                   )}
-
                 </div>
               </div>
 
