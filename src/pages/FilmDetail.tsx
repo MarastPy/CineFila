@@ -334,9 +334,16 @@ export default function FilmDetail() {
               )}
 
               {/* Info Grid - 3 columns, 2 rows */}
-              {((f.Target_Group?.Rating || f.Target_Group?.Audience) || f.Keywords || film.Sales || film.Festival_Distribution_Only === "yes") && (
+              {(film.Status || (f.Target_Group?.Rating || f.Target_Group?.Audience) || f.Keywords || film.Sales || film.Festival_Distribution_Only === "yes") && (
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
                   {/* Row 1 */}
+                  {film.Status && (
+                    <div>
+                      <h3 className="text-lg font-nunito font-bold mb-2 text-white">Status</h3>
+                      <p className="text-white/90 font-light capitalize">{film.Status}</p>
+                    </div>
+                  )}
+                  
                   {(f.Target_Group?.Rating || f.Target_Group?.Audience) && (
                     <div>
                       <h3 className="text-lg font-nunito font-bold mb-2 text-white">Target group</h3>
@@ -605,13 +612,6 @@ export default function FilmDetail() {
                     </div>
                   )}
 
-                  {/* Status - below Tech Specs */}
-                  {film.Status && (
-                    <div>
-                      <h2 className="text-2xl font-nunito font-bold mb-4 text-white">Status</h2>
-                      <p className="text-white/90 font-light capitalize">{film.Status}</p>
-                    </div>
-                  )}
                 </div>
               </div>
 
