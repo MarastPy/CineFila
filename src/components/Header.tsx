@@ -89,122 +89,129 @@ export const Header = () => {
 
       {/* Full-screen Overlay Menu */}
       <div
-        className={`fixed inset-0 w-full h-screen bg-black/70 backdrop-blur-sm z-[999] transition-all duration-300 ${
+        className={`fixed inset-0 w-full h-screen bg-black/60 backdrop-blur-md z-[999] transition-all duration-300 ${
           menuOpen ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         }`}
         onClick={() => setMenuOpen(false)}
       >
-        {/* Close button */}
-        <button
-          onClick={() => setMenuOpen(false)}
-          className="absolute top-8 right-8 p-3 text-white hover:text-primary transition-colors duration-200 z-[1001]"
-          aria-label="Close menu"
-        >
-          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
-        </button>
-
-        <nav
-          className="relative h-full flex flex-col justify-center items-center gap-6 w-full"
+        {/* Side Panel */}
+        <div
+          className={`absolute right-0 top-0 h-full w-full sm:w-[400px] bg-black/80 backdrop-blur-xl border-l border-white/10 transform transition-transform duration-300 ease-out ${
+            menuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <Link
-            to="/news"
-            className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
-              menuOpen ? "animate-fade-in" : "opacity-0"
-            }`}
-            style={{
-              animationDelay: "0.1s",
-              fontWeight: 300,
-              letterSpacing: "0.02em",
-            }}
+          {/* Close button */}
+          <button
             onClick={() => setMenuOpen(false)}
+            className="absolute top-6 right-6 p-2 text-white/70 hover:text-white transition-colors duration-200 z-[1001] rounded-full hover:bg-white/10"
+            aria-label="Close menu"
           >
-            News
-          </Link>
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
 
-          <Link
-            to="/catalogue"
-            className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
-              menuOpen ? "animate-fade-in" : "opacity-0"
-            }`}
-            style={{
-              animationDelay: "0.2s",
-              fontWeight: 300,
-              letterSpacing: "0.02em",
-            }}
-            onClick={() => setMenuOpen(false)}
-          >
-            Line Up
-          </Link>
+          {/* Navigation Content */}
+          <nav className="h-full overflow-y-auto pt-24 pb-12 px-8">
+            {/* Main Navigation */}
+            <div className="space-y-1">
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-4 font-nunito">Navigation</p>
+              
+              <Link
+                to="/"
+                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+                  menuOpen ? "animate-fade-in" : "opacity-0"
+                }`}
+                style={{ animationDelay: "0.05s" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                Home
+              </Link>
 
-          <Link
-            to="/#whatcanwedo"
-            className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
-              menuOpen ? "animate-fade-in" : "opacity-0"
-            }`}
-            style={{
-              animationDelay: "0.3s",
-              fontWeight: 300,
-              letterSpacing: "0.02em",
-            }}
-            onClick={() => setMenuOpen(false)}
-          >
-            What can we do for you
-          </Link>
+              <Link
+                to="/news"
+                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+                  menuOpen ? "animate-fade-in" : "opacity-0"
+                }`}
+                style={{ animationDelay: "0.1s" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                News
+              </Link>
 
-          <Link
-            to="/workshops"
-            className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
-              menuOpen ? "animate-fade-in" : "opacity-0"
-            }`}
-            style={{
-              animationDelay: "0.4s",
-              fontWeight: 300,
-              letterSpacing: "0.02em",
-            }}
-            onClick={() => setMenuOpen(false)}
-          >
-            Workshops
-          </Link>
+              <Link
+                to="/catalogue"
+                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+                  menuOpen ? "animate-fade-in" : "opacity-0"
+                }`}
+                style={{ animationDelay: "0.15s" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                Line Up
+              </Link>
+            </div>
 
-          <Link
-            to="/wtf-off"
-            className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
-              menuOpen ? "animate-fade-in" : "opacity-0"
-            }`}
-            style={{
-              animationDelay: "0.5s",
-              fontWeight: 300,
-              letterSpacing: "0.02em",
-            }}
-            onClick={() => setMenuOpen(false)}
-          >
-            WTF OFF
-          </Link>
+            {/* Services Section */}
+            <div className="mt-10 space-y-1">
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-4 font-nunito">Services</p>
+              
+              <Link
+                to="/#whatcanwedo"
+                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+                  menuOpen ? "animate-fade-in" : "opacity-0"
+                }`}
+                style={{ animationDelay: "0.2s" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                What can we do for you
+              </Link>
 
-          <Link
-            to="/#about"
-            className={`font-serif text-4xl sm:text-5xl lg:text-6xl text-white py-4 text-center transition-colors duration-200 hover:text-primary ${
-              menuOpen ? "animate-fade-in" : "opacity-0"
-            }`}
-            style={{
-              animationDelay: "0.6s",
-              fontWeight: 300,
-              letterSpacing: "0.02em",
-            }}
-            onClick={() => setMenuOpen(false)}
-          >
-            About us & contact
-          </Link>
+              <Link
+                to="/workshops"
+                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+                  menuOpen ? "animate-fade-in" : "opacity-0"
+                }`}
+                style={{ animationDelay: "0.25s" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                Workshops
+              </Link>
 
-          {/* Decorative line */}
-          <div
-            className={`w-32 h-px bg-white/30 mt-8 ${menuOpen ? "animate-fade-in" : "opacity-0"}`}
-            style={{ animationDelay: "0.7s" }}
-          ></div>
-        </nav>
+              <Link
+                to="/wtf-off"
+                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+                  menuOpen ? "animate-fade-in" : "opacity-0"
+                }`}
+                style={{ animationDelay: "0.3s" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                WTF OFF
+              </Link>
+            </div>
+
+            {/* About Section */}
+            <div className="mt-10 space-y-1">
+              <p className="text-white/40 text-xs uppercase tracking-widest mb-4 font-nunito">Company</p>
+              
+              <Link
+                to="/#about"
+                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+                  menuOpen ? "animate-fade-in" : "opacity-0"
+                }`}
+                style={{ animationDelay: "0.35s" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                About us & contact
+              </Link>
+            </div>
+
+            {/* Footer */}
+            <div className={`mt-16 pt-6 border-t border-white/10 ${menuOpen ? "animate-fade-in" : "opacity-0"}`} style={{ animationDelay: "0.4s" }}>
+              <p className="text-white/30 text-sm font-nunito">© {new Date().getFullYear()} Cinefila s.r.o.</p>
+            </div>
+          </nav>
+        </div>
       </div>
     </>
   );
