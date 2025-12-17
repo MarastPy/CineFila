@@ -52,22 +52,18 @@ const WtfOff = () => {
             <div className="text-justify font-nunito text-[17px]">
               <h2 className="font-nunito text-[1.5em] mb-4 font-bold">WTF OFF – Call for Submissions 2026</h2>
               <p className="mb-4">
-                Cinefila Distribution wants to bring this curated programme — which already has a strong reputation
-                among (not only) animation festivals — further to SVOD platforms and later also into theatrical
-                distribution.
+                Does your film refuse to fit into any box? Is it too strange, too bold, too experimental, too
+                uncomfortable for standard festival categories? Does it provoke, disturb, shock, or radically reimagine
+                what animation can be?
               </p>
               <p className="mb-4">
-                The project timeline is intentionally set to get ahead of the WTF programme in Annecy, whose quality has
-                been rapidly declining. The premiere of the programme should take place either before Annecy or directly
-                during Annecy.
+                WTF OFF is looking for animated films that break rules and push boundaries — short films, student works,
+                experimental animation, and exceptional feature-length projects. Screened in evening and late-night
+                slots, WTF OFF offers a true “midnight show” atmosphere for daring and uncompromising animation.
               </p>
+              <p className="mb-4">If your film doesn’t belong anywhere else, it belongs here.</p>
               <p className="mb-4">
-                The ideal festivals for a world premiere would be Anifilm (05/2026) or Animafest Zagreb (06/2026).
-              </p>
-              <p className="mb-4">
-                Before launching the programme in 2026, it is necessary to begin media activities so that by March 2026
-                it is already known that the programme is in preparation, which titles it will include, and so that
-                festivals and other interested partners can place their bookings.
+                <b>Submissions for 2026 are now open.</b>
               </p>
             </div>
           </div>
