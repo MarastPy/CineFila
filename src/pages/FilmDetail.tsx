@@ -330,6 +330,9 @@ export default function FilmDetail() {
               {film.Review && (
                 <div className="text-center mb-6">
                   <p className="text-2xl font-garamond italic text-white/90">"{film.Review}"</p>
+                  {film.Review_name && (
+                    <p className="text-sm font-nunito text-white/70 mt-2">— {film.Review_name}</p>
+                  )}
                 </div>
               )}
 
