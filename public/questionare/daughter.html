@@ -97,14 +97,14 @@
 
   <h2>1. Film</h2>
   <label>Title</label>
-  Original:<textarea oninput="autoResize(this)" style="height: 23px;">Vlček</textarea>
-  English:<textarea oninput="autoResize(this)" style="height: 23px;">Wolfie</textarea>
+  Original:<textarea oninput="autoResize(this)" style="height: 23px;">Dcera</textarea>
+  English:<textarea oninput="autoResize(this)" style="height: 23px;">Daughter</textarea>
   Other:<textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
 <br>
 <br>
   <label>Language</label>
  Original:<textarea oninput="autoResize(this)" style="height: 23px;">without dialogue</textarea>
- Subtitles:<textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
+ Subtitles:<textarea oninput="autoResize(this)" style="height: 23px;">none</textarea>
 <br>
 <br>
   <label>Country of production</label>
@@ -112,10 +112,10 @@
 <br>
 <br>
   <label>Date of completion</label>
-  <textarea oninput="autoResize(this)" placeholder="DD.MM.YYYY" style="height: 23px;">7 January 2025</textarea>
+  <textarea oninput="autoResize(this)" placeholder="DD.MM.YYYY" style="height: 23px;">2019</textarea>
 <br>
 <br>
-  <label>Runtime (for the series average value)</label><textarea oninput="autoResize(this)" placeholder="HH:MM:SS" style="height: 23px;">00:13:12</textarea>
+  <label>Runtime (for the series average value)</label><textarea oninput="autoResize(this)" placeholder="HH:MM:SS" style="height: 23px;">00:14:44</textarea>
 <br>
 <br>
 Number of series:<textarea oninput="autoResize(this)" placeholder="Total number" style="height: 23px;"></textarea>
@@ -139,7 +139,7 @@ Titles and runtime of episodes:
 <option>action</option>
 <option>adventure</option>
 <option>ani-doc</option>
-<option selected="selected">animation</option>
+<option>animation</option>
 <option>autobiographical</option>
 <option>based on true story</option>
 <option>biographical</option>
@@ -151,7 +151,7 @@ Titles and runtime of episodes:
 <option>dance</option>
 <option>disaster</option>
 <option>documentary</option>
-<option>drama</option>
+<option selected="selected">drama</option>
 <option>educational</option>
 <option>erotic</option>
 <option>experimental</option>
@@ -205,7 +205,7 @@ Titles and runtime of episodes:
 <option>autobiographical</option>
 <option>based on true story</option>
 <option>biographical</option>
-<option selected="selected">children</option>
+<option>children</option>
 <option>comedy</option>
 <option>comics</option>
 <option>coming-of-age</option>
@@ -238,7 +238,7 @@ Titles and runtime of episodes:
 <option>poetic</option>
 <option>political</option>
 <option>psychological</option>
-<option>puppet</option>
+<option selected="selected">puppet</option>
 <option>reality TV</option>
 <option>road movie</option>
 <option>romantic</option>
@@ -261,7 +261,7 @@ Titles and runtime of episodes:
 <option>action</option>
 <option>adventure</option>
 <option>ani-doc</option>
-<option>animation</option>
+<option selected="selected">animation</option>
 <option>autobiographical</option>
 <option>based on true story</option>
 <option>biographical</option>
@@ -278,7 +278,7 @@ Titles and runtime of episodes:
 <option>erotic</option>
 <option>experimental</option>
 <option>fairytale</option>
-<option selected="selected">family</option>
+<option>family</option>
 <option>fantasy</option>
 <option>feature</option>
 <option>fiction</option>
@@ -413,7 +413,7 @@ Other:<textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
 
   <label>Keywords (story topics)</label>
 List keywords that describe the theme of the film, such as migration, environmental issues, LGBTQ+, kids, animal etc.:
-<textarea oninput="autoResize(this)" style="height: 23px;">play, animals, acceptance, balance, chaos, difference, childhood, motherhood</textarea>
+<textarea oninput="autoResize(this)" style="height: 23px;">childhood, father-daughter relationship, expressing emotions, parental love, guilt</textarea>
 
 <br>
 <br>
@@ -422,9 +422,9 @@ List keywords that describe the theme of the film, such as migration, environmen
 Rating:
 <select>
 <option></option>
-<option selected="selected">3+</option>
+<option>3+</option>
 <option>6+</option>
-<option>12+</option>
+<option selected="selected">12+</option>
 <option>15+</option>
 <option>18+</option>
 </select>
@@ -448,9 +448,9 @@ Other:<textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
   
     <div id="premiere-container">
     <div class="row">
-      <textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">April 2025</textarea>
-      <textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Argentina</textarea>
-      <textarea class="festival" placeholder="Name of place of premiere" oninput="autoResize(this)" style="height: 36px;">BAFICI - Buenos Aires International Festival of Independent Cinema
+      <textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">10 June 2019</textarea>
+      <textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">France</textarea>
+      <textarea class="festival" placeholder="Name of place of premiere" oninput="autoResize(this)" style="height: 36px;">Annecy International Animated Film Festival
 </textarea>
     </div>
   </div>
@@ -461,19 +461,18 @@ Other:<textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
   <label>Did the film have a festival screening?</label>
     <div id="festival-container">
     <div class="row">
-      <textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 36px;">February 2025</textarea>
-      <textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">France</textarea>
-      <textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">Festival International du Court Métrage de Clermont-Ferrand
+      <textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 36px;">September 2019</textarea>
+      <textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Bulgaria</textarea>
+      <textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">World Festival of Animated Film Varna, The Best Student Film
 </textarea>
     </div>
-    <div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">April 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Argentina</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">BAFICI - Buenos Aires International Festival of Independent Cinema
-</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">July 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Italy</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 23px;">Giffoni Film Festival</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">October 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Belgium</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">The International Film Festival for young audiences Filem’On
-</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 36px;">September 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Germany</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">International Film Festival SCHLINGEL
-</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">June 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Slovak Republic</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 23px;">Fest ANČA</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 36px;">November 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Poland</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">International Young Audience Film Festival Ale Kino!
-</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">May 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Czech Republic</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 23px;">Anifilm</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 36px;">December 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Belgium</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">International Kortfilmfestival Leuven
-</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">May 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Norway</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">Kristiansand International Children’s Film Festival
-</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">August 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Israel</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">ANIMIX - International Animation &amp; Comics Festival
-</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">August 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Canada</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 23px;">Anim sur le Lac</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 36px;">November 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Italy</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 23px;">Reggio Film Festival</textarea></div></div>
+    <div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 36px;">September 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Albania</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 23px;">Tirana International Film Festival, The Best Student Film</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Hungary</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">Anilogue International Animation Festival, Best Short Film
+</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 36px;">November 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Cyprus</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">Cyprus International Film Festival, "Golden Aphrodite" 
+</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 36px;">December 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Poland</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 51px;">ISFF ZUBROFFKA, Best film in the EASTWARD WINDOW Competition and THE BEST ANIMATION
+
+</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Spain</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 23px;">Mecal Pro, second prize by the Animation Jury</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">USA</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">Glasgow Short Film Festival, Audience Award for International Short Film
+</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Germany</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 23px;">NEISSE FILM FESTIVAL, Best Short Film</textarea></div><div class="row"><textarea class="date" placeholder="dd.mm.yyyy" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Japan</textarea><textarea class="festival" placeholder="Name of Festival" oninput="autoResize(this)" style="height: 36px;">Tokyo Anime Award Festival, Grand Prix Award
+</textarea></div></div>
 
 
 
@@ -520,16 +519,34 @@ Other:<textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
   <label> Did the film win an award?</label>
   <div id="awards-container">
     <div class="row">
-      <textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2025</textarea>
+      <textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2019</textarea>
       <textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">USA</textarea>
-      <textarea class="festival" placeholder="Festival, section of competion" oninput="autoResize(this)" style="height: 36px;">The 52nd Student Academy Award (Student OSCAR), Finalist
+      <textarea class="festival" placeholder="Festival, section of competion" oninput="autoResize(this)" style="height: 36px;">The 46th Student Academy Award (Student OSCAR), the gold medal in International Animation film 
 </textarea>
     </div>
-  <div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 36px;">September 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Switzerland</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Fantoche International Animation Film Festival, Young Audience Award in Kids Film Competition
-</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;"></textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 23px;">ECFA, Finalist for Best European Children’s Short Film</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">June 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Czech Republic</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 51px;">International Film Festival for Children and Youth, ZLÍN, Children’s Jury Award for Best Short Animation for Children 
+  <div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">USA</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">The 92nd Academy Awards Nomination in the category The Best Short Animatied Film
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">June 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">France</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 51px;">Annecy International Animated Film Festival, Cristal for the Best Student Film, Young Jury award for the best Student film
 
-</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 36px;">November 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">France</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Brest European Short Film Festival, SCHOOL PRICE in category 4-7 years old
-</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">October 2025</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">France</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Cineopen Festival, Young Audience Prize at the competition
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">August 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Australia</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Melbourne International Film Festival, City Post Award for Best Animation Short Film
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 36px;">September 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Switzerland</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Fantoche International Animation Film Festival, Best film of Fantoche
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">October 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">South Korea</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Bucheon International Animation Festival BIAF, AniG‘s Choice and 1st Jury Prize
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 36px;">November 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">USA</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Denver Film Festival, Marilyn Marsh Saint-Veltri Award for Best Student Animated Short Film
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 36px;">November 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Portugal</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Cinanima, International Student Film Competition Award
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 36px;">November 2019</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Estonia</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 51px;">PÖFF Shorts – Black Nights Film Festival, The winner at the New Talent competition
+
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">January 2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">USA</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Sundance Film Festival, Best Short Film 
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">Spring 2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">USA</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">New Jersey Film Festival, Best Animation
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Germany</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Stuttgart Festival of Animated Film, Young talent award
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Portugal</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 51px;">Monstra, Best Student film from the Junior Jury, and Special Senior Jury
+
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">USA</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 51px;">Palm Springs International Shortfest, The Best Student Animated short
+
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)"></textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">THE CILECT PRIZE 2020 for the best animated film
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Japan</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 36px;">Hiroshima International Animation Festival, Grand Prix
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Chile</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 51px;">Chilemonos, First place in the International School Short Film Competition
+
+</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">UK</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 23px;">Cardiff Animation Festival, Audience award</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Croatia</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 23px;">Animafest Zagreb, Best film for children</textarea></div><div class="row"><textarea class="date" placeholder="date" oninput="autoResize(this)" style="height: 23px;">2020</textarea><textarea class="country" placeholder="Country" oninput="autoResize(this)" style="height: 23px;">Czech Republic</textarea><textarea class="festival" placeholder="Festival, section of competition" oninput="autoResize(this)" style="height: 51px;">Anifilm, Best Student film in the International competition, Best Student Czech Film, Best Czech Animated film
+
 </textarea></div></div>
 
   
@@ -567,54 +584,53 @@ Other:<textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
 <br>
 <br>
   <h2>5. Logline (max. 150 characters)</h2>
-    <textarea oninput="autoResize(this)" maxlength="150" style="height: 36px;">A perfectionist ilustrator has to face her own mistakes when she accidentally makes an ink blot and creates Wolfie, a little wolf with an inky nose.
+    <textarea oninput="autoResize(this)" maxlength="150" style="height: 51px;">A childhood misunderstanding between a father and daughter grows into years of silence, until time offers a fragile chance for closeness.
+
 </textarea>
 <br>
 <br>
   <h2>6. Synopsis (max. 350 characters)</h2>
-<textarea oninput="autoResize(this)" maxlength="350" style="height: 81px;">Mother spends her days drawing animals that spring to life, each framed picture growing into a forest. But one day she creates Wolfie, a wolf with an inky nose who makes a mess of her perfect world. Can she restore balance, or will Wolfie’s “flaw” turn out to be a surprising gift?
-
+<textarea oninput="autoResize(this)" maxlength="350" style="height: 66px;">As a child, a girl brings home an injured bird, hoping to share her feelings with her father. Absorbed by his own worries, he fails to notice her longing for understanding. The girl turns inward, and the unspoken hurt shapes their relationship over the years—until time offers a fragile chance for reconnection.
 
 </textarea>
 <br>
 <br>
   <h2>7. Director's note (max. 500 characters)</h2>
-  <textarea oninput="autoResize(this)" maxlength="500" style="height: 81px;">Ink, illustration, cute little animals, those are all things that inspire me and fill me with joy. In this short film I tried using them to tell a story. A story about childlike play, chaos, perfectionism, about the creator’s lot and the acceptance of flaws. Most importantly, it is the story of two characters who find a way to accept each other in spite of their differences, and thanks to this, are able to set themselves free.
-
+  <textarea oninput="autoResize(this)" maxlength="500" style="height: 66px;">My film explores the father-daughter relationship, deeply personal to me. To immerse viewers in memory, I used a handheld feel, close-ups, low depth of field, and motion for immediacy. I painted the puppets’ eyes directly, giving them life and an intense expression of their emotions.
 
 </textarea>
 <br>
 <br>
   <h2>8. Crew</h2>
-  <label>Director(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Philippe Kastner</textarea>
-  <label>Screenplay writer(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Philippe Kastner</textarea>
-  <label>Director(s) of Photography:</label><textarea oninput="autoResize(this)" style="height: 23px;">N/A</textarea>
-  <label>Editor(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Prokop Prčík</textarea>
-  <label>Sound director(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Dávid Procházka</textarea>
-  <label>Art director(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Philippe Kastner</textarea>
-  <label>Music composer(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Philippe Kastner</textarea>
-  <label>Cast (actor's name: role):</label><textarea oninput="autoResize(this)" style="height: 36px;">Adéla Majzlíková: Mother
-Patrick Biela: Wolfie</textarea>
+  <label>Director(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Daria Kashcheeva</textarea>
+  <label>Screenplay writer(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Daria Kashcheeva</textarea>
+  <label>Director(s) of Photography:</label><textarea oninput="autoResize(this)" style="height: 23px;">Daria Kashcheeva, Bargav Sridhar</textarea>
+  <label>Editor(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Alexander Kashcheev</textarea>
+  <label>Sound director(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Daria Kashcheeva, Miroslav Chaloupka</textarea>
+  <label>Art director(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Daria Kashcheeva</textarea>
+  <label>Music composer(s):</label><textarea oninput="autoResize(this)" style="height: 23px;">Petr Vrba</textarea>
+  <label>Cast (actor's name: role):</label><textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
 <br>
 <br>
   <h2>9. Director's bio </h2>
 <label>Date of birth:</label>
-  <textarea oninput="autoResize(this)" placeholder="DD.MM.YYYY" style="height: 23px;">26 May 2001</textarea>
+  <textarea oninput="autoResize(this)" placeholder="DD.MM.YYYY" style="height: 23px;">1 April 1986</textarea>
 
 <label>Max. 500 characters:</label>
-<textarea oninput="autoResize(this)" style="height: 81px;">Philippe Kastner, a graduate of the Department of Animation at FAMU, is best known in the world of student animation for his short film Dede is Dead (Deniska umřela, 2023) that has been screened at Berlinale and many other prestigious film festivals. Apart from that, he has directed multiple other short films such as The Tower (Věž, 2021) as well as a music video for his song Wolfeater (2021).
-
+<textarea oninput="autoResize(this)" style="height: 66px;">Independent filmmaker Daria Kashcheeva studied animation at FAMU. Her Bachelor’s puppet film Daughter (2019) premiered at Annecy, won a Student Academy Award, and collected prizes at over 100 festivals. Her acclaimed Master’s film Electra (2023) premiered at Cannes. She is now developing her feature debut.
 
 </textarea>
 
 <br>
 <br>
   <h2>10. Director's filmography</h2>
-<textarea oninput="autoResize(this)" placeholder="Title (year)" style="height: 96px;">Deniska umřela (Dede is Dead), 2023
-ŠMIK! (CUT!), 2023
-Věž (The Tower), 2021
-Wolfeater, 2021
-Haraburdí (Jumble), 2021
+<textarea oninput="autoResize(this)" placeholder="Title (year)" style="height: 126px;">Electra, 2023
+Praha očima cizinců (Prague: A foreigners' perspective), 2017 
+To Accept, 2017
+Oáza (Oasis), 2017
+V popelnici (In a Dumpster), 2017
+Vítr správným směrem (Before the wind), 2016
+
 </textarea>
 
 <br>
@@ -641,7 +657,7 @@ Film:
 </select>
 Video:
 <select>
-<option selected="selected"></option>
+<option></option>
 <option>Betacam SP</option>
 <option>Digital Betacam</option>
 <option>miniDV</option>
@@ -649,7 +665,7 @@ Video:
 <option>HDCAM</option>
 <option>XDCAM</option>
 <option>mobile phone</option>
-<option>DSLR/DSLM</option>
+<option selected="selected">DSLR/DSLM</option>
 <option>RED</option>
 <option>Arri</option>
 <option>Blackmagic Design</option>
@@ -670,7 +686,7 @@ Other:
 <label>Animation technique</label>
 <select>
 <option></option>
-<option selected="selected">2D computer</option>
+<option>2D computer</option>
 <option>3D computer</option>
 <option>cel animation</option>
 <option>clay animation</option>
@@ -682,7 +698,7 @@ Other:
 <option>paper cut out</option>
 <option>pin screen</option>
 <option>pixilation</option>
-<option>puppet</option>
+<option selected="selected">puppet</option>
 <option>real shooting</option>
 <option>rotoscoping</option>
 <option>sand/powder</option>
@@ -693,12 +709,12 @@ Other:
 <br>
 <br>
 <label>Video editing software</label>
-  <textarea oninput="autoResize(this)" style="height: 23px;">Adobe Premiere Pro</textarea>
+  <textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
 <br>
 <br>
 
 <label>Digital audio workstation</label>
-  <textarea oninput="autoResize(this)" style="height: 23px;">Pro Tools</textarea>
+  <textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
 
 <br>
 <br>
@@ -756,9 +772,9 @@ Other:
 <option>SD: PAL (720x576)</option>
 <option>HD: 1280X720</option>
 <option>HD: 1440X1080</option>
-<option selected="selected">HD: 1920X1080</option>
+<option>HD: 1920X1080</option>
 <option>2K</option>
-<option>4k</option>
+<option selected="selected">4k</option>
 <option>8k</option>
 </select>
 Other:
@@ -804,13 +820,13 @@ Other:
 <option>1.37</option>
 <option>1.43 (IMAX 70 mm)</option>
 <option>1.66</option>
-<option selected="selected">1.78 (16:9)</option>
+<option>1.78 (16:9)</option>
 <option>1.85 ("flat format")</option>
 <option>1.90 (Netflix, digital IMAX...)</option>
 <option>2.00 (Netflix, Apple TV+, RED, Arri...)</option>
 <option>2.20 (70 mm)</option>
 <option>2.35 (CinemaScope)</option>
-<option>2.39 / 2.40 (modern "scope")</option>
+<option selected="selected">2.39 / 2.40 (modern "scope")</option>
 <option>2.55 (original CinemaScope)</option>
 <option>2.76 (Ultra Panavision 70)</option>
 </select>
@@ -825,8 +841,8 @@ Other:
 <option>Mono (1.0)</option>
 <option>Stereo (2.0, L+R)</option>
 <option>Dolby Stereo (3.1, LCRS)</option>
-<option>Dolby Digital 5.1 (L, C, R, Ls, Rs, LFE)</option>
-<option selected="selected">Dolby Digital 7.1 (5.1 + Lss, Rss)</option>
+<option selected="selected">Dolby Digital 5.1 (L, C, R, Ls, Rs, LFE)</option>
+<option>Dolby Digital 7.1 (5.1 + Lss, Rss)</option>
 <option>Dolby Atmos</option>
 <option>DTS (Digital Theater Systems)</option>
 <option>SDDS (Sony Dynamic Digital Sound)</option>
@@ -834,14 +850,14 @@ Other:
 <option>Auro 11.1 / 13.1</option>
 </select>
 Other:
-<textarea oninput="autoResize(this)" style="height: 23px;">5.1 (L, R, C, LFE, Ls, Rs); stereo</textarea>
+<textarea oninput="autoResize(this)" style="height: 23px;"></textarea>
 <br>
 <br>
 <label>Colour</label>
   <select>
-    <option>Colour</option>
+    <option selected="selected">Colour</option>
     <option>Black &amp; White</option>
-    <option selected="selected">Colour + Black &amp; White</option>
+    <option>Colour + Black &amp; White</option>
   </select>
 <br>
 <br>
@@ -852,22 +868,22 @@ Other:
 
   </p><h2>12. Production</h2>
   <label>Producers:</label>
-<textarea oninput="autoResize(this)" style="height: 96px;">Name: FAMU
-Address: Smetanovo nábřeží 2
-Postal code, city: 116 65 Prague
-Country: Czech Republic
-WEB: famu.cz
+<textarea oninput="autoResize(this)" style="height: 96px;">Name: Zuzana Roháčová
+Address:
+Postal code, city:
+Country:
+WEB:
 </textarea>
 
   <label>Production company:</label>
-  <textarea oninput="autoResize(this)" style="height: 96px;">Name:
+  <textarea oninput="autoResize(this)" style="height: 96px;">Name: FAMU
 Address:
 Postal code, city:
 Country:
 WEB:
 </textarea>
   <label>Co-producer:</label>
-  <textarea oninput="autoResize(this)" style="height: 96px;">Name:
+  <textarea oninput="autoResize(this)" style="height: 96px;">Name: Martin Vandas, Maurfilm
 Address:
 Postal code, city:
 Country:
