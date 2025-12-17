@@ -328,14 +328,11 @@ export default function FilmDetail() {
             <div className="space-y-8">
               {/* Review - styled like Logline */}
               {film.Review && (
-                <div>
-                  <h3 className="text-xl font-nunito font-bold mb-2 text-white">Review</h3>
-                  <p className="text-white/90 font-light italic">
-                    "{film.Review}"
-                    {film.Review_name && (
-                      <span className="text-white/70 not-italic"> — {film.Review_name}</span>
-                    )}
-                  </p>
+                <div className="w-full text-center py-6 mb-10">
+                  <p className="text-3xl lg:text-4xl font-garamond italic text-white leading-tight">“{film.Review}”</p>
+                  {film.Review_name && (
+                    <p className="text-lg font-nunito text-white/60 mt-4 italic">- {film.Review_name}</p>
+                  )}
                 </div>
               )}
 
@@ -649,7 +646,6 @@ export default function FilmDetail() {
                   )}
                 </div>
               </div>
-
 
               {/* Director Filmography */}
               {film.Director_Filmography && film.Director_Filmography.length > 0 && (
