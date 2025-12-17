@@ -61,6 +61,7 @@ export interface Film {
   ParsedRanking?: number;
   Ranking?: string;
   Review?: string;
+  Review_name?: string;
   Festival_Distribution_Only?: string;
   Sales?: string;
   Status?: string;
