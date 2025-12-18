@@ -1,3 +1,5 @@
+const baseUrl = import.meta.env.BASE_URL;
+
 export const Mission = () => {
   return (
     <section id="mission" className="py-12 sm:py-[90px] bg-[#f0f2f5] scroll-mt-[90px]">
@@ -16,7 +18,7 @@ export const Mission = () => {
         </div>
           <div className="flex-1">
             <img 
-              src="/images/homepage/BOTY_CANNES_crop.jpg"
+              src={`${baseUrl}images/homepage/BOTY_CANNES_crop.jpg`}
               alt="Illustrative image for Cinefila mission" 
               className="w-full shadow-[0_6px_12px_rgba(0,0,0,.08)]"
             />
