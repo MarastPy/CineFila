@@ -167,6 +167,7 @@ export const Header = () => {
                 What can we do for you
               </Link>
 
+              {/* Workshops link temporarily hidden
               <Link
                 to="/workshops"
                 className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
@@ -177,6 +178,7 @@ export const Header = () => {
               >
                 Workshops
               </Link>
+              */}
 
               <Link
                 to="/wtf-off"
