@@ -71,7 +71,15 @@ export const Hero = () => {
         <hr className="border-white/20 border-t-2 mt-8 sm:mt-10" />
 
         {/* CTA Buttons */}
-        <div className="grid grid-cols-2 sm:flex sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 mt-8 sm:mt-10">
+        <div className="grid grid-cols-2 sm:flex sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6 mt-8 sm:mt-10 flex-wrap">
+          <Button
+            asChild
+            variant="dark"
+            size="lg"
+            className="w-full sm:w-[160px] lg:w-[180px] h-[50px] sm:h-[60px] lg:h-[70px] text-[13px] sm:text-[14px] lg:text-base font-bold px-2 sm:px-4"
+          >
+            <a href="/news">News</a>
+          </Button>
           <Button
             asChild
             variant="dark"
@@ -94,7 +102,7 @@ export const Hero = () => {
             size="lg"
             className="w-full sm:w-[160px] lg:w-[180px] h-[50px] sm:h-[60px] lg:h-[70px] text-[13px] sm:text-[14px] lg:text-base font-bold px-2 sm:px-4"
           >
-            <a href="/news">News</a>
+            <a href="/wtf-off" className="text-center">WTF OFF<br />Collections 2026</a>
           </Button>
           {/* Workshops button temporarily hidden
           <Button
