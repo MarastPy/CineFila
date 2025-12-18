@@ -1,14 +1,35 @@
 import { useState, useEffect } from "react";
 import { Menu, Search } from "lucide-react";
 import { SearchOverlay } from "@/components/SearchOverlay";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [logoProgress, setLogoProgress] = useState(0);
   const location = useLocation();
+  const navigate = useNavigate();
   const isMainPage = location.pathname === "/";
+
+  const handleHashNavigation = (hash: string) => {
+    setMenuOpen(false);
+    if (isMainPage) {
+      // Already on main page, just scroll
+      const element = document.getElementById(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Navigate to main page first, then scroll
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    }
+  };
 
   useEffect(() => {
     // On non-main pages, show logo immediately
@@ -152,61 +173,55 @@ export const Header = () => {
                 Line Up
               </Link>
 
-              <Link
-                to="/#mission"
-                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+              <button
+                className={`block w-full text-left py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
                   menuOpen ? "animate-fade-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: "0.2s" }}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => handleHashNavigation("mission")}
               >
                 Our Mission
-              </Link>
+              </button>
 
-              <Link
-                to="/#whatcanwedo"
-                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+              <button
+                className={`block w-full text-left py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
                   menuOpen ? "animate-fade-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: "0.25s" }}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => handleHashNavigation("whatcanwedo")}
               >
                 For Independent Filmmakers
-              </Link>
+              </button>
 
-              <Link
-                to="/#festivals-cinemas"
-                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+              <button
+                className={`block w-full text-left py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
                   menuOpen ? "animate-fade-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: "0.3s" }}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => handleHashNavigation("festivals-cinemas")}
               >
                 For Festivals & Cinemas
-              </Link>
+              </button>
 
-              <Link
-                to="/#film-schools"
-                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+              <button
+                className={`block w-full text-left py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
                   menuOpen ? "animate-fade-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: "0.35s" }}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => handleHashNavigation("film-schools")}
               >
                 For Film Schools & Institutions
-              </Link>
+              </button>
 
-              <Link
-                to=""
-                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+              <span
+                className={`block py-3 text-white/50 font-garamond text-2xl border-b border-white/5 ${
                   menuOpen ? "animate-fade-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: "0.4s" }}
-                onClick={() => setMenuOpen(false)}
               >
                 Workshops
                 <span className="ml-2 text-sm text-white/50 font-nunito">– coming soon</span>
-              </Link>
+              </span>
 
               <Link
                 to="/wtf-off"
@@ -219,16 +234,15 @@ export const Header = () => {
                 WTF OFF Collection 2026
               </Link>
 
-              <Link
-                to="/#about"
-                className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
+              <button
+                className={`block w-full text-left py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
                   menuOpen ? "animate-fade-in" : "opacity-0"
                 }`}
                 style={{ animationDelay: "0.5s" }}
-                onClick={() => setMenuOpen(false)}
+                onClick={() => handleHashNavigation("about")}
               >
                 About us & Contacts
-              </Link>
+              </button>
             </div>
 
             {/* Footer */}

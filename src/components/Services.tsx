@@ -1,3 +1,5 @@
+const baseUrl = import.meta.env.BASE_URL;
+
 export const Services = () => {
   return (
     <>
@@ -53,7 +55,7 @@ export const Services = () => {
             </div>
             <div className="flex items-start justify-center">
               <img 
-                src="/images/homepage/alex_berlinale.JPG" 
+                src={`${baseUrl}images/homepage/alex_berlinale.JPG`}
                 alt="Alexandra at Berlinale" 
                 className="w-full max-w-md rounded-lg shadow-lg object-cover"
               />
