@@ -62,6 +62,7 @@ export const Services = () => {
         </div>
       </section>
 
+      {/* Workshops section temporarily hidden
       <section className="py-12 sm:py-[90px] bg-[#f0f2f5]">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
           <h1 className="font-garamond text-[45px] text-[#222] mb-4 text-left font-bold">Workshops</h1>
@@ -87,6 +88,7 @@ export const Services = () => {
           </div>
         </div>
       </section>
+      */}
     </>
   );
 };

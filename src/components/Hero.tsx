@@ -96,6 +96,7 @@ export const Hero = () => {
           >
             <a href="/news">News</a>
           </Button>
+          {/* Workshops button temporarily hidden
           <Button
             asChild
             variant="dark"
@@ -104,6 +105,7 @@ export const Hero = () => {
           >
             <a href="/workshops">Workshops</a>
           </Button>
+          */}
           <Button
             asChild
             variant="dark"
