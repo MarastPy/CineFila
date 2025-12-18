@@ -26,7 +26,7 @@ export const Header = () => {
       const progress = Math.min(1, Math.max(0, (window.scrollY - transitionStart) / (transitionEnd - transitionStart)));
       setLogoProgress(progress);
     };
-    
+
     handleScroll(); // Check initial position
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -57,7 +57,11 @@ export const Header = () => {
             }}
           >
             <Link to="/">
-              <img src={`${import.meta.env.BASE_URL}images/logo/Cinefila_logo_white_web.svg`} alt="Cinefila Logo" className="h-[50px]" />
+              <img
+                src={`${import.meta.env.BASE_URL}images/logo/Cinefila_logo_white_web.svg`}
+                alt="Cinefila Logo"
+                className="h-[50px]"
+              />
             </Link>
           </div>
 
@@ -193,7 +197,7 @@ export const Header = () => {
               </Link>
 
               <Link
-                to="/workshops"
+                to=""
                 className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
                   menuOpen ? "animate-fade-in" : "opacity-0"
                 }`}
@@ -205,7 +209,7 @@ export const Header = () => {
               </Link>
 
               <Link
-                to="/wtf-off"
+                to="/WTFOff"
                 className={`block py-3 text-white/90 hover:text-white hover:pl-2 transition-all duration-200 font-garamond text-2xl border-b border-white/5 ${
                   menuOpen ? "animate-fade-in" : "opacity-0"
                 }`}
@@ -228,7 +232,10 @@ export const Header = () => {
             </div>
 
             {/* Footer */}
-            <div className={`mt-16 pt-6 border-t border-white/10 ${menuOpen ? "animate-fade-in" : "opacity-0"}`} style={{ animationDelay: "0.55s" }}>
+            <div
+              className={`mt-16 pt-6 border-t border-white/10 ${menuOpen ? "animate-fade-in" : "opacity-0"}`}
+              style={{ animationDelay: "0.55s" }}
+            >
               <p className="text-white/30 text-sm font-nunito">© {new Date().getFullYear()} Cinefila s.r.o.</p>
             </div>
           </nav>
