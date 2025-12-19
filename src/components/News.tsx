@@ -6,7 +6,7 @@ const newsItems = [
   {
     date: "16/12/2024",
     excerpt:
-      "Cinefila Distribution brings WTF OFF — the acclaimed curated programme of bold, experimental animation by Sébastien Sperer — to SVOD platforms and theatrical distribution. Stay tuned for the 2026 premiere!",
+      "Does your film refuse to fit into any box? Cinefila Distribution brings WTF OFF – the acclaimed curated programme of bold, experimental animation by Sébastien Sperer – to SVOD platforms and theatrical distribution.",
     image: `${baseUrl}images/wtf_off/wtf_off_logo.jpg`,
     link: "/wtf-off",
     isInternal: true,
@@ -61,7 +61,11 @@ export const News = () => {
             const content = (
               <>
                 <div className="aspect-[3/2] relative overflow-hidden rounded-sm mb-4">
-                  <img src={item.image} alt="News" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <img
+                    src={item.image}
+                    alt="News"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
                 </div>
                 <p className="font-nunito text-[15px] text-[#1c1c1c] font-bold mb-3">{item.date}</p>
                 <p className="font-nunito text-[14px] text-[#2c2c2c] leading-relaxed">
