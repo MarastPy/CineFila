@@ -4,10 +4,10 @@
       "Title_Original": "O krávě",
       "Title_English": "About a cow",
       "Title_Other": "",
-      "Language_Original": "Without dialogue",
+      "Language_Original": "without dialogue",
       "Language_Subtitles": "None",
       "Country_of_production": "Czech Republic, Switzerland",
-      "Date_of_completion": "23.05.2023",
+      "Date_of_completion": "23 May 2023",
       "Runtime": "00:12:50",
       "Number_of_series": "",
       "Number_of_episodes": "",
@@ -27,38 +27,88 @@
     },
     "Premiere": [
       {
-        "Date": "08/2023",
+        "Date": "August 2023",
         "Country": "Switzerland",
         "Name_of_place_of_premiere": "Locarno Film Festival"
       }
     ],
     "Festivals": [
       {
-        "Date": "11/2023",
+        "Date": "August 2023",
+        "Country": "Switzerland",
+        "Name_of_Festival": "Locarno Film Festival"
+      },
+      {
+        "Date": "May 2024",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "Anifilm"
+      },
+      {
+        "Date": "October 2023",
+        "Country": "South Korea",
+        "Name_of_Festival": "Bucheon International Animation Festival"
+      },
+      {
+        "Date": "April 2024",
+        "Country": "Germany",
+        "Name_of_Festival": "Stuttgart International Festival of Animated Film (ITFS)"
+      },
+      {
+        "Date": "December 2023",
+        "Country": "Slovenia",
+        "Name_of_Festival": "Animateka International Animated Film Festival"
+      },
+      {
+        "Date": "November 2023",
         "Country": "Estonia",
         "Name_of_Festival": "PÖFF Shorts - Black Nights Film Festival"
       },
       {
-        "Date": "06/2024",
+        "Date": "June 2024",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "International Film Festival for Children and Youth - ZLÍN"
+      },
+      {
+        "Date": "September 2024",
+        "Country": "Canada",
+        "Name_of_Festival": "Ottawa Animation International Film Festival"
+      },
+      {
+        "Date": "March 2023",
+        "Country": "USA",
+        "Name_of_Festival": "New York International Children's Film Festival"
+      },
+      {
+        "Date": "June 2024",
         "Country": "China",
         "Name_of_Festival": "Shanghai International Film Festival"
       },
       {
-        "Date": "10/2023",
-        "Country": "Korea",
-        "Name_of_Festival": "Bucheon International Animation Festival"
+        "Date": "December 2023",
+        "Country": "Poland",
+        "Name_of_Festival": "International Young Audience Film Festival Ale Kino!"
       },
       {
-        "Date": "11/2025",
+        "Date": "March 2023",
+        "Country": "Canada",
+        "Name_of_Festival": "Montreal International Children’s Film Festival (FIFEM)"
+      },
+      {
+        "Date": "November 2025",
         "Country": "Italy",
         "Name_of_Festival": "Reggio Film Festival"
+      },
+      {
+        "Date": "March 2024",
+        "Country": "Austria",
+        "Name_of_Festival": "TRICKY WOMEN"
       }
     ],
     "Awards": [
       {
-        "Date": "09/2024",
+        "Date": "September 2024",
         "Country": "Switzerland",
-        "Festival_Section_of_Competition": "Fantoche International Animation Film Festival - NEW SWISS TALENT award"
+        "Festival_Section_of_Competition": "Fantoche International Animation Film Festival, New Swiss Talent Award"
       }
     ],
     "Logline": "A mosaic of cow stories from around the world shows them as sensitive, complex creatures, blending humour and poetry to spark empathy and hope.",
@@ -146,10 +196,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/about_a_cow_poster.zip",
-    "Download_stills": "/downloads/stills/about_a_cow_stills.zip",
-    "Download_presskit": "/downloads/presskits/about_a_cow_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/about_a_cow_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1031297187?p=0s"
   },
   {
@@ -283,10 +333,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/amber_tale_poster.zip",
-    "Download_stills": "/downloads/stills/amber_tale_stills.zip",
-    "Download_presskit": "/downloads/presskits/amber_tale_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/amber_tale_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1133290021?share=copy&fl=sv&fe=ci"
   },
   {
@@ -421,10 +471,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/baldies_what_about_my_hair_poster.zip",
-    "Download_stills": "/downloads/stills/baldies_what_about_my_hair_stills.zip",
-    "Download_presskit": "/downloads/presskits/baldies_what_about_my_hair_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/baldies_what_about_my_hair_extras.zip",
+    "Download_extras": "",
     "Trailer_url": ""
   },
   {
@@ -432,10 +482,10 @@
       "Title_Original": "Il Formaggio",
       "Title_English": "Cheese",
       "Title_Other": "",
-      "Language_Original": "italian",
-      "Language_Subtitles": "english",
+      "Language_Original": "Italian",
+      "Language_Subtitles": "English",
       "Country_of_production": "Italy",
-      "Date_of_completion": "O1.01.2022",
+      "Date_of_completion": "1 January 2022",
       "Runtime": "00:11:28",
       "Number_of_series": "",
       "Number_of_episodes": "",
@@ -446,9 +496,9 @@
         "experimental"
       ],
       "Genre_Other": "opera",
-      "Keywords": "cheese, cat, mouse, opera,",
+      "Keywords": "cheese, cat, mouse, opera",
       "Target_Group": {
-        "Rating": "",
+        "Rating": "6+",
         "Audience": "",
         "Other": ""
       }
@@ -462,30 +512,32 @@
     ],
     "Festivals": [
       {
-        "Date": "",
-        "Country": "",
-        "Name_of_Festival": ""
+        "Date": "September 2022",
+        "Country": "Belgium",
+        "Name_of_Festival": "Ernest Film Festival"
       }
     ],
     "Awards": [
       {
-        "Date": "",
-        "Country": "",
-        "Festival_Section_of_Competition": ""
+        "Date": "January 2022",
+        "Country": "France",
+        "Festival_Section_of_Competition": "Paris International Animation Film Festival (PIAFF), Prix du public"
       }
     ],
     "Logline": "",
-    "Synopsis": "",
+    "Synopsis": "Two little mice discover the beauty of the moon that reminds them of their favorite food: a wheel of cheese. The short film is an original Opera, made specifically for this animation.",
     "Directors_Note": "",
     "Crew": {
       "Director(s)": "Claudio Giusti",
-      "Screenplay_writer(s)": "",
+      "Screenplay_writer(s)": "Claudio Giusti",
       "Director(s)_of_Photography": "",
-      "Editor(s)": "",
+      "Editor(s)": "Claudio Giusti",
       "Sound_director(s)": "",
       "Art_director(s)": "",
-      "Music_composer(s)": "",
-      "Cast": []
+      "Music_composer(s)": "David Boldrini",
+      "Cast": [
+        "Voices: Ana Seixas (soprano), Francesco Marchetti (tenor"
+      ]
     },
     "Director_Bio": {
       "Date_of_birth": "",
@@ -533,10 +585,10 @@
         "WEB": ""
       },
       "Production_Company": {
-        "Name": "",
+        "Name": "Fat Unicorn Creative Studio",
         "Address": "",
-        "Postal code, city": "",
-        "Country": "",
+        "Postal code, city": "Florence",
+        "Country": "Italy",
         "WEB": ""
       },
       "Co_Producer": {
@@ -555,10 +607,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/cheese_poster.zip",
-    "Download_stills": "/downloads/stills/cheese_stills.zip",
-    "Download_presskit": "/downloads/presskits/cheese_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/cheese_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/745142085?share=copy&fl=sv&fe=ci"
   },
   {
@@ -597,16 +649,36 @@
     ],
     "Festivals": [
       {
-        "Date": "",
-        "Country": "",
-        "Name_of_Festival": ""
+        "Date": "February 2020",
+        "Country": "France",
+        "Name_of_Festival": "Festival International du Court Métrage de Clermont-Ferrand"
+      },
+      {
+        "Date": "October 2020",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "Anifilm"
+      },
+      {
+        "Date": "August 2020",
+        "Country": "Slovakia",
+        "Name_of_Festival": "Fest Anča"
+      },
+      {
+        "Date": "June 2019",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "International Film Festival for Children and Youth - ZLÍN"
+      },
+      {
+        "Date": "November 2020",
+        "Country": "Qatar",
+        "Name_of_Festival": "Ajyal Film Festival"
       }
     ],
     "Awards": [
       {
         "Date": "",
         "Country": "",
-        "Festival_Section_of_Competition": ""
+        "Festival_Section_of_Competition": "International Film Festival for Children and Youth - ZLÍN"
       }
     ],
     "Logline": "The thrilling story of a little boy in a housing estate, where even the world's greatest adventure can take place.",
@@ -626,7 +698,7 @@
       ]
     },
     "Director_Bio": {
-      "Date_of_birth": "",
+      "Date_of_birth": "1995",
       "Bio_Text": "Marie Urbánková, 1995, Prague. First she studied scenography at the SUPŠ. Then, she continued her studies at the Prague UMPRUM, majoring in film and television graphics, where she is currently continuing her master's degree. She illustrates and collaborates with Raketa magazine, illustrated three books, and others are in the process!"
     },
     "Director_Filmography": [],
@@ -693,10 +765,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/the_concrete_jungle_poster.zip",
-    "Download_stills": "/downloads/stills/the_concrete_jungle_stills.zip",
-    "Download_presskit": "/downloads/presskits/the_concrete_jungle_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/the_concrete_jungle_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/579740396?share=copy&fl=sv&fe=ci"
   },
   {
@@ -984,7 +1056,7 @@
       "Language_Original": "without dialogue",
       "Language_Subtitles": "none",
       "Country_of_production": "Czech Republic",
-      "Date_of_completion": "14.2.2022",
+      "Date_of_completion": "14 February 2022",
       "Runtime": "00:08:18",
       "Number_of_series": "",
       "Number_of_episodes": "",
@@ -1003,23 +1075,68 @@
     },
     "Premiere": [
       {
-        "Date": "",
-        "Country": "",
-        "Name_of_place_of_premiere": ""
+        "Date": "June 2022",
+        "Country": "Croatia",
+        "Name_of_place_of_premiere": "Animafest Zagreb"
       }
     ],
     "Festivals": [
       {
-        "Date": "",
-        "Country": "",
-        "Name_of_Festival": ""
+        "Date": "September 2022",
+        "Country": "Switzerland",
+        "Name_of_Festival": "Fantoche International Animation Film Festival"
+      },
+      {
+        "Date": "June 2022",
+        "Country": "Croatia",
+        "Name_of_Festival": "Animafest Zagreb"
+      },
+      {
+        "Date": "March 2023",
+        "Country": "Sweden",
+        "Name_of_Festival": "BUFF Malmö Film Festival"
+      },
+      {
+        "Date": "October 2022",
+        "Country": "Belgium",
+        "Name_of_Festival": "The International Film Festival for young audiences Filem’On"
+      },
+      {
+        "Date": "May 2023",
+        "Country": "Portugal",
+        "Name_of_Festival": "MONSTRA - Lisbon Animation Festival"
+      },
+      {
+        "Date": "May 2022",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "Anifilm"
+      },
+      {
+        "Date": "January 2023",
+        "Country": "France",
+        "Name_of_Festival": "Festival Premiers Plans"
+      },
+      {
+        "Date": "May 2023",
+        "Country": "Germany",
+        "Name_of_Festival": "Stuttgart International Festival of Animated Film"
+      },
+      {
+        "Date": "May 2022",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "International Film Festival for Children and Youth - ZLÍN"
+      },
+      {
+        "Date": "August 2022",
+        "Country": "Taiwan",
+        "Name_of_Festival": "Hsin‑Yi Children’s Animation Awards"
       }
     ],
     "Awards": [
       {
-        "Date": "",
-        "Country": "",
-        "Festival_Section_of_Competition": ""
+        "Date": "2023",
+        "Country": "Europe",
+        "Festival_Section_of_Competition": "ECFA, Winner of Best European Children’s Short Film"
       }
     ],
     "Logline": "A short film about how hard it can sometimes be forgiving.",
@@ -1103,10 +1220,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/don_t_blow_it_up_poster.zip",
-    "Download_stills": "/downloads/stills/don_t_blow_it_up_stills.zip",
-    "Download_presskit": "/downloads/presskits/don_t_blow_it_up_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/don_t_blow_it_up_extras.zip",
+    "Download_extras": "",
     "Trailer_url": ""
   },
   {
@@ -1244,10 +1361,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/first_patrol_poster.zip",
-    "Download_stills": "/downloads/stills/first_patrol_stills.zip",
-    "Download_presskit": "/downloads/presskits/first_patrol_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/first_patrol_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1129328478?share=copy&fl=sv&fe=ci"
   },
   {
@@ -1381,10 +1498,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/gently_poster.zip",
-    "Download_stills": "/downloads/stills/gently_stills.zip",
-    "Download_presskit": "/downloads/presskits/gently_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/gently_extras.zip",
+    "Download_extras": "",
     "Trailer_url": ""
   },
   {
@@ -1481,7 +1598,7 @@
       {
         "Date": "June 2025",
         "Country": "Argentina",
-        "Festival_Section_of_Competition": "una Mención Especial en la Competencia de Cortometrajes - Festival de Cine Latinoamericano Rosario"
+        "Festival_Section_of_Competition": "Festival de Cine Latinoamericano Rosario, una Mención Especial en la Competencia de Cortometrajes"
       }
     ],
     "Logline": "In a world ruled by a mysterious telephone, power shifts from a distant force to the people themselves—revealing how the oppressed become oppressors.",
@@ -1568,10 +1685,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/hatker_poster.zip",
-    "Download_stills": "/downloads/stills/hatker_stills.zip",
-    "Download_presskit": "/downloads/presskits/hatker_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/hatker_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1071588543?p=0s"
   },
   {
@@ -1726,10 +1843,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/home_poster.zip",
-    "Download_stills": "/downloads/stills/home_stills.zip",
-    "Download_presskit": "/downloads/presskits/home_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/home_extras.zip",
+    "Download_extras": "",
     "Trailer_url": ""
   },
   {
@@ -1740,7 +1857,7 @@
       "Language_Original": "",
       "Language_Subtitles": "",
       "Country_of_production": "Czech Republic",
-      "Date_of_completion": "01.01.2026",
+      "Date_of_completion": "1 January 2026",
       "Runtime": "00:12:00",
       "Number_of_series": "",
       "Number_of_episodes": "",
@@ -1751,7 +1868,7 @@
         "western"
       ],
       "Genre_Other": "neo western",
-      "Keywords": "",
+      "Keywords": "friendship",
       "Target_Group": {
         "Rating": "",
         "Audience": "",
@@ -1780,7 +1897,7 @@
       }
     ],
     "Logline": "",
-    "Synopsis": "Jackovo divoké srdce (Hot blood) is a short animated neowestern film that explores the theme of broken friendships, often leaving behind a sense of something unspoken, unresolved. In this visually inventive tale, Jack embarks on a quest to find his former friend Hank Craven in hopes of reclaiming the guitar that Hank took from him twenty years.",
+    "Synopsis": "Hot blood is a short animated neowestern film that explores the theme of broken friendships, often leaving behind a sense of something unspoken, unresolved. In this visually inventive tale, Jack embarks on a quest to find his former friend Hank Craven in hopes of reclaiming the guitar that Hank took from him twenty years.",
     "Directors_Note": "",
     "Crew": {
       "Director(s)": "Jan B. Piskač",
@@ -1860,10 +1977,10 @@
     "Sales": "",
     "Status": "in production",
     "Download_poster": "/downloads/posters/hot_blood_poster.zip",
-    "Download_stills": "/downloads/stills/hot_blood_stills.zip",
-    "Download_presskit": "/downloads/presskits/hot_blood_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/hot_blood_extras.zip",
+    "Download_extras": "",
     "Trailer_url": ""
   },
   {
@@ -2112,10 +2229,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/humanity_poster.zip",
-    "Download_stills": "/downloads/stills/humanity_stills.zip",
-    "Download_presskit": "/downloads/presskits/humanity_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/humanity_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1024651252?share=copy&fl=sv&fe=ci"
   },
   {
@@ -2289,10 +2406,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/i_died_in_irpin_poster.zip",
-    "Download_stills": "/downloads/stills/i_died_in_irpin_stills.zip",
-    "Download_presskit": "/downloads/presskits/i_died_in_irpin_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/i_died_in_irpin_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1010184733?share=copy&fl=sv&fe=ci"
   },
   {
@@ -2300,10 +2417,10 @@
       "Title_Original": "Máma má vždycky pravdu",
       "Title_English": "Mom is always right",
       "Title_Other": "Maman a toujours raison",
-      "Language_Original": "czech / english, french dubbing",
-      "Language_Subtitles": "english",
+      "Language_Original": "Czech / English, French dubbing",
+      "Language_Subtitles": "English",
       "Country_of_production": "Czech Republic",
-      "Date_of_completion": "O1.01.2022",
+      "Date_of_completion": "1 January 2022",
       "Runtime": "00:07:39",
       "Number_of_series": "",
       "Number_of_episodes": "",
@@ -2331,9 +2448,29 @@
     ],
     "Festivals": [
       {
-        "Date": "",
-        "Country": "",
-        "Name_of_Festival": ""
+        "Date": "June 2022",
+        "Country": "Croatia",
+        "Name_of_Festival": "Animafest Zagreb"
+      },
+      {
+        "Date": "May 2022",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "Anifilm"
+      },
+      {
+        "Date": "September 2022",
+        "Country": "Germany",
+        "Name_of_Festival": "International Film Festival SCHLINGEL"
+      },
+      {
+        "Date": "June 2022",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "International Film Festival for Children and Youth - ZLÍN"
+      },
+      {
+        "Date": "July 2022",
+        "Country": "Kosovo",
+        "Name_of_Festival": "Anibar Animation Festival"
       }
     ],
     "Awards": [
@@ -2360,7 +2497,7 @@
       ]
     },
     "Director_Bio": {
-      "Date_of_birth": "",
+      "Date_of_birth": "1995",
       "Bio_Text": "Marie Urbánková, 1995, Prague. First she studied scenography at the SUPŠ. Then, she continued her studies at the Prague UMPRUM, majoring in film and television graphics, where she is currently continuing her master's degree. She illustrates and collaborates with Raketa magazine, illustrated three books. During her studies she made a short animated film for children, \"The Concrete Jungle\". She graduated with a master's film \"Mom is always right\"."
     },
     "Director_Filmography": [],
@@ -2427,10 +2564,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/mom_is_always_right_poster.zip",
-    "Download_stills": "/downloads/stills/mom_is_always_right_stills.zip",
-    "Download_presskit": "/downloads/presskits/mom_is_always_right_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/mom_is_always_right_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/694854309?share=copy&fl=sv&fe=ci"
   },
   {
@@ -2438,9 +2575,9 @@
       "Title_Original": "Síla",
       "Title_English": "Out in force",
       "Title_Other": "",
-      "Language_Original": "czech",
-      "Language_Subtitles": "english",
-      "Country_of_production": "Czech republic",
+      "Language_Original": "Czech",
+      "Language_Subtitles": "English",
+      "Country_of_production": "Czech Republic",
       "Date_of_completion": "",
       "Runtime": "01:32:40",
       "Number_of_series": "",
@@ -2458,42 +2595,42 @@
     },
     "Premiere": [
       {
-        "Date": "",
-        "Country": "",
-        "Name_of_place_of_premiere": ""
+        "Date": "October 2021",
+        "Country": "Czech Republic",
+        "Name_of_place_of_premiere": "IDFF Jihlava 2021 Czech Joy"
       }
     ],
     "Festivals": [
       {
-        "Date": "",
+        "Date": "October 2021",
         "Country": "Czech Republic",
         "Name_of_Festival": "IDFF Jihlava 2021 Czech Joy"
       },
       {
-        "Date": "",
+        "Date": "October 2022",
         "Country": "Poland",
         "Name_of_Festival": "OFF CINEMA International Documentary Film Festival"
       },
       {
-        "Date": "",
-        "Country": "Czech republic / Poland",
+        "Date": "May 2022",
+        "Country": "Czech Republic / Poland",
         "Name_of_Festival": "Kino na hranici / Kino na Granicy"
       }
     ],
     "Awards": [
       {
-        "Date": "",
+        "Date": "October 2021",
         "Country": "Czech Republic",
-        "Festival_Section_of_Competition": "IDFF Jihlava 2021 Czech Joy - best editing"
+        "Festival_Section_of_Competition": "IDFF Jihlava 2021 Czech Joy, Award for best editing"
       },
       {
-        "Date": "",
+        "Date": "June 2021",
         "Country": "Czech Republic",
-        "Festival_Section_of_Competition": "One World - The Best Film in The Czech Competition"
+        "Festival_Section_of_Competition": "One World (Jeden svět), Best Film in the Czech competition"
       }
     ],
     "Logline": "What should the male force look like in the 21st century? A crushingly honest statement about the internal conflict and the midlife crisis.",
-    "Synopsis": "Martin Mareček’s film The Force captures five difficult years in the life of a film publicist, feminist and cultural agent Kamil Fila, during which he faces relationship problems, depression and a rather extreme experiment on his own body. The result is not only an incredibly honest testimony on an internal conflict and the middle age crisis, but a",
+    "Synopsis": "Martin Mareček’s The Force follows five difficult years in the life of film publicist Kamil Fila, as he faces relationship struggles, depression, and extreme experiments on his body, offering an intimate and brutally honest portrait of inner conflict and modern masculinity.",
     "Directors_Note": "",
     "Crew": {
       "Director(s)": "Martin Mareček",
@@ -2575,10 +2712,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/out_in_force_poster.zip",
-    "Download_stills": "/downloads/stills/out_in_force_stills.zip",
-    "Download_presskit": "/downloads/presskits/out_in_force_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/out_in_force_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/711764759?share=copy&fl=sv&fe=ci"
   },
   {
@@ -2716,8 +2853,8 @@
   },
   {
     "Film": {
-      "Title_Original": "SnowBlind",
-      "Title_English": "SnowBlind",
+      "Title_Original": "Snowblind",
+      "Title_English": "Snowblind",
       "Title_Other": "",
       "Language_Original": "unintelligible language",
       "Language_Subtitles": "none",
@@ -2748,9 +2885,9 @@
     ],
     "Festivals": [
       {
-        "Date": "",
-        "Country": "",
-        "Name_of_Festival": ""
+        "Date": "10/2025",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "JI.HLAVA INTERNATIONAL DOCUMENTARY FILM FESTIVAL"
       }
     ],
     "Awards": [
@@ -2837,19 +2974,7 @@
         "WEB": ""
       }
     },
-    "Source_File": "snowblind.html",
-    "Ranking": "10",
-    "Review": "",
-    "Review_name": "",
-    "Festival_Distribution_Only": "",
-    "Sales": "",
-    "Status": "",
-    "Download_poster": "/downloads/posters/snowblind_poster.zip",
-    "Download_stills": "/downloads/stills/snowblind_stills.zip",
-    "Download_presskit": "/downloads/presskits/snowblind_presskit.zip",
-    "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/snowblind_extras.zip",
-    "Trailer_url": ""
+    "Source_File": "snowblind.html"
   },
   {
     "Film": {
@@ -3036,10 +3161,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/soul_shift_poster.zip",
-    "Download_stills": "/downloads/stills/soul_shift_stills.zip",
-    "Download_presskit": "/downloads/presskits/soul_shift_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/soul_shift_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1067459541?share=copy&fl=sv&fe=ci"
   },
   {
@@ -3329,10 +3454,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/the_compatriot_poster.zip",
-    "Download_stills": "/downloads/stills/the_compatriot_stills.zip",
-    "Download_presskit": "/downloads/presskits/the_compatriot_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/the_compatriot_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1049618664?share=copy&fl=sv&fe=ci"
   },
   {
@@ -3340,10 +3465,10 @@
       "Title_Original": "Ježek",
       "Title_English": "The Hedgehog",
       "Title_Other": "",
-      "Language_Original": "no dialogue",
+      "Language_Original": "without dialogue",
       "Language_Subtitles": "",
       "Country_of_production": "Czech Republic",
-      "Date_of_completion": "19/03/2023",
+      "Date_of_completion": "19 March 2023",
       "Runtime": "00:01:30",
       "Number_of_series": "",
       "Number_of_episodes": "",
@@ -3364,31 +3489,86 @@
     },
     "Premiere": [
       {
-        "Date": "03/2023",
+        "Date": "March 2023",
         "Country": "Ireland",
         "Name_of_place_of_premiere": "Cinemagic International Film Festival for Young People"
       }
     ],
     "Festivals": [
       {
-        "Date": "10/2023",
-        "Country": "Sweden",
-        "Name_of_Festival": "Uppsala International Short Film Festival"
+        "Date": "May 2023",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "Anifilm"
       },
       {
-        "Date": "03/2023",
+        "Date": "March 2023",
         "Country": "Belgium",
         "Name_of_Festival": "Anima - the Brussels Animation Film Festival"
       },
       {
-        "Date": "03/2024",
+        "Date": "March 2024",
         "Country": "Sweden",
         "Name_of_Festival": "BUFF Malmö Film Festival"
       },
       {
-        "Date": "03/2025",
+        "Date": "October 2024",
+        "Country": "Hungary",
+        "Name_of_Festival": "Primanima World Festival of First Animations"
+      },
+      {
+        "Date": "April 2024",
+        "Country": "Germany",
+        "Name_of_Festival": "Stuttgart International Festival of Animated Film (ITFS)"
+      },
+      {
+        "Date": "December 2023",
+        "Country": "Slovenia",
+        "Name_of_Festival": "Animateka International Animated Film Festival"
+      },
+      {
+        "Date": "March 2025",
         "Country": "Canada",
         "Name_of_Festival": "Montreal International Children’s Film Festival (FIFEM)"
+      },
+      {
+        "Date": "March 2024",
+        "Country": "Portugal",
+        "Name_of_Festival": "MONSTRA - Lisbon Animation Festival"
+      },
+      {
+        "Date": "February 2024",
+        "Country": "USA",
+        "Name_of_Festival": "Providence Children's Film Festival"
+      },
+      {
+        "Date": "March 2023",
+        "Country": "Ireland",
+        "Name_of_Festival": "Cinemagic International Film Festival for Young People"
+      },
+      {
+        "Date": "September 2024",
+        "Country": "Ukraine",
+        "Name_of_Festival": "Kyiv International Short Film Festival"
+      },
+      {
+        "Date": "October 2023",
+        "Country": "Sweden",
+        "Name_of_Festival": "Uppsala International Short Film Festival"
+      },
+      {
+        "Date": "May 2025",
+        "Country": "France",
+        "Name_of_Festival": "Le Cri du Court"
+      },
+      {
+        "Date": "January 2024",
+        "Country": "India",
+        "Name_of_Festival": "Bulbul Children's International Film Festival"
+      },
+      {
+        "Date": "February 2025",
+        "Country": "Spain",
+        "Name_of_Festival": "ANIMAC, International Animation Film Festival of Catalonia"
       }
     ],
     "Awards": [
@@ -3485,10 +3665,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/the_hedgehog_poster.zip",
-    "Download_stills": "/downloads/stills/the_hedgehog_stills.zip",
-    "Download_presskit": "/downloads/presskits/the_hedgehog_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/the_hedgehog_extras.zip",
+    "Download_extras": "",
     "Trailer_url": ""
   },
   {
@@ -3625,10 +3805,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/",
-    "Download_stills": "/downloads/stills/",
-    "Download_presskit": "/downloads/presskits/",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/",
+    "Download_extras": "",
     "Trailer_url": ""
   },
   {
@@ -3767,10 +3947,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/volklore_poster.zip",
-    "Download_stills": "/downloads/stills/volklore_stills.zip",
-    "Download_presskit": "/downloads/presskits/volklore_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/volklore_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1137852240?share=copy&fl=sv&fe=ci"
   },
   {
@@ -3965,10 +4145,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/waves_poster.zip",
-    "Download_stills": "/downloads/stills/waves_stills.zip",
-    "Download_presskit": "/downloads/presskits/waves_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/waves_extras.zip",
+    "Download_extras": "",
     "Trailer_url": ""
   },
   {
@@ -4158,14 +4338,14 @@
     "Ranking": "18",
     "Review": "",
     "Review_name": "",
-    "Festival_Distribution_Only": "",
+    "Festival_Distribution_Only": "Yes",
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/weeds_poster.zip",
-    "Download_stills": "/downloads/stills/weeds_stills.zip",
-    "Download_presskit": "/downloads/presskits/weeds_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/weeds_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1024520135?share=copy&fl=sv&fe=ci"
   },
   {
@@ -4391,10 +4571,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/wolfie_poster.zip",
-    "Download_stills": "/downloads/stills/wolfie_stills.zip",
-    "Download_presskit": "/downloads/presskits/wolfie_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/wolfie_extras.zip",
+    "Download_extras": "",
     "Trailer_url": "https://vimeo.com/1059881911?share=copy&fl=sv&fe=ci"
   },
   {
@@ -4542,10 +4722,10 @@
       "Title_Original": "O lýkožroutce",
       "Title_English": "Writing Home",
       "Title_Other": "",
-      "Language_Original": "Without dialogue",
+      "Language_Original": "without dialogue",
       "Language_Subtitles": "None",
       "Country_of_production": "Czech Republic",
-      "Date_of_completion": "19.05.2024",
+      "Date_of_completion": "19 May 2024",
       "Runtime": "00:12:04",
       "Number_of_series": "",
       "Number_of_episodes": "",
@@ -4566,48 +4746,108 @@
     },
     "Premiere": [
       {
-        "Date": "05/2024",
+        "Date": "May 2024",
         "Country": "Czech Republic",
-        "Name_of_place_of_premiere": "Liberec, Anifilm"
+        "Name_of_place_of_premiere": "Anifilm"
       }
     ],
     "Festivals": [
       {
-        "Date": "07/2024",
+        "Date": "September 2024",
+        "Country": "Switzerland",
+        "Name_of_Festival": "Fantoche International Animation Film Festival"
+      },
+      {
+        "Date": "May 2024",
+        "Country": "Czech Republic",
+        "Name_of_Festival": "Anifilm"
+      },
+      {
+        "Date": "July 2024",
         "Country": "Italy",
         "Name_of_Festival": "Giffoni"
       },
       {
-        "Date": "10/2024",
-        "Country": "Netherlands",
-        "Name_of_Festival": "Cinekid"
-      },
-      {
-        "Date": "03/2025",
-        "Country": "Sweden",
-        "Name_of_Festival": "BUFF Malmö Film Festival"
-      },
-      {
-        "Date": "05/2025",
+        "Date": "May 2025",
         "Country": "Germany",
         "Name_of_Festival": "Stuttgart International Festival of Animated Film (ITFS)"
       },
       {
-        "Date": "10/2025",
+        "Date": "March 2025",
+        "Country": "Sweden",
+        "Name_of_Festival": "BUFF Malmö Film Festival"
+      },
+      {
+        "Date": "June 2024",
+        "Country": "Slovakia",
+        "Name_of_Festival": "Fest Anča"
+      },
+      {
+        "Date": "March 2025",
+        "Country": "Belgium",
+        "Name_of_Festival": "Anima - the Brussels Animation Film Festival"
+      },
+      {
+        "Date": "October 2024",
+        "Country": "The Netherlands",
+        "Name_of_Festival": "Cinekid"
+      },
+      {
+        "Date": "October 2024",
+        "Country": "Belgium",
+        "Name_of_Festival": "The International Film Festival for young audiences Filem’On"
+      },
+      {
+        "Date": "March 2025",
+        "Country": "Canada",
+        "Name_of_Festival": "Montreal International Children’s Film Festival (FIFEM)"
+      },
+      {
+        "Date": "October 2025",
         "Country": "Brazil",
         "Name_of_Festival": "ANIMAGE - International Animation Festival of Pernambuco"
+      },
+      {
+        "Date": "July 2024",
+        "Country": "Kosovo",
+        "Name_of_Festival": "Anibar Animation Festival"
+      },
+      {
+        "Date": "November 2024",
+        "Country": "UK",
+        "Name_of_Festival": "London International Animation Festival"
+      },
+      {
+        "Date": "August 2025",
+        "Country": "Mexico",
+        "Name_of_Festival": "Guanajuato International Film Festival"
+      },
+      {
+        "Date": "October 2025",
+        "Country": "Australia",
+        "Name_of_Festival": "Byron Bay International Film Festival"
+      },
+      {
+        "Date": "February 2025",
+        "Country": "Spain",
+        "Name_of_Festival": "ANIMAC, International Animation Film Festival of Catalonia"
       }
     ],
     "Awards": [
       {
-        "Date": "06/2024",
-        "Country": "Portugal",
-        "Festival_Section_of_Competition": "FEST - New Directors/New Films Festival; \nWINNER - Best film of FESTinha Sub 10 Comp"
+        "Date": "June 2024",
+        "Country": "Czech Republic",
+        "Festival_Section_of_Competition": "International Film Festival for Children and Youth - Zlín, Hermína Týrlová award winner"
       },
       {
-        "Date": "06/2024",
-        "Country": "Czech Republic",
-        "Festival_Section_of_Competition": "International Film Festival for Children and Youth - \nZlín, Hermína Týrlová award winner"
+        "Date": "June 2024",
+        "Country": "Portugal",
+        "Festival_Section_of_Competition": "FEST - New Directors/New Films Festival, Best film of FESTinha Sub 10 Comp"
+      },
+      {
+        "Date": "November 2025",
+        "Country": "Germany",
+        "Festival_Section_of_Competition": "Greenmotions Film Festival, Kids Film Award"
       }
     ],
     "Logline": "Tiny bark beetle lives in the forest. A fire breaks out, she gets separated from her family. Lost and alone, she has to face the world on her own.",
@@ -4628,7 +4868,7 @@
       "Bio_Text": "Eva Matejovičová graduated from the Václav Hollar High School and Film and Television Faculty of the Academy of Performing Arts in Prague (FAMU). Now she is in the second year of the Master's program at the Department of Animation at FAMU. Her film Sanctuary (2021) won the Best Short Slovak animated film at the AnčaFest 2021 film festival. While at school, she does animation and art commissions, as well as working with animals in non-profit organizations."
     },
     "Director_Filmography": [
-      "2021 - Azyl (Sanctuary) - short animated film"
+      "Azyl (Sanctuary), 2021"
     ],
     "Technical_Details": {
       "Shooting_Format": {
@@ -4693,10 +4933,10 @@
     "Sales": "",
     "Status": "",
     "Download_poster": "/downloads/posters/writing_home_poster.zip",
-    "Download_stills": "/downloads/stills/writing_home_stills.zip",
-    "Download_presskit": "/downloads/presskits/writing_home_presskit.zip",
+    "Download_stills": "",
+    "Download_presskit": "",
     "Extras_name": "Extras",
-    "Download_extras": "/downloads/extras/writing_home_extras.zip",
+    "Download_extras": "",
     "Trailer_url": ""
   }
 ]
