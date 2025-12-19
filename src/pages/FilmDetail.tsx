@@ -359,15 +359,13 @@ export default function FilmDetail() {
                     </div>
                   )}
 
-                  {(f.Target_Group?.Rating || f.Target_Group?.Audience || film.Festival_Distribution_Only) && (
+                  {(f.Target_Group?.Rating || f.Target_Group?.Audience) && (
                     <div>
                       <h3 className="text-lg font-nunito font-bold mb-2 text-white">Target group</h3>
                       <p className="text-white/90 font-light">
-                        {f.Target_Group?.Rating && <span>{f.Target_Group.Rating}</span>}
-                        {f.Target_Group?.Rating && (f.Target_Group?.Audience || film.Festival_Distribution_Only) && <br />}
-                        {f.Target_Group?.Audience && <span>{f.Target_Group.Audience}</span>}
-                        {f.Target_Group?.Audience && film.Festival_Distribution_Only && <br />}
-                        {film.Festival_Distribution_Only && <span>{film.Festival_Distribution_Only}</span>}
+                        {f.Target_Group.Rating && <span>{f.Target_Group.Rating}</span>}
+                        {f.Target_Group.Rating && f.Target_Group.Audience && <br />}
+                        {f.Target_Group.Audience && <span>{f.Target_Group.Audience}</span>}
                       </p>
                     </div>
                   )}
