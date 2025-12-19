@@ -27,43 +27,33 @@ const WtfOff = () => {
             <div className="text-justify font-nunito text-[17px]">
               <h2 className="font-nunito text-[1.5em] mb-4 font-bold">About the Programme</h2>
               <p className="mb-4">
-                WTF OFF is an annual showcase of animated films curated by Sébastien Sperer. It showcases films that are
-                original, experimental, provocative, shocking, or that push the boundaries of animated storytelling.
+                WTF OFF is an annual showcase of original, experimental, provocative, shocking and boundary-pushing animated films curated by Sébastien Sperer.
               </p>
               <p className="mb-4">
-                Its purpose is to create a space for works that don't fit into the traditional categories of the
-                festival — official competition, children's programmes, or mainstream slots — yet still deserve to be
-                seen.
+                It gives a space for works that don't fit into the traditional categories of the festival – official competition, children's programmes, or mainstream slots – yet still deserve to be seen.
               </p>
               <p className="mb-4">
-                The screenings usually take place in the evening or at night, giving them a "midnight-show" atmosphere
-                where the audience expects bold, unusual or subversive animation.
+                Screened late at night, WTF OFF embraces a "midnight show" atmosphere where the audience expects bold, unusual or subversive animation.
               </p>
               <p className="mb-4">
-                WTF OFF usually presents short films, student work, experimental animation, and sometimes even
-                feature-length projects.
+                WTF OFF usually presents short films, student work, experimental animation, and sometimes even feature-length projects.
               </p>
               <p className="mb-4">
-                Thematically, the programme often includes irreverent humour, bizarre ideas, uncomfortable or adult
-                content, and generally work that aims to shock, provoke, or deeply engage the viewer.
+                Thematically, the programme often includes irreverent humour, bizarre ideas, uncomfortable or adult content, and generally work that aims to shock, provoke, or deeply engage the viewer.
               </p>
             </div>
 
             <div className="text-justify font-nunito text-[17px]">
               <h2 className="font-nunito text-[1.5em] mb-4 font-bold">WTF OFF – Call for Submissions 2026</h2>
               <p className="mb-4">
-                Does your film refuse to fit into any box? Is it too strange, too bold, too experimental, too
-                uncomfortable for standard festival categories? Does it provoke, disturb, shock, or radically reimagine
-                what animation can be?
+                Does your film refuse to fit into any box? Is it too strange, too bold, too experimental, too uncomfortable for standard festival categories? Does it provoke, disturb, shock, or radically reimagine what animation can be?
               </p>
               <p className="mb-4">
-                WTF OFF is looking for animated films that break rules and push boundaries — short films, student works,
-                experimental animation, and exceptional feature-length projects. Screened in evening and late-night
-                slots, WTF OFF offers a true “midnight show” atmosphere for daring and uncompromising animation.
+                WTF OFF is looking for animated films that break rules and push boundaries — short films, student works, experimental animation, and exceptional feature-length projects.
               </p>
-              <p className="mb-4">If your film doesn’t belong anywhere else, it belongs here.</p>
+              <p className="mb-4">If your film doesn't belong anywhere, it belongs here.</p>
               <p className="mb-4">
-                <b>SUBMISSIONS FOR 2026 ARE NOW OPEN.</b>
+                <b>SUBMISSIONS FOR 2026 ARE OPEN UNTIL 21 MARCH 2026.</b>
               </p>
             </div>
           </div>
