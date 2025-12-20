@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { getFilmPosterPath } from '@/utils/imageHelpers';
+import { getFilmPosterPath, getPlaceholderImage } from '@/utils/imageHelpers';
 
 interface SearchOverlayProps {
   isOpen: boolean;
@@ -151,8 +151,7 @@ export const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
                   const year = f.Date_of_completion?.match(/\b\d{4}\b/)?.[0] || '';
                   const director = crew['Director(s)'] || 'Unknown Director';
                   const slug = getFilmSlug(film);
-                  const posterPath = getFilmPosterPath(film);
-                  const poster = posterPath || '/images/posters/_poster/_poster.jpg';
+                  const poster = getFilmPosterPath(film) || getPlaceholderImage();
                   const logline = film.Logline || '';
 
                   return (
@@ -168,7 +167,7 @@ export const SearchOverlay = ({ isOpen, onClose }: SearchOverlayProps) => {
                           alt={`Poster for ${title}`}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                           onError={(e) => {
-                            e.currentTarget.src = '/images/posters/_poster/_poster.jpg';
+                            e.currentTarget.src = getPlaceholderImage();
                           }}
                         />
                       </div>
