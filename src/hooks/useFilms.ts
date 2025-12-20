@@ -31,10 +31,13 @@ export const useFilms = () => {
           );
           
           if (additional) {
+            const parsedRanking = Number.parseInt(String(additional.Ranking ?? '').trim(), 10);
+            const safeRanking = Number.isFinite(parsedRanking) ? parsedRanking : Infinity;
+
             return {
               ...film,
               Ranking: additional.Ranking,
-              ParsedRanking: parseInt(additional.Ranking, 10) || Infinity,
+              ParsedRanking: safeRanking,
               Review: additional.Review,
               Festival_Distribution_Only: additional.Festival_Distribution_Only,
               Sales: additional.Sales,
@@ -67,11 +70,19 @@ export const useFilms = () => {
           
           // Both without ranking: sort by premiere date (newest first)
           const getPremiereDate = (film: Film): Date | null => {
-            if (film.Premiere && film.Premiere.length > 0 && film.Premiere[0].Date) {
-              const parsed = new Date(film.Premiere[0].Date);
-              return isNaN(parsed.getTime()) ? null : parsed;
+            const raw = film.Premiere?.[0]?.Date?.trim();
+            if (!raw) return null;
+
+            // Common dataset formats: "MM/YYYY", "MM/YYYY" with leading zeros, or anything Date() can parse.
+            const mmYYYY = raw.match(/^(\d{1,2})\/(\d{4})$/);
+            if (mmYYYY) {
+              const month = Number(mmYYYY[1]);
+              const year = Number(mmYYYY[2]);
+              if (month >= 1 && month <= 12) return new Date(year, month - 1, 1);
             }
-            return null;
+
+            const parsed = new Date(raw);
+            return isNaN(parsed.getTime()) ? null : parsed;
           };
           
           const aDate = getPremiereDate(a);
