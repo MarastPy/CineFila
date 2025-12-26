@@ -77,13 +77,23 @@ export const Header = () => {
               pointerEvents: logoProgress > 0.5 ? "auto" : "none",
             }}
           >
-            <Link to="/">
+            <button
+              onClick={() => {
+                if (isMainPage) {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                } else {
+                  navigate("/");
+                  setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 50);
+                }
+              }}
+              className="cursor-pointer"
+            >
               <img
                 src={`${import.meta.env.BASE_URL}images/logo/Cinefila_logo_white_web.svg`}
                 alt="Cinefila Logo"
                 className="h-[50px]"
               />
-            </Link>
+            </button>
           </div>
 
           {/* Spacer */}
